@@ -1,0 +1,230 @@
+@charset "UTF-8";
+@import 'mixin';
+
+.is-contact {}
+
+.is-assessment {}
+
+.is-member {}
+
+// contact, assessment(フォーム類)共通
+.form {
+  background-color: #fff;
+  padding: 20px 20px 40px;
+  margin-top: 20px;
+
+  &-table {
+    width: 100%;
+
+    tr:first-of-type .contact__th {
+      padding-top: 0;
+    }
+  }
+
+  &__th {
+    text-align: left;
+    font-size: 1.4rem;
+
+    @include sp {
+      padding-top: 20px;
+    }
+
+    @include pc {
+      padding-top: 6px;
+      padding-right: 20px;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    span {
+      // background-color: #E70012;
+      // border-radius: 3px;
+      // color: #fff;
+      color: #E70012;
+      padding-left: 10px;
+      font-size: 1.1rem;
+      vertical-align: 3px;
+    }
+  }
+
+  @include sp {
+
+    &__th,
+    &__td {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__td {
+
+    input,
+    select,
+    textarea {
+      box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      border: 1px solid #D9D9D9;
+      border-radius: 3px;
+
+      @include sp {
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    textarea {
+      height: 180px;
+    }
+
+    label {
+      font-size: 1.2rem;
+    }
+
+    // contact form7のアラート
+    .wpcf7-not-valid-tip {
+      font-size: 1.1rem;
+    }
+
+    .contact__title {
+      height: auto;
+    }
+
+    // contact form7のチェックボックス
+    .wpcf7-list-item {
+      margin-top: 10px;
+      line-height: 1.3;
+
+      @include sp {
+        margin-top: 15px;
+      }
+    }
+  }
+
+  &__notes {
+    font-size: 1.2rem;
+  }
+
+  input[type="submit"] {
+    margin-top: 20px;
+  }
+
+  &__textLink {
+    font-size: 1.2rem;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    display: block;
+    text-align: center;
+  }
+
+  .wpcf7-spinner {
+    @include pc {
+      width: 1px;
+      height: 1px;
+      margin: 0;
+    }
+  }
+
+  // thanx page
+  &__text {
+    width: fit-content;
+    margin-inline: auto;
+  }
+}
+
+// 確認ページ用
+.form.confirm {
+
+  // 戻るボタン
+  .wpcf7-previous {
+    margin-inline: auto;
+    margin-top: 20px;
+  }
+
+  .wpcf7-form .form__td {
+    padding-top: 15px;
+  }
+
+  .wpcf7-form input[type="submit"] {
+    margin-top: 0;
+  }
+}
+
+
+// 会員専用ページ(WP-Members)
+.member {
+
+  ul {
+    background-color: #fff;
+
+    @include pc {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+  }
+
+  li a {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
+
+  li+li {
+    @include sp {
+      padding-top: 20px;
+    }
+  }
+
+  input[type="submit"] {
+    margin-inline: auto;
+    background-color: #0057A6;
+    padding-right: 20px;
+  }
+
+  .link-text {
+    text-align: center !important;
+    font-size: 1.2rem;
+
+    a {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+  }
+
+  legend {
+    text-align: center;
+  }
+
+  // .wpmem_reg
+  #wpmem_login,
+  #wpmem_login input,
+  #wpmem_reg,
+  #wpmem_reg input {
+    margin-inline: auto;
+  }
+
+  .wpmem_msg {
+    margin-inline: auto;
+    background-color: #E6EFF7;
+    border: none;
+    max-width: 75%;
+    width: 100%;
+  }
+
+  .register_status {
+    text-align: center;
+  }
+}
+
+// reCAPTCHAの代替
+.cf7-cf-turnstile {
+  display: block;
+  margin: auto;
+  width: fit-content;
+}

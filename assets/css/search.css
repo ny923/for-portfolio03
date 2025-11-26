@@ -1,0 +1,208 @@
+@charset "UTF-8";
+.search {
+  /* ツマミ：Chrome, Safari, Edge用 */
+  /* ツマミ：Firefox用 */
+}
+.search-lead {
+  background-image: url(../img/common/balloon.svg);
+  background-repeat: no-repeat;
+  background-size: 216px;
+  background-position: center;
+  height: 100px;
+  position: relative;
+  margin-top: 30px;
+}
+.search-lead__text {
+  text-align: center;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.45;
+}
+.search-type {
+  background-color: #fff;
+  padding: 5px 20px;
+  margin-inline: auto;
+}
+@media (min-width: 897px) {
+  .search-type {
+    max-width: 680px;
+  }
+}
+.search .toggle {
+  display: none;
+}
+.search .Label {
+  /*タイトル*/
+  padding: 1em 1em 1em 2.8em;
+  display: block;
+  font-size: 1.6rem;
+  border-bottom: 1px solid #D9D9D9;
+  background-repeat: no-repeat;
+  background-position: center left;
+  cursor: pointer;
+}
+.search .Label:last-of-type {
+  border-bottom: none;
+}
+.search .Label.map {
+  background-image: url(../img/common/icon-map.webp);
+  background-size: 38px;
+}
+.search .Label.amount {
+  background-image: url(../img/common/icon-amount.webp);
+  background-size: 28px;
+}
+.search .Label.keyword {
+  background-image: url(../img/common/icon-keyword.webp);
+  background-size: 32px;
+}
+.search .Label.hoge {
+  background-image: url(../img/common/icon-search.webp);
+  background-size: 30px;
+}
+.search .Label,
+.search .content {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: all 0.3s;
+}
+.search .content {
+  height: 0;
+  padding: 0 20px;
+  overflow: hidden;
+}
+.search .toggle:checked + .Label + .content {
+  height: auto;
+  padding: 20px;
+  transition: all 0.3s;
+}
+.search .Label::before,
+.search .search-map-item::after {
+  position: absolute;
+  margin-inline: auto;
+  content: "";
+  vertical-align: middle;
+  width: 11px;
+  height: 11px;
+  border-top: 1px solid #0057a6;
+  border-right: 1px solid #0057a6;
+  transform: rotate(135deg);
+  right: 0;
+  top: 18px;
+}
+.search .Label.hoge::before {
+  transform: rotate(45deg);
+  top: 26px;
+  right: 2px;
+}
+.search .Label.hoge a {
+  display: inline-block;
+  width: 100%;
+}
+.search .search-map-item::after {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+.search .toggle:checked + .Label::before {
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+  transition: all 0.3s;
+}
+.search .content.search-map {
+  padding: 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+}
+.search .search-map-item {
+  border-bottom: 1px solid #D9D9D9;
+  font-size: 1.4rem;
+  position: relative;
+  width: 50%;
+}
+@media (min-width: 897px) {
+  .search .search-map-item {
+    width: 33%;
+  }
+}
+.search .search-map-item a {
+  display: inline-block;
+  width: 100%;
+  padding: 1em;
+}
+.search .search-price li + .search-price li {
+  margin-top: 10px;
+}
+.search .search-price input[type=tel] {
+  border: 1px solid #D9D9D9;
+}
+.search .screen-reader-text {
+  display: none;
+}
+.search input[type=text],
+.search input[type=number] {
+  box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border: 1px solid #D9D9D9;
+  border-radius: 3px;
+}
+.search input[type=text] {
+  width: 100%;
+}
+.search .search-amount div {
+  margin-inline: auto;
+  width: fit-content;
+}
+@media (min-width: 897px) {
+  .search .search-amount div {
+    display: inline-block;
+  }
+}
+.search .search-amount div + div {
+  margin-top: 20px;
+}
+.search input[type=submit] {
+  width: 100%;
+  margin-top: 20px;
+}
+.search .search-range {
+  appearance: none;
+  width: 200px;
+  height: 2px;
+  border: 1px solid #d9d9d9;
+  border-radius: 9999px;
+  background: #d9d9d9;
+  cursor: pointer;
+}
+.search .search-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: #0057a6;
+  box-shadow: none;
+}
+.search .search-range::-moz-range-thumb {
+  border: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: #0057a6;
+  box-shadow: none;
+}
+.search #searchsubmit {
+  background-color: #0057a6;
+}
+.search .solid-button {
+  background-color: #0057a6;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.section-property {
+  margin-top: 80px;
+}/*# sourceMappingURL=search.css.map */
