@@ -303,4 +303,132 @@ class Walker_Nav_Menu_Custom extends Walker_Nav_Menu
     $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
   }
 }
-// pick up枠用記述ここまで
+
+
+//　物件一覧ページ周りここから
+
+// 投稿、固定ページ一覧にスラッグとカスタムフィールドを表示
+function add_columns_custom($columns)
+{
+  $columns['amount'] = "価格(万円)";
+  echo '<style>.fixed .column-slug {width: 10%;}.fixed .column-order_cf {width: 15%;}</style>';
+  return $columns;
+}
+function add_column_row_custom($column_name, $post_id)
+{
+  if ($column_name == 'amount') {
+    $amount_value = get_post_meta($post_id, 'amount', true);
+    echo !empty($amount_value) ? esc_html($amount_value) : '-';
+  }
+}
+
+// カスタム投稿タイプの場合
+add_filter('manage_property_posts_columns', 'add_columns_custom');
+add_action('manage_property_posts_custom_column', 'add_column_row_custom', 10, 2);
+
+
+// 1. カラムの見出しを「ソート可能（クリック可能）」にする
+function make_custom_columns_sortable($columns)
+{
+  // 'カラムID' => 'orderbyパラメータ'
+  // ※ここでは orderbyパラメータも 'amount' としています
+  $columns['amount'] = 'amount';
+  return $columns;
+}
+
+// カスタム投稿タイプの場合
+add_filter('manage_edit-property_sortable_columns', 'make_custom_columns_sortable');
+
+
+// 2. 実際にソートされた時のクエリ（データ取得順）を調整する
+function sort_custom_column_query($query)
+{
+  // 管理画面 かつ メインクエリ の場合のみ実行
+  if (! is_admin() || ! $query->is_main_query()) {
+    return;
+  }
+
+  // 'amount' というキーでソートされた場合
+  if ($query->get('orderby') == 'amount') {
+    $query->set('meta_key', 'amount'); // カスタムフィールドのキーを指定
+    $query->set('orderby', 'meta_value_num'); // 数値として並び替え
+  }
+}
+add_action('pre_get_posts', 'sort_custom_column_query');
+// 価格列ここまで
+
+
+
+// エリア列を追加　
+function add_columns_custom_taxonomy($columns)
+{
+  // 表示したいタクソノミーのスラッグ（CPT UIで設定したもの）
+  $taxonomy_slug = 'district';
+  // カラム名（管理画面に表示される見出し）
+  $columns[$taxonomy_slug] = '地区';
+  return $columns;
+}
+
+// 2. カラムにターム（項目）を表示
+function add_column_row_custom_taxonomy($column_name, $post_id)
+{
+  // 表示したいタクソノミーのスラッグ（上と同じにする）
+  $taxonomy_slug = 'district';
+
+  if ($column_name == $taxonomy_slug) {
+    // タームのリストを取得してリンク付きで表示
+    // 引数: ID, タクソノミー, 前の文字, 区切り文字, 後の文字
+    $terms = get_the_term_list($post_id, $taxonomy_slug, '', ', ', '');
+
+    if (! empty($terms)) {
+      echo $terms;
+    } else {
+      echo '―'; // 設定されていない場合
+    }
+  }
+}
+
+// カスタム投稿タイプの場合
+add_filter('manage_property_posts_columns', 'add_columns_custom_taxonomy');
+add_action('manage_property_posts_custom_column', 'add_column_row_custom_taxonomy', 10, 2);
+
+
+// 投稿・固定ページ一覧にアイキャッチカラムを追加
+function add_columns_thumbnail($columns)
+{
+  $columns['thumbnail'] = "アイキャッチ";
+  echo '<style>.fixed .column-thumbnail img {width: 100%; height: auto;}</style>';
+  return $columns;
+}
+
+// アイキャッチカラムに画像を表示
+function add_column_row_thumbnail($column_name, $post_id)
+{
+  if ($column_name == 'thumbnail') {
+    if (has_post_thumbnail($post_id)) {
+      echo get_the_post_thumbnail($post_id, array(60, 60)); // サムネイルサイズ
+    } else {
+      echo '―'; // アイキャッチ未設定の場合
+    }
+  }
+}
+
+// カスタム投稿タイプの場合
+add_filter('manage_property_posts_columns', 'add_columns_thumbnail');
+add_action('manage_property_posts_custom_column', 'add_column_row_thumbnail', 10, 2);
+
+// カテゴリを出さない
+function remove_default_post_columns($columns)
+{
+  // カテゴリーを消したい場合
+  unset($columns['categories']);
+
+  // 「タグ」を消したい場合
+  // unset($columns['tags']);
+
+  // 「作成者」を消したい場合
+  // unset($columns['author']);
+
+  return $columns;
+}
+add_filter('manage_posts_columns', 'remove_default_post_columns');
