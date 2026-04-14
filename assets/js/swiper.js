@@ -1,112 +1,144 @@
-// TOP FV用
-let topSwiper = new Swiper('.topSwiper', {
+// for top
+let pickupSwiper = new Swiper('.pickup.swiper', {
     loop: true,
-    autoplay: {
-        delay: 3000,
-    },
-    // autoHeight: true,
-    centeredSlides: true,
+    // centeredSlides: true,
     speed: 1000,
-    slidesPerView: 1,
-    pagination: {
-        el: '.swiper-pagination',
-    },
-    scrollbar: {
-        el: '.swiper-scrollbar',
-    },
-    // allowTouchMove: false,
-});
-
-// 物件詳細サムネ用
-// let swiperThumbnail = new Swiper('.swiperThumbnail', {
-//     loop: true,
-//     spaceBetween: 0,
-//     slidesPerGroup: 5,
-//     slidesPerView: 5,
-//     grid: {
-//         rows: 99,
-//         fill: 'row',
-//     },
-//     spaceBetween: 0,
-//     observer: true,
-//     observeParents: true,
-// });
-
-// for sp slide
-let swiper = new Swiper('.sp-swiper', {
-    loop: true,
-    centeredSlides: true,
-    slidesPerView: 1.2,
-    pagination: {
-        el: '.swiper-pagination',
+    autoplay: {
+        delay: 10000,
     },
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
-    scrollbar: {
-        el: '.swiper-scrollbar',
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
     },
-
-    // thumbs: {
-    //     swiper: swiperThumbnail,
-    // },
-});
-
-// 20250331 modal式Swiper
-window.addEventListener('DOMContentLoaded', () => {
-    // モーダルを取得
-    const modal = document.getElementById('modal');
-    // モーダルを表示するボタンを全て取得
-    const openModalBtns = document.querySelectorAll('.js-open-modal');
-    // モーダルを閉じるボタンを全て取得
-    const closeModalBtns = document.querySelectorAll('.js-close-modal');
-
-    // Swiperの設定
-    const swiper = new Swiper('.swiper', {
-        loop: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+    spaceBetween: 10,
+    breakpoints: {
+        // pcの場合
+        1041: {
+            slidesPerView: 3, //4
         },
-        spaceBetween: 30,
-    });
-
-    // モーダルを表示するボタンをクリックしたとき
-    openModalBtns.forEach((openModalBtn) => {
-        openModalBtn.addEventListener('click', () => {
-            // data-slide-indexに設定したスライド番号を取得
-            const modalIndex = openModalBtn.dataset.slideIndex;
-            swiper.slideTo(modalIndex);
-            modal.classList.add('is-active');
-        });
-    });
-
-    // モーダルを閉じるボタンをクリックしたとき
-    closeModalBtns.forEach((closeModalBtn) => {
-        closeModalBtn.addEventListener('click', () => {
-            modal.classList.remove('is-active');
-        });
-    });
+        // padの場合
+        761: {
+            centeredSlides: true,
+            slidesPerView: 2.5,
+        },
+    },
+    //上記以下の場合
+    centeredSlides: true,
+    slidesPerView: 1.5,
 });
 
-// 空き家再生用(before after)
-let baSwiper = new Swiper('.baSwiper', {
+// 新着
+let arrivalPropertySwiper = new Swiper('.property.swiper.arrival', {
     loop: true,
-    autoplay: {
-        delay: 3000,
-    },
-    centeredSlides: true,
     speed: 1000,
-    slidesPerView: 1,
-    pagination: {
-        el: '.swiper-pagination',
-    },
-    scrollbar: {
-        el: '.swiper-scrollbar',
+    autoplay: {
+        delay: 10000,
     },
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    spaceBetween: 10,
+    breakpoints: {
+        // pcの場合
+        1220: {
+            slidesPerView: 5,
+        },
+        // padの場合
+        761: {
+            centeredSlides: true,
+            slidesPerView: 2.5,
+        },
+    },
+    //上記以下の場合
+    centeredSlides: true,
+    slidesPerView: 1.5,
+});
+
+// おすすめ
+let recommendPropertySwiper = new Swiper('.property.swiper.recommend', {
+    loop: true,
+    speed: 1000,
+    autoplay: {
+        delay: 10000,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    spaceBetween: 10,
+    breakpoints: {
+        // pcの場合
+        1220: {
+            slidesPerView: 3,//5
+        },
+        // padの場合
+        761: {
+            centeredSlides: true,
+            slidesPerView: 2.5,
+        },
+    },
+    //上記以下の場合
+    centeredSlides: true,
+    slidesPerView: 1.5,
+});
+
+
+// TOP用ここまで
+
+
+// propertyページ サムネ用
+let swiperThumbnail = new Swiper('.swiper-thumbnail', {
+    slidesPerView: 3.5,
+    spaceBetween: 3,
+    observer: true,
+    observeParents: true,
+});
+
+// for propertyページmain
+let detailSwiper = new Swiper('.swiper-main', {
+    centeredSlides: true,
+    slidesPerView: 1,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    scrollbar: {
+        el: '.swiper-scrollbar',
+    },
+    thumbs: {
+        swiper: swiperThumbnail,
+    },
+});
+
+// コラム用
+let columnSwiper = new Swiper('.column.swiper', {
+    loop: true,
+    // centeredSlides: true,
+    speed: 1000,
+    autoplay: {
+        delay: 10000,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    spaceBetween: 60,
+    slidesPerView: 1,
 });

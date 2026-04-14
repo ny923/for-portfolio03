@@ -5,137 +5,53 @@
 ?>
 <?php get_header(); ?>
 
-<section class="section section-hero lower">
-  <div class="section-content">
-    <div class="headline">
+<main class="site-main" id="site-main">
 
-      <div class="breadcrumbs">
-        <ol itemscope itemtype="http://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope
-            itemtype="http://schema.org/ListItem">
-            <a itemprop="item" href="<?= site_url(); ?>/">
-              <span itemprop="name">ホーム</span></a>
-            <meta itemprop="position" content="1" />
-          </li>
-          <li itemprop="itemListElement" itemscope
-            itemtype="http://schema.org/ListItem">
-            <span itemprop="name">404(該当ページなし)</span>
-            <meta itemprop="position" content="2" />
-          </li>
-        </ol>
-      </div> <!-- /breadcrumbs -->
-
-      <h1 class="headline__title"><b>404 NOT FOUND</b><small>該当リンクなし</small></h1>
-
+  <section class="section section-hero lower" id="hero">
+    <div class="section-content">
+      <div class="content">
+        <div class="hero">
+          <h1 class="hero__catch"><?php the_title(); ?></h1>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<section class="section section-notFound" id="section-notFound">
-  <div class="section-content row w1000">
-
-    <div class="column-contents notFound">
-
-      <h2 class="column__title">あなたがアクセスしようとしたページは削除されたか<br class="pc">URLが変更されています。</h2>
-
-      <div class="notFound__titti">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/titti-bow.svg" alt="チッチ" decoding="async">
+  <section class="section section-notFound" id="section-notFound">
+    <div class="section-content row w960">
+      <div class="headline">
+        <div class="breadcrumbs">
+          <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope
+              itemtype="http://schema.org/ListItem">
+              <a itemprop="item" href="<?= site_url(); ?>/">
+                <span itemprop="name">ホーム</span></a>
+              <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope
+              itemtype="http://schema.org/ListItem">
+              <span itemprop="name"><?php the_title(); ?></span>
+              <meta itemprop="position" content="2" />
+            </li>
+          </ol>
+        </div>
       </div>
 
-      <p class="notFound__text">いつも当サイトをご覧頂きありがとうございます。<br>
-        大変申し訳ないのですが、あなたがアクセスしようとしたページは削除されたかURLが変更されています。<br>
-        お手数をおかけしますが、以下の方法からもう一度目的のページをお探し下さい。</p>
+      <div class="content">
+        <section class="column">
+          <h2 class="column__title">お探しのページは見つかりませんでした。</h2>
+          <p class="column__text">誠に恐れ入りますが、お客様がアクセスされたページは、削除されたかURLが変更された可能性がございます。</p>
+          <p class="column__text">お手数ですが、下記のボタンよりトップページへ戻るか、物件検索・コラム一覧よりお探しください。</p>
 
-      <ol class="column-list">
-        <li class="column-item">
-          <p class="notFound__text"><a href="<?= site_url(); ?>">トップページへ戻る</a></p>
-          <p>リンクをクリックしてトップページからお探しください。</p>
-        </li>
-        <li class="column-item">
-          <p class="notFound__text">検索して見つける</p>
-          <p class="notFound__text">検索ボックスにお探しのコンテンツに該当するキーワードを入力して下さい。</p>
-          <div class="notFound-search">
-            <?php get_search_form(); ?>
-          </div>
-        </li>
+          <a class="text__link02" href="<?= site_url(); ?>">トップページへ戻る</a>
 
-        <li class="column-item">
-          <p class="notFound__text">最新コラムを閲覧する</p>
+          <a class="text__link02" href="<?= site_url(); ?>/property/">物件一覧を見る</a>
 
-
-          <?php query_posts('posts_per_page=4&paged=' . $paged); ?>
-
-          <ul class="in-column-list">
-            <?php if (have_posts()) :
-              while (have_posts()) : the_post();
-            ?>
-                <li class="in-column-item">
-                  <a href="<?php the_permalink(); ?>">
-                    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-                      <div class="flex">
-                        <div class="column__thumbnail">
-                          <?php
-                          if (has_post_thumbnail()) {
-                            $post_title = get_the_title();
-                            the_post_thumbnail('custom', array('alt' => mb_substr($post->post_title, 0, 20),));
-                          } else {
-                          ?>
-                            <img src="<?php bloginfo('template_url'); ?>/assets/img/common/no-image.webp" alt="no image" loading="lazy" decoding="async" />
-                          <?php
-                          }
-                          ?>
-                        </div>
-
-                        <div class="column-headline">
-                          <h3 class="column__title" itemprop="name headline">
-                            <?php if (mb_strlen($post->post_title) > 25) {
-                              $title = mb_substr($post->post_title, 0, 25);
-                              echo $title . "…";
-                            } else {
-                              echo $post->post_title;
-                            } ?></h3>
-
-                          <ul class="column-categories">
-                            <?php
-                            $cats = get_the_category();
-                            foreach ($cats as $cat):
-                              $cat_name = $cat->name;
-                              $cat_url = get_category_link($cat->term_id);
-                            ?>
-                              <li class="column__category">
-                                <?php echo $cat_name; ?>
-                              </li>
-                            <?php endforeach; ?>
-                          </ul>
-                        </div>
-                      </div>
-
-                      <div itemprop="articleBody" class="column-texts">
-                        <p class="column__text">
-                          <?php if (mb_strlen($post->post_content) > 48) {
-                            $content = mb_substr(strip_tags(apply_filters('the_content', $post->post_content)), 0, 48);
-                            echo $content . "…";
-                          } else {
-                            echo $post->post_content;
-                          } ?></p>
-                      </div>
-
-                    </article>
-                  </a>
-                </li>
-              <?php endwhile;
-            else : ?>
-              <p class="notFound__text">最新コラムがありませんでした</p>
-            <?php endif;
-            ?>
-          </ul>
-          <?php wp_reset_query(); ?>
-        </li>
-      </ol>
-      <a class="more-link" href="/column/">一覧を見る</a>
+          <a class="text__link02" href="<?= site_url(); ?>/column/">コラム一覧を見る</a>
+        </section>
+      </div>
 
     </div>
-  </div>
-</section>
+  </section>
 
-<?php get_footer(); ?>
+  <?php get_footer(); ?>

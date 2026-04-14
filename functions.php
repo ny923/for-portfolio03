@@ -1,7 +1,6 @@
 <?php
 add_theme_support('post-thumbnails');
 add_filter('wp_calculate_image_srcset_meta', '__return_null');
-
 //画像アップロード時サムネイルを作らない
 function not_create_image($sizes)
 {
@@ -17,44 +16,7 @@ function not_create_image($sizes)
 }
 add_filter('intermediate_image_sizes_advanced', 'not_create_image');
 
-remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
-remove_action('wp_head',             'print_emoji_detection_script', 7);
-remove_action('admin_print_scripts', 'print_emoji_detection_script');
-remove_action('wp_print_styles',     'print_emoji_styles');
-remove_action('admin_print_styles',  'print_emoji_styles');
-remove_action('wp_head', 'wp_generator');
-remove_action('wp_head', 'wlwmanifest_link');
-remove_action('wp_head', 'rsd_link');
-remove_action('wp_head', 'wp_shortlink_wp_head');
-remove_action('wp_head', 'rest_output_link_wp_head');
-remove_action('template_redirect', 'rest_output_link_header', 11);
-add_filter('emoji_svg_url', '__return_false');
-add_action('wp', function () {
-  // if(is_home() || is_front_page()) return;
-  remove_action('wp_head', 'wp_oembed_add_discovery_links');
-  remove_action('wp_head', 'wp_oembed_add_host_js');
-  function my_deregister_scripts()
-  {
-    wp_deregister_script('wp-embed');
-  }
-  add_action('wp_footer', 'my_deregister_scripts');
-});
 
-// 今は不使用
-// add_action('wp', function () {
-//   if (is_page('contact'))
-//     /*YubinBangoライブラリ*/
-//     wp_enqueue_script('yubinbango', 'https://yubinbango.github.io/yubinbango/yubinbango.js', array(), null, true);
-//   return;
-//   add_filter('wpcf7_load_js', '__return_false');
-//   add_filter('wpcf7_load_css', '__return_false');
-// });
-
-add_filter('auto_update_plugin', '__return_true');
-add_filter('allow_major_auto_core_updates', '__return_true');
-
-
-// add
 //タグごと一覧表示
 global $tag_id_list;
 
@@ -63,56 +25,324 @@ function post_has_archive($args, $post_type)
 {
   if ('post' == $post_type) {
     $args['rewrite'] = true; // リライトを有効にする
-    $args['has_archive'] = 'post'; // 任意のスラッグ名
+    $args['has_archive'] = 'column'; // 任意のスラッグ名
   }
   return $args;
 }
 add_filter('register_post_type_args', 'post_has_archive', 10, 2);
 
 
-// ショートコード[product_btn]を登録
-add_shortcode('product_btn', 'my_product_btn');
-// [product_btn] を返す関数
-function my_product_btn()
+// アーカイブページ（カテゴリ一覧）にカスタム投稿タイプ「property」を含める
+function add_property_to_category_archive($query)
 {
-  // 問い合わせフォーム先のURL
-  $url = home_url() . '/contact/?productName=' . get_the_title();
-  // 問い合わせボタンを返す
-  return '<div class="text-center"><a href="' . esc_url($url) . '" class="btn btn-primary">この物件について問い合わせる</a></div>';
+  if (! is_admin() && $query->is_main_query() && $query->is_category()) {
+    $query->set('post_type', array('post', 'property'));
+  }
+}
+add_action('pre_get_posts', 'add_property_to_category_archive');
+
+// 郵便番号で自動入力
+wp_enqueue_script('yubinbango', 'https://yubinbango.github.io/yubinbango/yubinbango.js', array(), null, true);
+
+
+// メールアドレスフィールドのバリデーションを追加
+add_filter('wpcf7_validate_email', 'custom_email_confirmation_validation', 10, 2);
+add_filter('wpcf7_validate_email*', 'custom_email_confirmation_validation', 10, 2);
+
+function custom_email_confirmation_validation($result, $tag)
+{
+
+  // フォームタグの名前を確認して、確認用メールアドレスフィールドのバリデーションを行う
+  if ($tag->name == 'confirm-email') {
+    // メインのメールアドレスと確認用メールアドレスを取得
+    $your_email = isset($_POST['your-email']) ? trim($_POST['your-email']) : '';
+    $confirm_email = isset($_POST['confirm-email']) ? trim($_POST['confirm-email']) : '';
+
+    // メールアドレスが一致しない場合、エラーメッセージを追加
+    if ($your_email !== $confirm_email) {
+      $result->invalidate($tag, 'メールアドレスが一致しません');
+    }
+  }
+  return $result;
 }
 
-//自動で物件名が入るように Contact Form 7 のフックに登録
+
+// 表示中の投稿のカスタムフィールド「property_name」をContact Form 7の項目に自動セット
 function my_form_tag_filter($tag)
 {
   if (! is_array($tag)) {
     return $tag;
   }
-  // propertyNameの値を受け取ってContactFormに投げる
-  // 複数のパラメーターを受け取る場合は if (){} 部分を複製してパラメーター名を変更すればOK
-  if (isset($_GET['propertyName'])) {
-    $name = $tag['name'];
-    if ($name == 'propertyName') {
-      $tag['values'] = (array) $_GET['propertyName'];
+
+  // フォーム側の項目名が「propertyName」の場合に処理を実行
+  if ($tag['name'] == 'propertyName') {
+    // 現在表示している投稿のIDを取得
+    $post_id = get_the_ID();
+
+    if ($post_id) {
+      // カスタムフィールド「property_name」の値を取得
+      $custom_value = get_post_meta($post_id, 'property_name', true);
+
+      // 値が存在する場合、フォームの初期値としてセット
+      if ($custom_value) {
+        $tag['values'] = (array) $custom_value;
+      }
     }
   }
+
   return $tag;
 }
 add_filter('wpcf7_form_tag', 'my_form_tag_filter', 11);
 
 
-//カスタム投稿タイプの検索
-add_filter('template_include', 'custom_search_template');
-function custom_search_template($template)
+// 投稿・固定ページ一覧にアイキャッチカラムを追加
+function add_columns_thumbnail($columns)
 {
-  if (is_search()) {
-    $post_types = get_query_var('post_type');
-    foreach ((array) $post_types as $post_type)
-      $templates[] = "search-{$post_type}.php";
-    $templates[] = 'search.php';
-    $template = get_query_template('search', $templates);
-  }
-  return $template;
+  $columns['thumbnail'] = "アイキャッチ";
+  echo '<style>.fixed .column-thumbnail img {width: 100%; height: auto;}</style>';
+  return $columns;
 }
+
+// アイキャッチカラムに画像を表示
+function add_column_row_thumbnail($column_name, $post_id)
+{
+  if ($column_name == 'thumbnail') {
+    if (has_post_thumbnail($post_id)) {
+      echo get_the_post_thumbnail($post_id, array(60, 60)); // サムネイルサイズ
+    } else {
+      echo '―'; // アイキャッチ未設定の場合
+    }
+  }
+}
+
+// カスタム投稿タイプの場合
+add_filter('manage_property_posts_columns', 'add_columns_thumbnail');
+add_action('manage_property_posts_custom_column', 'add_column_row_thumbnail', 10, 2);
+
+
+// WP-Members同期補助用
+/**
+ * 物件の公開ステータスをWP-Membersの制限に強制反映させる補助関数
+ */
+function sync_property_access_locks()
+{
+  $args = array(
+    'post_type'      => 'property',
+    'posts_per_page' => -1,
+    'post_status'    => 'any'
+  );
+  $properties = get_posts($args);
+
+  foreach ($properties as $post) {
+    // 例：「一般公開物件」という名前のタームを持っているかチェック
+    if (has_term('一般公開物件', 'category', $post->ID)) {
+      update_post_meta($post->ID, '_wpmembers_block', '0'); // 開錠
+    } else {
+      update_post_meta($post->ID, '_wpmembers_block', '1'); // 施錠
+    }
+  }
+}
+// WP-Members同期補助用ここまで
+
+
+/**
+ * Contact Form 7 特定の選択肢で住所を必須にする
+ */
+add_filter('wpcf7_validate_text', 'custom_address_validation', 20, 2);
+add_filter('wpcf7_validate_text*', 'custom_address_validation', 20, 2);
+
+function custom_address_validation($result, $tag)
+{
+  $name = $tag->name;
+
+  // 「ご住所」の項目名（address）に合わせる
+  if ($name == 'address') {
+    // ラジオボタンの項目名（about）と選択値を取得
+    $radio_value = isset($_POST['about']) ? $_POST['about'] : '';
+    $address_value = isset($_POST['address']) ? $_POST['address'] : '';
+
+    // 「売却の相談をしたい」が選択されていて、住所が空の場合
+    if ($radio_value == '売却の相談をしたい' && empty($address_value)) {
+      $result->invalidate($tag, "売却の相談をご希望の場合は、ご住所を入力してください。");
+    }
+  }
+
+  return $result;
+}
+
+
+/**
+ * 検索対象にカスタムフィールド（物件名・住所）を追加する
+ */
+function my_posts_search($search, $wp_query)
+{
+  global $wpdb;
+
+  if (!$wp_query->is_main_query() || !$wp_query->is_search() || is_admin()) {
+    return $search;
+  }
+
+  $s = $wp_query->get('s');
+  if (empty($s)) return $search;
+
+  $search = "";
+  $keywords = explode(' ', str_replace('　', ' ', $s));
+
+  foreach ($keywords as $keyword) {
+    if (!empty($keyword)) {
+      $esc_keyword = '%' . $wpdb->esc_like($keyword) . '%';
+      $search .= " AND (
+                {$wpdb->posts}.post_title LIKE '{$esc_keyword}' 
+                OR {$wpdb->posts}.post_content LIKE '{$esc_keyword}' 
+                OR EXISTS (
+                    SELECT 1 FROM {$wpdb->postmeta} 
+                    WHERE {$wpdb->postmeta}.post_id = {$wpdb->posts}.ID 
+                    AND (
+                        (meta_key = 'property_name' AND meta_value LIKE '{$esc_keyword}')
+                        OR (meta_key = 'address' AND meta_value LIKE '{$esc_keyword}')
+                    )
+                )
+            )";
+    }
+  }
+
+  return $search;
+}
+add_filter('posts_search', 'my_posts_search', 10, 2);
+
+
+/**
+ * 物件検索およびアーカイブの統合ロジック
+ */
+function my_property_query_settings($query)
+{
+  if (is_admin() || !$query->is_main_query()) {
+    return;
+  }
+
+  // 検索結果または物件アーカイブページの場合
+  if ($query->is_search() || is_post_type_archive('property')) {
+
+    $query->set('post_type', 'property');
+    $query->set('posts_per_page', 9);
+
+    $meta_query = array('relation' => 'AND');
+    $tax_query = array('relation' => 'AND');
+
+    // 1. 物件種別（カテゴリースラッグで判定：土地、マンション等にまとめるため）
+    if (!empty($_GET['property_types'])) {
+      $tax_query[] = array(
+        'taxonomy' => 'category',
+        'field'    => 'slug',
+        'terms'    => (array)$_GET['property_types'],
+        'operator' => 'IN',
+      );
+    }
+
+    // 2. エリア（タクソノミー：area）
+    if (!empty($_GET['area'])) {
+      $tax_query[] = array(
+        'taxonomy' => 'area',
+        'field'    => 'slug',
+        'terms'    => (array)$_GET['area'],
+        'operator' => 'IN',
+      );
+    }
+
+    // 3. 間取り（カスタムフィールド：floor）
+    if (!empty($_GET['floors'])) {
+      $meta_query[] = array(
+        'key'     => 'floor',
+        'value'   => (array)$_GET['floors'],
+        'compare' => 'IN',
+      );
+    }
+
+    // 4. 価格（カスタムフィールド：price）
+    $min = !empty($_GET['min_price']) ? intval($_GET['min_price']) * 10000 : 0;
+    $max = !empty($_GET['max_price']) ? intval($_GET['max_price']) * 10000 : 0;
+    if ($min > 0 || $max > 0) {
+      $price_q = array('key' => 'price', 'type' => 'NUMERIC');
+      if ($min > 0 && $max > 0) {
+        $price_q['value'] = array($min, $max);
+        $price_q['compare'] = 'BETWEEN';
+      } elseif ($min > 0) {
+        $price_q['value'] = $min;
+        $price_q['compare'] = '>=';
+      } else {
+        $price_q['value'] = $max;
+        $price_q['compare'] = '<=';
+      }
+      $meta_query[] = $price_q;
+    }
+
+    // 5. 会員限定物件
+    if (!empty($_GET['member_only'])) {
+      $meta_query[] = array(
+        'key'     => '_wpmembers_block',
+        'value'   => '1',
+        'compare' => '=',
+      );
+    }
+
+    // 6. ソート設定
+    $sort = $_GET['sort'] ?? '';
+    switch ($sort) {
+      case 'price_asc':
+        $query->set('meta_key', 'price');
+        $query->set('orderby', 'meta_value_num');
+        $query->set('order', 'ASC');
+        break;
+      case 'price_desc':
+        $query->set('meta_key', 'price');
+        $query->set('orderby', 'meta_value_num');
+        $query->set('order', 'DESC');
+        break;
+      case 'age_asc':
+        $query->set('meta_key', 'property_age');
+        $query->set('orderby', 'meta_value_num');
+        $query->set('order', 'ASC');
+        break;
+      case 'age_desc':
+        $query->set('meta_key', 'property_age');
+        $query->set('orderby', 'meta_value_num');
+        $query->set('order', 'DESC');
+        break;
+      // case 'date_desc': // 新着順（追加）
+      //   $query->set('orderby', 'date');
+      //   $query->set('order', 'DESC');
+      //   break;
+      case 'modified_desc': // 更新順（追加）
+        $query->set('orderby', 'modified');
+        $query->set('order', 'DESC');
+        break;
+      default:
+        $query->set('orderby', 'date');
+        $query->set('order', 'DESC');
+        break;
+    }
+    // 最後に中身がある場合のみクエリをセット
+    // if (count($tax_query) > 1) {
+    //   $query->set('tax_query', $tax_query);
+    // }
+    // if (count($meta_query) > 1) {
+    //   $query->set('meta_query', $meta_query);
+    // }
+
+    if (count($tax_query) > 1) {
+      $query->set('tax_query', $tax_query);
+    }
+    if (count($meta_query) > 1) {
+      $query->set('meta_query', $meta_query);
+    }
+
+    // 検索キーワード(s)がある場合、投稿タイプを強制的に property に固定
+    if ($query->is_search()) {
+      $query->set('post_type', 'property');
+    }
+  }
+}
+add_action('pre_get_posts', 'my_property_query_settings');
 
 
 // mp-members 会員登録画面からユーザー名を取り除く
@@ -146,6 +376,7 @@ if (! current_user_can('delete_users')) {
   show_admin_bar(false);
 }
 
+
 // WP members 新規登録通知を鳥居塚さん達へ
 /**
  * This is a single email example.  To change the
@@ -161,274 +392,75 @@ add_filter('wpmem_notify_addr', function ($email) {
  * mail server must support receiving multiple emails as
  * comma separated values for this to be supported.
  */
-add_filter('wpmem_notify_addr', function ($email) {
-  return 'f.toriizuka@e-stitch.jp, h.abe@e-stitch.jp, re@e-stitch.jp';
-});
+// add_filter('wpmem_notify_addr', function ($email) {
+//   return 'f.toriizuka@e-stitch.jp, h.abe@e-stitch.jp, re@e-stitch.jp';
+// });
 
 
 /**
  * Notification addresses can be changed based on your own
  * crititeria, supposing you know a little PHP.
  */
-add_filter('wpmem_notify_addr', function ($email) {
+// add_filter('wpmem_notify_addr', function ($email) {
 
-  // Change the email based on your own custom logic.
-  if ($some_criteria) {
-    $email = 'f.toriizuka@e-stitch.jp';
+//   // Change the email based on your own custom logic.
+//   if ($some_criteria) {
+//     $email = 'f.toriizuka@e-stitch.jp';
+//   }
+
+//   return $email;
+// });
+
+// 物件詳細 zipから住所を出す
+/**
+ * 郵便番号から住所を取得する関数
+ */
+function get_address_by_zip($zip_code)
+{
+  if (empty($zip_code)) return '郵便番号が未入力です';
+
+  // ハイフンを除去して数字のみにする
+  $zip_code = str_replace('-', '', $zip_code);
+
+  // APIのURL（zipcloudを利用）
+  $url = "https://zipcloud.ibsnet.co.jp/api/search?zipcode=" . esc_attr($zip_code);
+
+  // APIからデータを取得
+  $response = wp_remote_get($url);
+
+  // エラーチェック
+  if (is_wp_error($response)) {
+    return '住所を取得できませんでした';
   }
 
-  return $email;
+  $body = wp_remote_retrieve_body($response);
+  $data = json_decode($body, true);
+
+  // 住所が見つかった場合
+  if (!empty($data['results'])) {
+    $res = $data['results'][0];
+    // 都道府県 + 市区町村 + 町域名 を結合
+    return $res['address1'] . $res['address2'] . $res['address3'];
+  }
+
+  return '該当する住所が見つかりませんでした';
+}
+
+
+// wp members
+add_action('template_redirect', function () {
+  // WP-Membersが有効であり、かつ現在のページに「制限(Block)」がかかっているか確認
+  if (function_exists('wpmem_is_blocked') && wpmem_is_blocked()) {
+
+    // ユーザーがログインしていない場合
+    if (! is_user_logged_in()) {
+
+      // --- 設定エリア ---
+      $redirect_url = home_url('/create-account/'); // リダイレクト先のURL（例：ログインページ）
+      // -----------------
+
+      wp_redirect($redirect_url);
+      exit;
+    }
+  }
 });
-
-
-// topのpick up枠※物件 1つも選ばないと表示がバグる※枠が沢山出る
-// js使うもの入れられない？機能せず
-class Walker_Nav_Menu_Custom extends Walker_Nav_Menu
-{
-  function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
-  {
-    $indent = ($depth) ? str_repeat("\t", $depth) : '';
-    $classes = empty($item->classes) ? array() : (array)$item->classes;
-    $classes[] = 'menu-item-' . $item->ID;
-    $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth));
-
-    // 不要なIDを削除しliに任意のクラスをつける
-    $id = apply_filters('nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args, $depth);
-    $id = $id ? ' id="' . esc_attr($id) . '"' : '';
-    // ↓ .swiper-slide swiper動かず
-    $class_names = $class_names ? ' class="property-item "' : '';
-
-    // fav btn 機能せず
-    // $output .= $indent . '<li' . $class_names . '><div class="property-check"><p class="property__checkText">問い合わせ・気になる物件に</p></div>';
-
-
-    $output .= $indent . '<li' . $class_names . '>';
-    $atts = array();
-    $atts['title'] = !empty($item->attr_title) ? $item->attr_title : '';
-    $atts['target'] = !empty($item->target) ? $item->target : '';
-    $atts['rel'] = !empty($item->xfn) ? $item->xfn : '';
-    $atts['href'] = !empty($item->url) ? $item->url : '';
-    $atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args, $depth);
-    $attributes = '';
-    foreach ($atts as $attr => $value) {
-      if (!empty($value)) {
-        $value = ('href' === $attr) ? esc_url($value) : esc_attr($value);
-        $attributes .= ' ' . $attr . '="' . $value . '"';
-      }
-    }
-    $item_output = $args->before;
-
-    // その中にお気に入りボタン※他と同じ作り
-    $item_output .= '<div class="category-wrap"><ul class="property-category">';
-
-    // fixカテゴリ 20250407
-    $cats = get_the_category($item->object_id);
-    foreach ($cats as $cat) {
-      $parent_id = $cat->parent;
-      if ($parent_id == 58) {
-        continue; // 設備カテゴリは出さない
-      }
-      $item_output .= '<li class="property__category">' . esc_html($cat->name) . '</li>';
-    }
-
-    // fav btn 機能せず
-    // $item_output .= '</ul><div class="favorite_button">' . get_favorites_button(get_the_ID()) . '</div></div>';
-
-    $item_output .= '</ul></div>';
-
-    $item_output .= '<article class="property-item__inner" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost"><a' . $attributes . '>';
-
-    // タイトル
-    $item_output .= '<h3 class="property__title">' . $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after . '</h3>';
-
-    // タイトル下のキャッチ文
-    $catch = SCF::get('catch', $item->object_id);
-    if ($catch) {
-      $item_output .= '<p class="property__text">' . esc_html($catch) . '</p>';
-    }
-
-    //サムネイル画像を追加 +外側のflex <div class="flex column">
-    $item_output .= '<div class="property__thumbnail">';
-    $item_output .= get_the_post_thumbnail($item->object_id, "full", array('class' => 'thumnail-img'), array('alt' => $item->title));
-    $item_output .= '</div>';
-
-    // 金額wrapするflex 金額上の文言
-    $amount_note = SCF::get('amount-note', $item->object_id);
-    $item_output .= '<div class="property-overview"><div class="flex evenly"><div class="amount-wrap"><p class="amount__note">' . esc_html($amount_note) . '</p>';
-
-    // 金額
-    $amount = SCF::get('amount', $item->object_id);
-    if ($amount) {
-      $item_output .= '<p class="property__amount"><span>' . number_format((int) esc_html($amount)) . '</span>万円(税込)</p></div>';
-    } else {
-      $item_output .= '<p class="property__amount"><span class="comming-soon">近日公開</span></p></div>';
-    }
-
-    // loan
-    $loan = SCF::get('loan', $item->object_id);
-    $item_output .= '<div class="amount-wrap loan"><p class="amount__note">月々の支払い目安額</p>';
-    if ($loan) {
-      $item_output .= '<p class="property__amount"><span>' . number_format((int) esc_html($loan)) . '</span>円(税込)／月</p></div>';
-    } else {
-      $item_output .= '<p class="property__amount"><span class="comming-soon">-</span></p></div>';
-    }
-
-    // 金額閉じflex div
-    $item_output .= '</div>';
-
-    // 金額閉じflex div 間取floor-plan
-    // $floor_plan = SCF::get('floor-plan', $item->object_id);
-    // $item_output .= '</div><p class="property__text">間取：' . esc_html($floor_plan) . '<br>';
-
-    // 土地land-area
-    // $land_area = SCF::get('land-area', $item->object_id);
-    // $item_output .= '土地：' . esc_html($land_area) . '<br>';
-
-    // 建物building-area
-    // $building_area = SCF::get('building-area', $item->object_id);
-    // $item_output .= '建物：' . esc_html($building_area) . '</p>';
-
-    //$item_output .= '</div>';  // <!-- /flex
-
-    // 機能せず(該当の物件名にならず)
-    // $item_output .= '</div><a href="' . home_url() . '/contact/?propertyName=' . esc_attr(get_the_title()) . '" class="solid-button">見学予約・お問い合わせ(無料)</a>';
-
-    // last
-    $item_output .= '</div></a><a' . $attributes . '" class="solid-button">詳しくみる</a></article>';
-    $item_output .= $args->after;
-
-    // swiper動かず
-    // $item_output .= '<div class="swiper-pagination"></div>';
-
-    $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
-  }
-}
-
-
-//　物件一覧ページ周りここから
-
-// 投稿、固定ページ一覧にスラッグとカスタムフィールドを表示
-function add_columns_custom($columns)
-{
-  $columns['amount'] = "価格(万円)";
-  echo '<style>.fixed .column-slug {width: 10%;}.fixed .column-order_cf {width: 15%;}</style>';
-  return $columns;
-}
-function add_column_row_custom($column_name, $post_id)
-{
-  if ($column_name == 'amount') {
-    $amount_value = get_post_meta($post_id, 'amount', true);
-    echo !empty($amount_value) ? esc_html($amount_value) : '-';
-  }
-}
-
-// カスタム投稿タイプの場合
-add_filter('manage_property_posts_columns', 'add_columns_custom');
-add_action('manage_property_posts_custom_column', 'add_column_row_custom', 10, 2);
-
-
-// 1. カラムの見出しを「ソート可能（クリック可能）」にする
-function make_custom_columns_sortable($columns)
-{
-  // 'カラムID' => 'orderbyパラメータ'
-  // ※ここでは orderbyパラメータも 'amount' としています
-  $columns['amount'] = 'amount';
-  return $columns;
-}
-
-// カスタム投稿タイプの場合
-add_filter('manage_edit-property_sortable_columns', 'make_custom_columns_sortable');
-
-
-// 2. 実際にソートされた時のクエリ（データ取得順）を調整する
-function sort_custom_column_query($query)
-{
-  // 管理画面 かつ メインクエリ の場合のみ実行
-  if (! is_admin() || ! $query->is_main_query()) {
-    return;
-  }
-
-  // 'amount' というキーでソートされた場合
-  if ($query->get('orderby') == 'amount') {
-    $query->set('meta_key', 'amount'); // カスタムフィールドのキーを指定
-    $query->set('orderby', 'meta_value_num'); // 数値として並び替え
-  }
-}
-add_action('pre_get_posts', 'sort_custom_column_query');
-// 価格列ここまで
-
-
-
-// エリア列を追加　
-function add_columns_custom_taxonomy($columns)
-{
-  // 表示したいタクソノミーのスラッグ（CPT UIで設定したもの）
-  $taxonomy_slug = 'district';
-  // カラム名（管理画面に表示される見出し）
-  $columns[$taxonomy_slug] = '地区';
-  return $columns;
-}
-
-// 2. カラムにターム（項目）を表示
-function add_column_row_custom_taxonomy($column_name, $post_id)
-{
-  // 表示したいタクソノミーのスラッグ（上と同じにする）
-  $taxonomy_slug = 'district';
-
-  if ($column_name == $taxonomy_slug) {
-    // タームのリストを取得してリンク付きで表示
-    // 引数: ID, タクソノミー, 前の文字, 区切り文字, 後の文字
-    $terms = get_the_term_list($post_id, $taxonomy_slug, '', ', ', '');
-
-    if (! empty($terms)) {
-      echo $terms;
-    } else {
-      echo '―'; // 設定されていない場合
-    }
-  }
-}
-
-// カスタム投稿タイプの場合
-add_filter('manage_property_posts_columns', 'add_columns_custom_taxonomy');
-add_action('manage_property_posts_custom_column', 'add_column_row_custom_taxonomy', 10, 2);
-
-
-// 投稿・固定ページ一覧にアイキャッチカラムを追加
-function add_columns_thumbnail($columns)
-{
-  $columns['thumbnail'] = "アイキャッチ";
-  echo '<style>.fixed .column-thumbnail img {width: 100%; height: auto;}</style>';
-  return $columns;
-}
-
-// アイキャッチカラムに画像を表示
-function add_column_row_thumbnail($column_name, $post_id)
-{
-  if ($column_name == 'thumbnail') {
-    if (has_post_thumbnail($post_id)) {
-      echo get_the_post_thumbnail($post_id, array(60, 60)); // サムネイルサイズ
-    } else {
-      echo '―'; // アイキャッチ未設定の場合
-    }
-  }
-}
-
-// カスタム投稿タイプの場合
-add_filter('manage_property_posts_columns', 'add_columns_thumbnail');
-add_action('manage_property_posts_custom_column', 'add_column_row_thumbnail', 10, 2);
-
-// カテゴリを出さない
-function remove_default_post_columns($columns)
-{
-  // カテゴリーを消したい場合
-  unset($columns['categories']);
-
-  // 「タグ」を消したい場合
-  // unset($columns['tags']);
-
-  // 「作成者」を消したい場合
-  // unset($columns['author']);
-
-  return $columns;
-}
-add_filter('manage_posts_columns', 'remove_default_post_columns');

@@ -1,50 +1,78 @@
 <?php
 /*
-  Template Name: contact
+Template Name:contact
 */
 ?>
 <?php get_header(); ?>
 
-<section class="section section-hero lower">
-  <div class="section-content">
-    <div class="headline">
+<main class="site-main" id="site-main">
 
-      <!-- パンくず -->
-      <div class="breadcrumbs">
-        <ol itemscope itemtype="http://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope
-            itemtype="http://schema.org/ListItem">
-            <a itemprop="item" href="<?= site_url(); ?>/">
-              <span itemprop="name">HOME</span></a>
-            <meta itemprop="position" content="1" />
-          </li>
-          <li itemprop="itemListElement" itemscope
-            itemtype="http://schema.org/ListItem">
+  <section class="section section-hero lower" id="hero">
+    <div class="section-content">
+      <div class="content">
+        <div class="hero">
 
-            <span itemprop="name"><?php echo get_the_title(); ?></span>
+          <h1 class="hero__catch"><?php the_title(); ?></h1>
+        </div>
 
-            <meta itemprop="position" content="2" />
-          </li>
-        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-contact" id="section-contact">
+    <div class="section-content row w960">
+      <div class="headline">
+
+        <!-- パンくず -->
+        <div class="breadcrumbs">
+          <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope
+              itemtype="http://schema.org/ListItem">
+              <a itemprop="item" href="<?= site_url(); ?>/">
+                <span itemprop="name">ホーム</span>
+              </a>
+              <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope
+              itemtype="http://schema.org/ListItem">
+              <a itemprop="item" href="<?php the_permalink(); ?>/">
+                <span itemprop="name"><?php the_title(); ?></span>
+              </a>
+              <meta itemprop="position" content="2" />
+            </li>
+          </ol>
+        </div>
+
+        <!-- <h1 class="headline__title"><?php the_title(); ?></h1> -->
+
       </div>
 
-      <h1 class="headline__title"><?php echo get_the_title(); ?></h1>
+      <div class="content">
+        <div class="contact">
+          <?php the_content();
+          ?>
+        </div>
+      </div>
+  </section>
 
-    </div>
-</section>
+  <!-- お気に入り物件用 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 1. URLのパラメータ（?items=...）を取得
+      const urlParams = new URLSearchParams(window.location.search);
+      const items = urlParams.get('items'); // 'items' という名前のパラメータを探す
 
-<section class="section section-contact" id="section-contact">
+      if (items) {
+        // 2. CF7のテキストエリア（id="selected-posts"）を取得
+        const textArea = document.getElementById('selected-posts');
 
-  <div class="section-content row w1000">
-    <div class="contact form">
+        if (textArea) {
+          // 3. デコードしてテキストエリアに流し込む
+          // カンマを改行に変換すると見やすくなります
+          textArea.value = decodeURIComponent(items).replace(/、/g, '\n');
+        }
+      }
+    });
+  </script>
 
-      <?php echo do_shortcode('[contact-form-7 id="fbbfd6e" title="お問い合わせ" ]'); ?>
-
-      <a href="/privacy-policy/" class="form__textLink">個人情報の取り扱いについて</a>
-
-
-    </div>
-  </div>
-</section>
-
-<?php get_footer(); ?>
+  <?php get_footer(); ?>

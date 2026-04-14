@@ -5,125 +5,221 @@
 ?>
 <?php get_header(); ?>
 
-<!-- コラム用カテゴリ別一覧 -->
+<main class="site-main archive" id="site-main">
 
-<?php
-$category = get_queried_object(); // 現在のカテゴリオブジェクトを取得
-$category_id = $category->term_id; // カテゴリ ID を取得
-?>
+  <?php
+  $current_term = get_queried_object();
+  ?>
 
-<section class="section section-hero lower">
-  <div class="section-content row w1000">
-    <div class="headline">
-
-      <div class="breadcrumbs">
-        <ol itemscope itemtype="http://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope
-            itemtype="http://schema.org/ListItem">
-            <a itemprop="item" href="<?= site_url(); ?>">
-              <span itemprop="name">HOME</span></a>
-            <meta itemprop="position" content="1" />
-          </li>
-          <li itemprop="itemListElement" itemscope
-            itemtype="http://schema.org/ListItem">
-            <span itemprop="name">カテゴリ「<?php single_cat_title(); ?>」での一覧</span>
-            <meta itemprop="position" content="2" />
-          </li>
-        </ol>
+  <section class="section section-hero lower" id="hero">
+    <div class="section-content">
+      <div class="content">
+        <div class="hero">
+          <?php
+          $current_post_type = get_post_type();
+          // もし post ではなく空が返ってくる場合は 'post' とみなす
+          if (! $current_post_type || $current_post_type === 'post') {
+            $label = 'コラム';
+          } else {
+            $label = '物件';
+          }
+          ?>
+          <h1 class="hero__catch">「<?php echo esc_html($current_term->name); ?>」の<?php echo $label; ?>一覧</h1>
+        </div>
+        <?php get_template_part('template-parts/hero-numProperty'); ?>
       </div>
-      <h1 class="headline__title">カテゴリ「<?php single_cat_title(); ?>」での一覧</h1>
-      <!-- <p class="headline__lead"><?php echo $wp_query->found_posts; ?>件</p> -->
     </div>
-</section>
+  </section>
 
-<?php
-$args = array(
-  'post_type' => 'post', //post
-  'paged' => $paged,
-  'posts_per_page' => 1,
-  'cat' => $category_id, // カテゴリ ID で絞り込み
-);
-$the_query = new WP_Query($args);
-?>
+  <section class="section section-property" id="section-property">
+    <!-- w960 -->
+    <div class="section-content row ">
+      <div class="headline">
 
-<!-- コラム用のカテゴリの場合 -->
-<section class="section section-column" id="section-column">
+        <!-- パンくず -->
+        <div class="breadcrumbs">
+          <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope
+              itemtype="http://schema.org/ListItem">
+              <a itemprop="item" href="<?= site_url(); ?>/">
+                <span itemprop="name">ホーム</span></a>
+              <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope
+              itemtype="http://schema.org/ListItem">
 
-  <div class="section-content row w1000">
-    <div class="column">
-      <ul class="column-list">
+              <span itemprop="name">「<?php echo esc_html($current_term->name); ?>」の物件一覧</span>
+              <meta itemprop="position" content="2" />
+            </li>
+          </ol>
+        </div>
+        <!-- <p class="headline__lead"><?php echo $wp_query->found_posts; ?>件</p> -->
+      </div>
 
-        <?php if ($the_query->have_posts()) :
-          while ($the_query->have_posts()) : $the_query->the_post(); ?>
+      <div class="content ">
+        <div class="property">
+          <?php if (have_posts()) : ?>
 
-            <li class="column-item">
+            <!-- 物件一覧用ソート -->
+            <?php get_template_part('template-parts/sort');
+            ?>
 
-              <a href="<?php the_permalink(); ?>">
-                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            <ul class="property-list">
+              <?php while (have_posts()) : the_post(); ?>
 
-                  <div class="flex">
-                    <div class="column__thumbnail">
+                <?php
+                // --- ランダム人間の設定 ---
+                // 1〜8は画像あり、9〜12は「なし」にする（「なし」の確率を調整できます）
+                $random_num = rand(1, 20);
+                $human_class = '';
+
+                if ($random_num <= 8) {
+                  // 2桁揃え（human01, human02...）にするなら sprintf を使うと便利です
+                  $human_class = 'is-human-' . sprintf('%02d', $random_num);
+                } else {
+                  $human_class = 'is-human-none';
+                }
+
+                $categories = get_the_category();
+                $type_classes = array();
+
+                if (!empty($categories)) {
+                  foreach ($categories as $cat) {
+                    // カテゴリー名（またはスラッグ）で判定
+                    $cat_name = $cat->name;
+                    if ($cat_name === '新築戸建') {
+                      $type_classes[] = 'new-house';
+                    } elseif ($cat_name === '中古戸建') {
+                      $type_classes[] = 'used-house';
+                    } elseif ($cat_name === '土地') {
+                      $type_classes[] = 'land';
+                    } elseif ($cat_name === 'マンション') {
+                      $type_classes[] = 'mansion';
+                    }
+                  }
+                }
+
+                // 2. 配列を半角スペースで区切った文字列に変換
+                $type_class_attr = implode(' ', array_unique($type_classes));
+                ?>
+                <?php if (get_post_type() === 'post') : ?>
+                  <!-- コラム用 -->
+                  <li class="property-item column" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+                    <a href="<?php the_permalink(); ?><?php echo '?propertyName=' . esc_attr(get_the_title()); ?>" class="swiper-slide-item">
+                      <div class="property__img ">
+                        <?php if (has_post_thumbnail()) : ?>
+                          <?php echo get_the_post_thumbnail(); ?>
+                        <?php else: ?>
+                          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/dammy.jpg" alt="no image" decoding="async">
+                        <?php endif; ?>
+                      </div>
+                      <div class="column-texts">
+                        <h3 class="column__title"><?php echo get_the_title(); ?></h3>
+                        <!-- classify -->
+                        <p class=""><?php the_category(); ?></p>
+                      </div>
+                    </a>
+                  </li>
+                <?php else : ?>
+                  <!-- 物件用 -->
+                  <li class="property-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+
+                    <a href="<?php the_permalink(); ?><?php echo '?propertyName=' . esc_attr(get_the_title()); ?>" class="swiper-slide-item ">
+
+                      <div class="property__img <?php echo $human_class; ?>">
+
+                        <!-- 限定のみに鍵アイコン -->
+                        <?php if (in_category(10)) : ?>
+                          <div class="icon-only">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/icon-only.png" alt="members only">
+                          </div>
+                        <?php endif; ?>
+
+                        <?php if (has_post_thumbnail()) : ?>
+                          <?php echo get_the_post_thumbnail(); ?>
+                        <?php else: ?>
+                          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/dammy.jpg" alt="no image" decoding="async">
+                        <?php endif; ?>
+                      </div>
+
                       <?php
-                      if (has_post_thumbnail()) {
-                        $post_title = get_the_title();
-                        the_post_thumbnail('custom', array('alt' => mb_substr($post->post_title, 0, 20),));
-                      } else {
-                      ?>
-                        <img src="<?php bloginfo('template_url'); ?>/assets/img/common/no-image.webp" alt="no image" loading="lazy" decoding="async" />
-                      <?php
+                      $post_time = get_the_time('U');
+                      $one_month_ago = strtotime('-1 month');
+                      if ($post_time > $one_month_ago) {
+                        echo '<p class="new">NEW</p>';
                       }
                       ?>
-                    </div>
+                      <?php echo do_shortcode('[favorite_button]'); ?>
 
-                    <div class="column-headline">
-                      <h2 class="column__title" itemprop="name headline">
-                        <?php if (mb_strlen($post->post_title) > 25) {
-                          $title = mb_substr($post->post_title, 0, 25);
-                          echo $title . "…";
-                        } else {
-                          echo $post->post_title;
-                        } ?></h2>
+                      <div class="property-texts">
+                        <p class="classify <?php echo esc_attr($type_class_attr); ?>"><?php echo get_post_meta(get_the_ID(), 'property_type', true); ?></p>
+                        <p class="name"><?php echo get_post_meta(get_the_ID(), 'property_name', true); ?></p>
 
-                      <ul class="column-categories">
-                        <?php
-                        $cats = get_the_category();
-                        foreach ($cats as $cat):
-                          $cat_name = $cat->name;
-                          $cat_url = get_category_link($cat->term_id);
-                        ?>
-                          <li class="column__category">
-                            <?php echo $cat_name; ?>
-                          </li>
-                        <?php endforeach; ?>
-                      </ul>
-                    </div>
-                  </div>
+                        <table class="property-detail">
+                          <tbody>
+                            <tr>
+                              <th class=" property__title">住所</th>
+                              <td class="property__detail"><?php echo get_post_meta(get_the_ID(), 'address', true); ?></td>
+                            </tr>
+                            <tr>
+                              <th class="property__title">価格</th>
+                              <td class="property__detail">
+                                <p class=" price">
+                                  <?php
+                                  $price = get_post_meta(get_the_ID(), 'price', true);
+                                  if (!empty($price) && is_numeric($price)) {
+                                    if ($price >= 10000) {
+                                      $man_price = $price / 10000;
+                                      echo number_format($man_price) . '<span>万</span>';
+                                    } else {
+                                      echo number_format($price);
+                                    }
+                                  }
+                                  ?><span>円</span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th class="property__title">間取</th>
+                              <td class="property__detail"><?php echo get_post_meta(get_the_ID(), 'floor', true); ?></td>
+                            </tr>
+                            <tr>
+                              <th class="property__title">築年</th>
+                              <td class="property__detail"><?php echo get_post_meta(get_the_ID(), 'property_age', true); ?></td>
+                            </tr>
+                          </tbody>
+                        </table>
 
-                  <div itemprop="articleBody" class="column-texts">
-                    <p class="column__text">
-                      <?php if (mb_strlen($post->post_content) > 48) {
-                        $content = mb_substr(strip_tags(apply_filters('the_content', $post->post_content)), 0, 48);
-                        echo $content . "…";
-                      } else {
-                        echo $post->post_content;
-                      } ?>
-                    </p>
-                  </div>
+                        <div class="flex">
+                          <!-- 「中庭」…等は一旦保留 -->
+                          <ul>
+                            <li></li>
+                          </ul>
+                          <?php echo do_shortcode('[favorite_button]'); ?>
+                        </div>
 
-                </article>
-              </a>
-            </li>
-          <?php endwhile; ?>
-          <?php the_posts_pagination(); // ページネーション
-          ?>
-        <?php else : ?>
-        <?php endif; ?>
+                      </div>
+                    </a>
+                  </li>
+                <?php endif; ?>
 
-        <?php wp_reset_postdata(); ?>
+              <?php endwhile; ?>
+            </ul>
 
-      </ul>
-    </div>
-  </div>
-</section>
+            <!-- ページネーション -->
+            <div class="pagination">
+              <?php
+              echo paginate_links(array(
+                'prev_text' => '＜',
+                'next_text' => '＞',
+              ));
+              ?>
+            </div>
+          <?php else : ?>
+            <p>現在、該当する物件はございません。</p>
+          <?php endif; ?>
+          <?php wp_reset_postdata(); ?>
+        </div>
+      </div>
+  </section>
 
-<?php get_footer(); ?>
+  <?php get_footer(); ?>

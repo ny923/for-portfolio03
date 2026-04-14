@@ -1,703 +1,902 @@
 @charset "UTF-8";
-@import 'mixin';
+@use "mixin" as mixin;
 
-.is-property {}
+.is-property {
+  @include mixin.sp {
+    .hero-numProperty,
+    .brand-logo {
+      display: none;
+    }
+  }
+}
 
+// 一覧ページのみ
+.archive .property {
+  &__img {
+    img {
+      aspect-ratio: auto;
+      max-height: 130px;
+    }
 
-// 一覧用、property共通 一部commonへ
-.property {
-  .amount__note {
-    font-weight: bold;
-    text-align: center;
+    // human用 n番目毎に絵変える
+    &::after {
+      content: "";
+      display: block;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      z-index: 2;
+    }
 
-    // @include sp {
-    margin-top: 10px;
-    // }
+    // phpでランダム
+    &.is-human-01::after {
+      background-image: url(../img/property/human01.png);
+      background-size: 24px;
+      width: 24px;
+      height: 68px;
+      bottom: 17px;
+      left: 20px;
+    }
+    &.is-human-02::after {
+      background-image: url(../img/property/human02.png);
+      background-size: 40px;
+      width: 35px;
+      height: 60px;
+      bottom: 9px;
+      left: 40px;
+    }
+    &.is-human-03::after {
+      background-image: url(../img/property/human03.png);
+      background-size: 24px;
+      width: 24px;
+      height: 68px;
+      bottom: 17px;
+      right: 20px;
+    }
+    &.is-human-04::after {
+      background-image: url(../img/property/human04.png);
+      background-size: 30px;
+      width: 30px;
+      height: 68px;
+      bottom: 17px;
+      right: 20px;
+    }
+    &.is-human-05::after {
+      background-image: url(../img/property/human05.png);
+      background-size: 34px;
+      width: 34px;
+      height: 74px;
+      bottom: 17px;
+      right: 20px;
+    }
+    &.is-human-06::after {
+      background-image: url(../img/property/human06.png);
+      background-size: 24px;
+      width: 24px;
+      height: 68px;
+      bottom: 17px;
+      right: 40px;
+    }
+    &.is-human-07::after {
+      background-image: url(../img/property/human07.png);
+      background-size: 24px;
+      width: 24px;
+      height: 68px;
+      bottom: 17px;
+      right: 20px;
+    }
+    &.is-human-08::after {
+      background-image: url(../img/property/human08.png);
+      background-size: 24px;
+      width: 24px;
+      height: 68px;
+      bottom: 17px;
+      left: 20px;
+    }
+
+    // 何も出さない設定
+    &.is-human-none::after {
+      display: none;
+    }
+  }
+}
+
+.section-property {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.headline {
+  .flex {
+    align-items: center;
+  }
+  &__illust {
+    max-width: 72px;
+  }
+  &__category {
+    background-color: #005fff;
+    color: #fff;
+    font-size: 2.2rem;
+    @include mixin.sp {
+      font-size: 1.2rem;
+    }
+    width: fit-content;
+    line-height: 1;
+    padding: 4px 4px 6px;
+    border-radius: 4px;
+
+    &.new-house {
+      background-color: #005fff;
+    }
+    &.used-house {
+      background-color: #f15a24;
+    }
+    &.land {
+      background-color: #1d9a39;
+    }
+    &.mansion {
+      background-color: #ff9800;
+    }
+  }
+  &__title {
+    @include mixin.pc {
+      margin-top: 30px;
+    }
+    font-weight: 600;
+    font-size: 3.6rem;
+    @include mixin.sp {
+      font-size: 1.9rem;
+      padding-top: 10px;
+    }
   }
 
-  &__amount {
-    font-size: 1.2rem;
-    border-bottom: 1px solid #D9D9D9;
-    margin-bottom: 10px;
+  &__price {
+    color: #458ee9;
+    font-weight: bold;
+    line-height: 1;
+    font-size: 4.4rem;
+    @include mixin.sp {
+      font-size: 2.4rem;
+    }
 
     span {
-      color: #0057A6;
-      font-weight: bold;
-      font-size: 3rem;
-      font-family: "Noto Sans", sans-serif;
-      margin-right: -3px;
-      line-height: 1;
-    }
-  }
-
-  &__point {
-    font-size: 1.2rem;
-  }
-
-  // 20250403 位置、サイズ変更
-  &__text {
-    font-weight: bold;
-    font-size: 1.6rem;
-    text-align: center;
-  }
-
-  &__point {
-    margin-top: 20px;
-  }
-
-  .solid-button {
-    margin-top: 30px;
-  }
-
-  &-subscribe {
-    text-align: center;
-    margin-top: 30px;
-
-    a {
-      color: #0057A6;
-      text-decoration: underline;
-      text-underline-offset: 5px;
-    }
-  }
-
-  // table
-  &__th {
-    text-align: left;
-    padding-right: 8px;
-  }
-
-  &__td {
-    padding-left: 8px;
-  }
-
-  &-contact {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    bottom: 0;
-    background-color: #F9F7F1;
-    width: 100%;
-    padding: 20px;
-    gap: 20px;
-    z-index: 5;
-
-    .solid-button,
-    .border-button {
-      margin: 0;
-    }
-
-    .solid-button {
-      background-color: #E70012;
-    }
-
-    .border-button {
-      color: #E70012;
-      border-color: #E70012;
-
-      &::after {
-        border-top-color: #E70012;
-        border-right-color: #E70012;
+      font-size: 2.6rem;
+      @include mixin.sp {
+        font-size: 1.4rem;
       }
     }
   }
 
-  &-detail {
-    margin-top: 100px;
-  }
-
-  // 一覧、property共通ここまで
-}
-
-
-
-// 一覧のみ
-.is-property:not(.detail) {
-  .amount-wrap+.amount-wrap {
+  // これは詳細用！
+  &__img {
     margin-top: 20px;
-  }
-
-  // add 20250407
-  .property-category {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
+    img {
+      @include mixin.pc {
+        border-radius: 35px;
+      }
+      max-height: 495px;
+      object-fit: cover;
+    }
   }
 }
 
-// 詳細のみ
-.is-property.detail {
-  background-color: #fff;
-
-  .to-top {
-    bottom: 20%;
+.property {
+  &__title {
+    text-align: center;
+    font-weight: bold;
+    @include mixin.sp {
+      font-size: 1.6rem;
+    }
   }
-
-
-  .property-category {
-    margin-top: 10px;
-    border: none;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-
-    align-content: flex-start;
-  }
-
-  .property__category,
-  .property-category a {
-    border: 1px solid #0057A6;
-    background-color: #fff;
-    width: fit-content;
-    padding: 5px;
+  .simplefavorite-button {
+    margin-left: auto;
+    font-size: 6rem;
+    @include mixin.sp {
+      font-size: 4rem;
+    }
     line-height: 1;
-    display: inline-block;
-    font-size: 1.2rem;
-    color: #0057A6;
+    color: #ff5b76;
+    font-weight: bold;
+
+    &.active {
+    }
+  }
+
+  &-map {
+    margin-top: 30px;
+    iframe {
+      margin-top: 20px;
+    }
+  }
+
+  &__item {
+    color: #79a22d;
+    display: inline;
+    font-weight: bold;
+    &::before {
+      content: "・";
+      color: #dbdbdb;
+    }
+  }
+
+  &:has(.post-checker) .flex {
+    gap: 0 !important;
+    align-items: center;
+  }
+
+  // ~について問い合わせる
+  .post-checker {
+    width: 100%;
+    max-width: 24px;
+    height: 24px;
+    appearance: none;
+    background-color: #fff;
+    border: solid 2px #dbdbdb;
+    vertical-align: middle;
+    &:checked {
+      border-color: #005fff;
+      &::after {
+        content: "●";
+        color: #005fff;
+        margin-top: 0px;
+        display: block;
+        line-height: 1;
+      }
+    }
+
+    & + label {
+      font-size: 1.4rem;
+      line-height: 1.3;
+      padding-top: 6px;
+      padding-bottom: 7px;
+    }
+  }
+}
+
+.overview {
+  margin-top: 40px;
+  @include mixin.pc {
+    gap: 40px;
+  }
+  @include mixin.sp {
+    flex-direction: column;
+    display: block;
+    margin-bottom: 40px;
+  }
+  &-texts-wrap,
+  &-comments {
+    flex: 1;
+  }
+  &-texts-wrap {
+    background-color: #f2f6fa;
+    padding: 30px 40px;
     height: fit-content;
   }
 
-  .grecaptcha-badge {
-    margin-bottom: 90px;
-  }
-
-  .property-inner {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 20px;
-
-    // add 20250331
-    @include pc {
-      min-width: 50%;
+  &-texts {
+    height: fit-content;
+    @include mixin.pc {
+      border-spacing: 0 10px;
     }
-  }
 
-  .flex:has(.amount-wrap) {
-    gap: 20px;
-    justify-content: center;
-    align-items: flex-end;
-  }
-
-  .amount-wrap {
-    width: 100%;
-
-    &.flex {
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-  }
-
-  .headline__title {
-    text-align: left;
-  }
-
-  .property__amount {
-    text-align: center;
-    font-size: 1.6rem;
-    // margin-top: 10px;
-
-    // 金額
-    span {
-      font-size: 4.5rem;
-
-      &.comming-soon {
-        font-size: 3.5rem;
+    tbody {
+      @include mixin.pad {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      @include mixin.sp {
+        display: block;
       }
     }
   }
-
-  .amount-wrap.loan {
-
-    // 金額
-    span {
-      font-size: 2.5rem;
-    }
-  }
-
-  .property-points {
-    border: 3px dotted #0057A6;
-    padding: 20px;
-    border-radius: 3px;
-    margin-top: 20px;
-  }
-
-  .property-point__title {
-    color: #0057A6;
-    font-size: 1.6rem;
-    font-weight: bold;
+  &__title,
+  &__text {
+    padding-inline: 10px;
     line-height: 1;
+    padding: 7px 10px 10px;
   }
-
-  // お問い合わせは・・・
-  .property-tel {
-    position: relative;
-    width: fit-content;
-    margin-inline: auto;
-    margin-top: 50px;
-
-    .property__text {
-      font-size: 1.4rem;
-    }
-  }
-
-  .property__titti {
-    position: absolute;
-    max-width: 77px;
-    width: 100%;
-    left: calc(50% + 105px);
-    top: 10px;
-  }
-
-  .property__number {
-    font-size: 4.5rem;
-    white-space: nowrap;
-    color: #0057A6;
-    font-weight: bold;
-    font-family: "Noto Sans", sans-serif;
-    line-height: 1;
-    display: block;
-    margin-top: 5px;
-  }
-
-  .property__info {
-    margin-top: 15px;
-  }
-
-  .property__title {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: bold;
-  }
-
-  .property-table:not(.nearby) {
-    margin-top: 20px;
-
-    @include pc {
-      max-width: 50%;
-    }
-  }
-
-  @include sp {
-    .property-table+.property-table {
-      margin-top: 0;
-    }
-  }
-
-  .property__th,
-  .property__td {
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-
-  .property__th {
+  &__title {
+    background-color: #458ee9;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: 400;
     white-space: nowrap;
   }
-
-  // その他概要table
-  .flex:has(.property-table.overview) {
-    justify-content: center;
-
-    @include pc {
-      gap: 20px;
-    }
-
-    @include sp {
-      flex-direction: column;
-    }
+  &__text {
+    color: #458ee9;
+    font-weight: bold;
   }
-
-  .property-table.overview {
-
-    th,
-    td {
-      padding: 20px;
-      border-bottom: 1px solid #D9D9D9;
+  &-comments {
+    @include mixin.pad {
+      width: fit-content;
+      margin-inline: auto;
     }
-
-    th {
-      @include sp {
-        width: 30%;
-      }
-    }
-  }
-
-  // カテゴリ
-  .property-category {
-    width: 100%;
-  }
-
-  // 備考
-  .property-notes {
-    width: 100%;
-
-    @include pc {
-      max-width: 50%;
-    }
-  }
-
-  .property-notes {
-    width: fit-content;
-    margin-inline: auto;
-  }
-
-  @include sp {
-    .flex:has(.property-notes) {
-      flex-direction: column;
-    }
-  }
-
-  .property-inner {
-
-    .property-category,
-    .property-notes,
-    .property-map {
-      font-size: 1.2rem;
+    @include mixin.sp {
       margin-top: 40px;
     }
   }
+  &__comment {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 16px 17px;
+    border: 2px solid #005fff;
+    border-radius: 6px;
+    background-color: #fff;
 
-  .property-category__title,
-  .property-notes__title,
-  .property-map__title {
-    font-weight: bold;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 70%;
+      border-style: solid;
+      border-width: 20px 0 0 20px;
+      border-color: #005fff transparent transparent;
+      translate: -50% 100%;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 70%;
+      border-style: solid;
+      border-width: 15.2px 0 0 15.2px;
+      border-color: #fff transparent transparent;
+      translate: calc(-50% + 0.4px) 100%;
+    }
+  }
+
+  &__illust {
+    max-width: 120px;
+    margin-left: auto;
+  }
+  // old table変える
+
+  // new
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+  @include mixin.pc {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  &-texts {
+    display: flex;
+  }
+  &__title {
+    width: 100%;
+    background: #458ee9;
+    text-align: center;
+    max-width: 35%;
+    @include mixin.sp {
+      max-width: 27%;
+    }
+  }
+  &__text {
+    width: 65%;
+  }
+}
+
+.images-wrap {
+  margin-top: 40px;
+  display: flex;
+  gap: 40px;
+  @include mixin.sp {
+    display: initial;
+  }
+}
+.images {
+  max-width: 52%; //49%
+  @include mixin.sp {
+    max-width: 100%;
+  }
+
+  // ページによってまちまち…囧
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 30px;
+    height: 30px;
+  }
+
+  .swiper-main {
+    border-radius: 35px;
+    .swiper-slide {
+      @include mixin.pc {
+        max-height: 350px; //400px
+        aspect-ratio: 1;
+        width: auto;
+      }
+
+      img {
+        height: 100%;
+        object-fit: contain;
+        background-color: #dbdbdb;
+      }
+    }
+  }
+
+  .swiper-thumbnail {
+    margin-top: 10px;
+    .swiper-slide {
+      img {
+        opacity: 0.7;
+        cursor: pointer;
+        transition: opacity 0.3s;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        height: 100%;
+        object-fit: contain;
+        background-color: #dbdbdb;
+      }
+    }
+    .swiper-slide {
+      height: auto !important;
+      max-height: 90px;
+      @include mixin.pad {
+        max-height: 130px;
+      }
+    }
+  }
+
+  .swiper__text {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    color: #fff;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+  }
+}
+.madori {
+  background-color: #fff;
+  position: relative;
+  width: stretch;
+  img {
+    aspect-ratio: 1;
+    object-fit: contain;
+    cursor: pointer;
+  }
+
+  &::after {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-image: url(../img/common/zoom.svg);
+  }
+}
+
+.detail {
+  padding-top: 60px;
+
+  .flex {
+    gap: 40px;
+    @include mixin.sp {
+      flex-direction: column;
+    }
+  }
+  &-spec {
+    max-width: 50%;
+    @include mixin.sp {
+      max-width: initial;
+    }
+    width: 100%;
+    table-layout: fixed;
+    word-break: break-all;
+    border-collapse: collapse;
+
+    &.single {
+      max-width: 100%;
+    }
+
+    tr {
+      border-top: 1px solid #dbdbdb;
+      &:last-of-type {
+        border-bottom: 1px solid #dbdbdb;
+      }
+    }
+  }
+}
+.spec {
+  &__title,
+  &__detail {
+    padding: 10px 15px;
+  }
+  &__title {
+    font-size: 1.2rem;
+    font-weight: normal;
+    background-color: #458ee9;
+    color: #fff;
+    text-align: left;
+
+    &.adjust {
+      @include mixin.sp {
+        max-width: 31%;
+        width: 100%;
+      }
+    }
+  }
+  &__detail {
     font-size: 1.4rem;
-    width: 100%;
-    height: fit-content;
   }
-
-
-
-  .property__note {
-    margin-top: 10px;
+}
+.other {
+  &__title {
+    text-align: center;
   }
-
-  // iframe
-  .property__map {
-    margin-top: 10px;
-    width: 100%;
+}
+.contact {
+  .headline__title {
+    font-size: 2rem;
+    text-align: center;
   }
+}
 
-  .overview-wrap {
-    @include pc {
-      display: flex;
+// ソートform
+.sort {
+  &-container {
+    display: flex;
+    @include mixin.sp {
+      flex-direction: column;
     }
   }
-
-  // sp用スライダ
-  .sp-swiper {
-    display: none;
-
-    @include sp {
-      display: block;
-      overflow-x: hidden;
-      position: relative;
-    }
+  &-label {
+    padding-top: 7px;
   }
 
-  .swiper-wrap {
+  font-size: 1.2rem;
+  padding-top: 15px;
+  padding-bottom: 20px;
+
+  // for select
+  width: fit-content;
+  position: relative;
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    pointer-events: none;
+  }
+
+  &::before {
+    display: inline-block;
+    right: 0;
+    width: 2.8em;
+    height: 2.8em;
+    border-radius: 0 3px 3px 0;
+  }
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: 1.4em;
+    transform: translate(50%, -50%) rotate(45deg);
+    width: 6px;
+    height: 6px;
+    border-bottom: 3px solid #fff;
+    border-right: 3px solid #fff;
+  }
+  select {
+    height: 2.8em;
+    padding: 0.4em 10px 0.4em 0.8em;
+    margin-right: 10px;
+    border: none;
+    color: #231815;
+    font-size: 1em;
+    cursor: pointer;
+  }
+}
+
+// 一覧ページ用※カテゴリ別一覧含む
+.archive .section-property .flex:not(.google) {
+  gap: 40px;
+}
+
+.archive .property {
+  &-list {
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
-
-    // @include pc {
-    //   max-width: 50%;
-    // }
+    gap: 30px 10px;
   }
-
-  .js-open-modal {
-    max-width: 20%;
-
-    @include sp {
-      max-width: 33.333%;
+  &-item {
+    max-width: calc(100% / 5.5); //4.2
+    width: 100%;
+    background-color: #fff;
+    @include mixin.sp {
+      max-width: initial;
+    }
+    &:not(.column) .swiper-slide-item {
+      height: 100%;
     }
 
-    // 最初の画像だけmainぽく
-    &:first-of-type {
-      max-width: 100%;
-      max-height: 500px;
-      overflow: hidden;
+    .name {
+      font-size: 1.7rem;
+      font-weight: bold;
+      line-height: 1.3;
     }
   }
+  &-detail {
+    width: 100%;
+  }
 
-  .swiper-button__wrap {
+  &__title,
+  &__detail {
+    font-size: 1.2rem;
+    border-top: 1px solid #dbdbdb;
+  }
+
+  &__title {
+    text-align: left;
+    white-space: nowrap;
+  }
+  &__detail {
+    .price {
+      font-size: inherit;
+    }
+  }
+}
+
+.primary-btn + .property-list {
+  margin-top: 20px;
+}
+
+// modal
+/* モーダルと背景の指定 */
+.modal {
+  &:hover {
+    cursor: pointer;
+  }
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  text-align: center;
+  background: rgba(0, 0, 0, 50%);
+  padding: 40px 20px;
+  overflow: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  box-sizing: border-box;
+  z-index: 1;
+
+  /* モーダルの擬似要素の指定 */
+  &:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
     height: 100%;
-    background-color: rgba(0, 87, 166, 0.5);
-    width: 35px;
-    position: absolute;
-    z-index: 1;
-    top: 0;
+    margin-left: -0.2em;
   }
 
-  .swiper-button__wrap:has(.swiper-button-prev) {
-    left: 0;
+  /* クラスが追加された時の指定 */
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
   }
 
-  .swiper-button__wrap:has(.swiper-button-next) {
-    right: 0;
+  /* モーダル内側の指定 */
+  &-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 600px;
+    width: 90%;
   }
 
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: #fff;
+  .info {
+    background-color: #fff;
+    color: #231815;
+    padding: 22px 28px;
   }
 
-  .swiper-button-next:after,
-  .swiper-button-prev:after {
-    font-size: 3.5rem;
+  .info-item {
+    display: flex;
+    gap: 20px;
   }
 
-  .site-footer {
-    padding-bottom: 75px;
+  .info-item + .info-item {
+    border-top: #dbdbdb 1px solid;
+  }
+}
+
+// searchform用ここから
+.search {
+  // ↓装飾罫断ち切り
+  overflow-x: hidden;
+  width: 100%;
+  border-radius: 6px;
+  height: fit-content;
+  padding-bottom: 20px;
+  .section + .section {
+    margin-top: 40px;
   }
 
-  // サムネ用
-  .swiperThumbnail {
-    @include pc {
-      margin-top: 20px;
+  .google {
+    margin-bottom: 40px;
+    gap: 0;
+
+    .search__sub-title {
+      font-weight: bold;
+      color: #fff;
+      background-color: #005fff;
+      height: stretch;
+      padding: 9px 10px 0;
+      &::after {
+        content: none;
+      }
     }
 
-    .swiper-slide {
+    input[name="s"] {
+      @include mixin.pc {
+        max-width: 35%;
+      }
+      width: 100%;
+      background-color: #fff;
+      padding: 3px 3px 3px 10px;
+    }
+
+    input[type="submit"] {
+      color: #fff;
+      font-weight: 900;
+      background-color: #005fff;
+      padding: 2px 10px 4px;
+      border: 5px solid #fff !important;
+      font-size: 1.2rem;
       cursor: pointer;
+      margin-left: 0;
     }
   }
 
-  // 画像キャプション
-  .swiper-caption {
-    color: #fff;
-    padding: 2px 2px 3px;
+  &-list {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    @include mixin.sp {
+      flex-direction: column;
+    }
+    &.area {
+      .search-item {
+        max-width: 110px;
+        width: 100%;
+      }
+    }
+    &:has(.icon) {
+      justify-content: space-between;
+      @include mixin.pc {
+        padding-inline: 50px;
+      }
+      @include mixin.sp {
+        flex-direction: column;
+      }
+    }
   }
 
-  .no-resource {
-    text-align: center;
+  input[type="checkbox"] {
+    appearance: none;
+    background-color: #fff;
+    border: solid 2px #dbdbdb;
+    vertical-align: middle;
+    &:checked {
+      border-color: #005fff;
+      &::after {
+        content: "●";
+        color: #005fff;
+        margin-top: 0px;
+        display: block;
+        line-height: 1;
+      }
+    }
+  }
+  &-item {
+    &.icon {
+      display: flex;
+      align-items: flex-end;
+      font-weight: bold;
+
+      input[type="checkbox"] {
+        width: 24px;
+        height: 24px;
+        &:checked::after {
+          font-size: 1.1em;
+        }
+      }
+    }
+  }
+
+  &__title-wrap {
+    background-color: #005fff;
+    color: #fff;
+    padding: 15px 20px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+  &__title {
+    font-size: 1.6rem;
+    line-height: 1;
+    span {
+      font-size: 4.8rem;
+    }
+  }
+  .primary-btn {
     margin-top: 20px;
   }
 
-  //modal機能追加
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.3s;
-    pointer-events: none;
-    opacity: 0;
-    z-index: 100;
-    background-color: rgba(120, 123, 131, 0.8);
-
-    .swiper-wrapper {
-      align-items: center;
+  &-btn {
+    @include mixin.pad {
+      margin-inline: auto;
     }
   }
 
-  /* モーダルがactiveの時 */
-  .modal.is-active {
-    opacity: 1;
-    pointer-events: auto;
+  // カテゴリ毎のアイコン
+  .icon-wrapper {
+    max-width: 50px;
+    height: auto;
+    display: inline-block;
   }
 
-  /* モーダル背景のオーバーレイ部分 */
-  .modal__overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
+  &-form {
+    // padding-inline: 20px;
+    padding-bottom: 30px;
+  }
+  &__sub-title {
+    font-size: 1.5rem;
   }
 
-  /* モーダルのコンテンツ */
-  .modal__content {
-    position: relative;
-    background-color: #000;
-    width: 100%;
-
-    @include pc {
-      // 要固定！
-      max-width: 800px;
-
+  .search__sub-title {
+    line-height: 1;
+    white-space: nowrap;
+    & + .flex {
+      gap: 5px !important;
+      margin-bottom: 40px;
+      @include mixin.pc {
+        align-items: center;
+      }
+    }
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 1px;
+      background-color: #231815;
+      vertical-align: middle;
     }
   }
-
-  /* モーダルを閉じるボタン */
-  .modal__close-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    z-index: 10;
+  .flex:has(.search-price) {
+    // @include mixin.pad {
+    //   justify-content: center;
+    // }
+    @include mixin.sp {
+      flex-direction: column;
+    }
   }
-
-  // /.is-property.detail
-}
-
-
-.solid-button.download {
-  background-color: #0057A6;
-
-  &::after {
-    content: none;
+  &-price {
+    margin-top: 20px;
+    span {
+      font-size: 1.2rem;
+    }
+    input[type="number"] {
+      @include mixin.pc {
+        max-width: 150px;
+      }
+    }
   }
-}
-
-// add 20241122
-// 個々にdl
-.download {
-  margin-top: 20px;
-
-  &__text {
-    font-size: 1.6rem;
-    font-weight: bold;
-    border-left: 8px solid #0057A6;
-    padding: 6px 14px;
-  }
-
-  .flex {
-    justify-content: flex-start;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 10px;
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    &:checked::after {
+      font-size: 0.8em;
+    }
   }
 }
 
-.download__link {
-  display: block;
-  position: relative;
-  width: 100%;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-right: 10px;
-  border-bottom: 1px solid #0057A6;
-  line-height: 1;
-
-  &::after {
-    position: absolute;
-    margin: auto;
-    content: "";
-    vertical-align: middle;
-    width: 11px;
-    height: 11px;
-    border-top: 2px solid #0057A6;
-    border-right: 2px solid #0057A6;
-    top: 50%;
-    transform: translateY(-50%) rotate(135deg);
-    right: 15px;
-  }
-}
-
-
-// 計算form
-.estimate-wrap {
-  justify-content: space-between;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-#toggle,
-.estimate {
-  display: none;
-}
-
-.toggle {
-  width: 35px;
-  height: 35px;
-  margin-left: 10px;
-  cursor: pointer;
-  display: inline-block;
-}
-
-.square_btn {
-  display: inline-block;
-  background: #0057A6;
-  border-radius: 3px;
-  color: #fff;
-  padding: 5px 10px;
-  cursor: pointer;
-  width: fit-content;
-}
-
-.square_btn {
-  display: block;
-  margin-inline: auto;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-.close__btn {
-  position: absolute;
-  right: 6px;
-  top: -23px;
-  font-size: 5rem;
-  cursor: pointer;
-}
-
-#toggle:checked+label+.estimate {
-  display: block;
-}
-
-.estimate {
-  position: absolute;
-  background: #fff;
-
-  @include pc {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  padding: 40px 30px 30px 20px;
-  right: 0;
-  border: 10px solid #0057A6;
-  border-radius: 3px;
-  width: fit-content;
-  z-index: 10;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
-
-  table {
-    width: 100%;
-  }
-
-  th {
-    min-width: 115px;
-    text-align: right;
-  }
-
-  &-baloon {
-    background-color: #0057A6;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 3px;
-    line-height: 1.4;
-    text-align: center;
-    font-size: 1.1rem;
-    position: relative;
-  }
-
-  &-baloon::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 0;
-    border-style: solid;
-    border-width: 5px 0 5px 10px;
-    border-color: transparent transparent transparent #0057a6;
-    translate: 100% -50%;
-  }
-}
-
-
-// 金額下の但し書き
-.amount__caution {
-  font-size: 1.1rem;
-  padding-left: 1em;
-  text-indent: -1em;
-}
-
-.amount__caution+.amount__caution {
-  margin-top: 2px;
+.hoge {
+  color: #79a22d;
 }
