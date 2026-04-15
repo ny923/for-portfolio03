@@ -1,0 +1,321 @@
+@charset "UTF-8";
+@use "mixin" as mixin;
+
+// .section + .section {
+//   margin-top: 80px;
+// }
+
+.is-company {
+}
+
+.section-hero {
+  @include mixin.sp {
+    .section-content + .hero__img,
+    .hero-numProperty {
+      display: none;
+    }
+  }
+}
+
+.hero {
+  &-texts {
+    margin-top: 50px;
+    position: relative;
+    z-index: 1;
+    @include mixin.pc {
+      max-width: 55%;
+    }
+  }
+
+  &__catch {
+    font-size: 4rem;
+    @include mixin.sp {
+      font-size: 1.8rem;
+    }
+    color: #231815;
+    font-weight: 900;
+  }
+  &__lead {
+    font-size: 1.4rem;
+    margin-top: 40px;
+    @include mixin.sp {
+      margin-top: 20px;
+    }
+  }
+  &__lead + &__lead {
+    margin-top: 20px;
+  }
+
+  .flex:has(.hero__img) {
+    position: relative;
+  }
+  &__img {
+    @include mixin.pc {
+      position: absolute;
+      top: 100px;
+      right: 0;
+      max-height: 380px;
+      max-width: 480px;
+      height: 100%;
+    }
+
+    img {
+      @include mixin.pc {
+        object-fit: cover;
+        object-position: left top;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.section-company {
+  .section-content {
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 40px;
+    padding: 30px 50px;
+    @include mixin.sp {
+      margin-top: 20px;
+      padding-inline: 20px;
+      max-width: 92%;
+      // width: 100%;
+    }
+
+    &:nth-of-type(even) {
+      .headline__title {
+        background: linear-gradient(
+          transparent 70%,
+          rgba(121, 162, 45, 0.5) 0%
+        );
+      }
+    }
+  }
+  .headline__title {
+    font-weight: 900;
+    background: linear-gradient(transparent 70%, rgba(69, 142, 233, 0.7) 0%);
+    width: fit-content;
+  }
+}
+
+.company {
+  &-list {
+    display: grid;
+    grid-template: repeat(2, 1fr);
+    gap: 40px;
+    counter-reset: item;
+    margin-top: 40px;
+    list-style: none;
+    .item01 {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+    .item02 {
+      grid-area: 1 / 2 / 2 / 3;
+    }
+    .item03 {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+    .item04 {
+      grid-area: 2 / 2 / 3 / 3;
+    }
+    @include mixin.sp {
+      .item01 {
+        grid-area: 1 / 1 / 2 / 2;
+      }
+      .item02 {
+        grid-area: 2 / 1 / 3 / 2;
+      }
+      .item03 {
+        grid-area: 3 / 1 / 4 / 2;
+      }
+      .item04 {
+        grid-area: 4 / 1 / 5 / 2;
+      }
+    }
+  }
+
+  &-item {
+    counter-increment: item;
+    position: relative;
+    margin-left: 30px;
+    @include mixin.sp {
+      margin-left: 0;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: -42px;
+      @include mixin.sp {
+        left: 0;
+      }
+
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 20px 35px 20px;
+      border-color: transparent transparent rgba(69, 142, 233, 0.7) transparent;
+    }
+    &::after {
+      content: counter(item);
+      position: absolute;
+      top: 5px;
+      left: -28px;
+      @include mixin.sp {
+        left: 14px;
+      }
+      color: #fff;
+      font-size: 2.2rem;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    @include mixin.pc {
+      &:nth-last-of-type(1)::before,
+      &:nth-last-of-type(4)::before {
+        border-color: transparent transparent rgba(121, 162, 45, 0.7)
+          transparent;
+      }
+    }
+    @include mixin.sp {
+      &:nth-last-of-type(odd)::before {
+        border-color: transparent transparent rgba(121, 162, 45, 0.7)
+          transparent;
+      }
+    }
+
+    &.flex {
+      @include mixin.sp {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 900;
+    @include mixin.sp {
+      padding-left: 45px;
+    }
+  }
+
+  &.guideline {
+    .company-item {
+      &::before {
+        border-color: rgba(69, 142, 233, 0.7);
+        border-radius: 50%;
+        border-width: 18px;
+      }
+      &::after {
+        top: 0;
+        left: -30px;
+        @include mixin.sp {
+          left: 12px;
+        }
+      }
+
+      &:nth-last-of-type(odd)::before {
+        border-color: rgba(121, 162, 45, 0.7);
+      }
+    }
+  }
+}
+
+// スタッフ
+.staff {
+  &-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+    @include mixin.sp {
+      flex-direction: column;
+      margin-top: 60px;
+    }
+  }
+  .flex {
+    align-items: center;
+    gap: 20px;
+    @include mixin.sp {
+      justify-content: space-around;
+    }
+  }
+
+  &__position {
+    background-color: rgb(69, 142, 233);
+    color: #fff;
+    line-height: 1;
+    padding: 5px 10px 7px;
+    border-radius: 5px;
+    @include mixin.sp {
+      font-size: 0.8rem;
+    }
+  }
+
+  &__title {
+    font-size: 2.6rem;
+    font-weight: 900;
+    text-align: center;
+    ruby {
+      font-size: 1.2rem;
+      display: block;
+    }
+  }
+  &__img {
+    max-width: 250px;
+    @include mixin.sp {
+      max-width: 50%;
+    }
+  }
+  &__text {
+    font-size: 1.2rem;
+    @include mixin.pc {
+      max-width: 440px;
+    }
+  }
+}
+
+// 会社概要
+.section-overview {
+  margin-top: 80px;
+  .headline__title {
+    font-weight: 900;
+  }
+}
+
+.overview {
+  margin-top: 40px;
+  &-list {
+    border-top: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__title {
+    border-top: 1px solid rgb(69, 142, 233);
+    box-sizing: border-box;
+    padding: 20px;
+    max-width: 18%;
+    width: 100%;
+    @include mixin.sp {
+      padding-inline: 10px;
+      max-width: initial;
+      padding-bottom: 1px;
+    }
+  }
+  &__detail {
+    border-top: 1px solid rgb(69, 142, 233);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 20px;
+    width: 100%;
+    max-width: 82%;
+    @include mixin.sp {
+      padding-inline: 10px;
+      border-top: none;
+      max-width: initial;
+      padding-top: 1px;
+    }
+  }
+  &__text + &__text {
+    margin-top: 20px;
+  }
+}

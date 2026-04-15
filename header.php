@@ -27,8 +27,8 @@
     }
     ?>
   </title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content="ここはステッチ不動産事業部のサイトです。">
+  <meta name="keywords" content="ステッチ, stitch, 不動産, 新築, 中古, 土地, 戸建, マンション, 売買, 売りたい, 買いたい">
   <link rel="canonical" href="<?= site_url(); ?>/">
 
   <!-- swiper -->
@@ -46,9 +46,21 @@
   <?php elseif (is_page('uritai')): ?>
     <link rel="stylesheet" media="all" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/uritai.css" />
 
+  <?php elseif (is_page('company')): ?>
+    <link rel="stylesheet" media="all" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/company.css" />
+
   <?php elseif (is_single() || is_page() || is_archive('column')): ?>
     <link rel="stylesheet" media="all" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/column.css" />
 
+
+    <!-- 一旦不要 -->
+    <?php // elseif (is_page('faq')):
+    ?>
+    <!-- <link rel="stylesheet" media="all" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/faq.css" /> -->
+  <?php elseif (is_page(array('contact', 'confirm', 'thanks', 'assessment'))): ?>
+    <!-- <link rel="stylesheet" media="all" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/contact.css" /> -->
+  <?php elseif (is_page(array('privacy-policy'))): ?>
+    <!-- <link rel="stylesheet" media="all" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/terms.css" /> -->
   <?php endif; ?>
 
   <?php if (isset($favicon_img)): ?>
@@ -60,7 +72,7 @@
   <meta property="og:url" content="<?= site_url(); ?>/" />
   <meta property="og:type" content="website" />
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="" />
+  <meta property="og:description" content="ここはステッチ不動産事業部のサイトです。" />
   <meta property="og:title" content="<?php wp_title(' | ', true, 'right');
                                       bloginfo('name'); ?>" />
   <meta property="og:site_name" content="<?php bloginfo('name'); ?>のWebサイト" />
@@ -82,7 +94,7 @@
           "name": "Stitch Co., Ltd.",
           "url": "https://stitch-home.jp/",
           "logo": "https://stitch-home.jp/wp-content/themes/stitch/img/common/logo.png",
-          "description": "",
+          "description": "ここはステッチ不動産事業部のサイトです。",
           "image": "https://stitch-home.jp/wp-content/themes/stitch/assets/img/common/ogp.jpg",
           "address": {
             "@type": "PostalAddress",
@@ -215,7 +227,22 @@
   </script>
 
   <!-- Google Tag Manager -->
-
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NNDGDXN8');
+  </script>
   <!-- End Google Tag Manager -->
 
 </head>
@@ -238,6 +265,8 @@
                               ?>">
 
   <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNDGDXN8"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
   <?php if (! is_page('uritai')): ?>

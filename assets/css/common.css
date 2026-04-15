@@ -142,7 +142,7 @@ body {
 }
 
 /*============================
-#footer コロコロコロコロ変わりすぎ！！！
+#footer 3,4度デザインが変わり大変でした…
 ============================*/
 .footer .flex {
   padding-bottom: 15px;
@@ -1466,37 +1466,37 @@ main:not(.news).column__title {
   object-fit: cover;
 }
 
-.lower .hero {
+main:not(.company) .lower .hero {
   display: flex;
 }
-.lower .hero__catch {
+main:not(.company) .lower .hero__catch {
   font-weight: 900;
   line-height: 1.2;
   font-size: 4rem;
 }
 @media (max-width: 760px) {
-  .lower .hero__catch {
+  main:not(.company) .lower .hero__catch {
     font-size: 2.5rem;
   }
 }
-.lower .hero__catch {
+main:not(.company) .lower .hero__catch {
   margin-top: 20px;
   margin-left: 30px;
   color: #005fff;
   text-align: left;
 }
-.lower .hero__catch span {
+main:not(.company) .lower .hero__catch span {
   color: #231815;
   font-size: 50%;
 }
 @media (max-width: 1040px) {
-  .lower .hero-numProperty {
+  main:not(.company) .lower .hero-numProperty {
     margin-top: 20px;
     margin-right: 55px;
   }
 }
 @media (max-width: 760px) {
-  .lower .hero-numProperty {
+  main:not(.company) .lower .hero-numProperty {
     margin-right: 0;
   }
 }
@@ -1658,6 +1658,7 @@ main:not(.news).column__title {
   position: absolute;
   gap: 10px;
   right: 5%;
+  z-index: 1;
 }
 @media (min-width: 1041px) {
   .hero-numProperty {

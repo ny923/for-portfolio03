@@ -655,6 +655,7 @@ body {
     }
   }
 
+  // topのみ
   .company {
     font-weight: 900;
     background-color: #dbdbdb;
@@ -1425,10 +1426,6 @@ main:not(.news).column__title {
   }
 
   @include mixin.sp {
-    // .page-numbers {
-    //   display: none;
-    // }
-
     .prev,
     .next {
       display: inline-block;
@@ -1448,7 +1445,7 @@ main:not(.news).column__title {
 }
 
 // 下層ページのみ
-.lower .hero {
+main:not(.company) .lower .hero {
   display: flex;
   &__catch {
     font-weight: 900;
@@ -1635,6 +1632,7 @@ main:not(.news).column__title {
     position: absolute;
     gap: 10px;
     right: 5%;
+    z-index: 1;
     @include mixin.pc {
       top: 30px;
     }
