@@ -7,7 +7,11 @@
 
 .is-company {
 }
-
+.breadcrumbs {
+  @include mixin.sp {
+    margin-top: 40px;
+  }
+}
 .section-hero {
   @include mixin.sp {
     .section-content + .hero__img,
@@ -20,6 +24,9 @@
 .hero {
   &-texts {
     margin-top: 50px;
+    @include mixin.sp {
+      margin-top: 0;
+    }
     position: relative;
     z-index: 1;
     @include mixin.pc {

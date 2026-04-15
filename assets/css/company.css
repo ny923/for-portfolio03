@@ -1,4 +1,10 @@
 @media (max-width: 760px) {
+  .breadcrumbs {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 760px) {
   .section-hero .section-content + .hero__img,
   .section-hero .hero-numProperty {
     display: none;
@@ -7,6 +13,13 @@
 
 .hero-texts {
   margin-top: 50px;
+}
+@media (max-width: 760px) {
+  .hero-texts {
+    margin-top: 0;
+  }
+}
+.hero-texts {
   position: relative;
   z-index: 1;
 }
