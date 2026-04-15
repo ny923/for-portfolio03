@@ -1,0 +1,350 @@
+@charset "UTF-8";
+@use "mixin" as mixin;
+
+// 一旦topのみ
+.section:not(.section-hero, .section-means, .section-map) + .section {
+  padding-top: 100px;
+}
+
+// TOPだけかまだ不明
+.section:not(.section-news, .section-campaign, .section-helpful) .headline {
+  border-top: 3px solid #231815;
+  border-bottom: 1px solid #231815;
+  padding: 15px 0 16px;
+}
+
+.section:not(.section-news, .section-campaign, .section-helpful)
+  .headline__title {
+  font-weight: 900;
+  color: #0042bc;
+  font-size: 2rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.hero {
+  .primary-btn {
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 1.6;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    span {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: normal;
+    }
+  }
+
+  &__img {
+    max-width: 1300px;
+    img {
+      padding-top: 20px;
+      @include mixin.pad {
+        padding-top: 90px;
+      }
+    }
+  }
+
+  &-numProperty {
+    @include mixin.pad {
+      top: 20px;
+      right: 100px;
+    }
+    @include mixin.sp {
+      right: 10px;
+      top: 200px;
+      flex-direction: column;
+    }
+  }
+}
+
+// category, swiper共通はcommonへ
+
+// 新着、おすすめ 共通
+.section-arrival,
+.section-recommend {
+  .headline {
+    @include mixin.sp {
+      max-width: 100%;
+      .headline__text,
+      .text__link {
+        display: none;
+      }
+    }
+  }
+  .headline__img {
+    width: fit-content;
+    margin-inline: auto;
+    margin-top: 65px;
+  }
+
+  @include mixin.pad {
+    .swiper-pagination {
+      display: none;
+    }
+  }
+
+  @include mixin.sp {
+    .section-content.flex {
+      flex-direction: column;
+    }
+
+    // SP側のみ・・・有り
+    .swiper {
+      padding-bottom: 40px;
+    }
+    .swiper-pagination {
+      bottom: 0;
+    }
+  }
+}
+.section-pickup .swiper-wrap,
+.section-arrival .swiper-wrap,
+.section-recommend .swiper-wrap {
+  position: relative;
+}
+
+.useful {
+  padding-top: 50px;
+  gap: 20px;
+  justify-content: center;
+  @include mixin.sp {
+    flex-direction: column;
+    align-items: center;
+  }
+  &-item + .useful-item {
+    margin-top: 40px;
+  }
+  &__tab {
+    background-color: #0042bc;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 13px;
+    font-size: 2.6rem;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+  .buy,
+  .sell {
+    max-width: 47%;
+    background-color: #fff;
+    border-radius: 6px;
+    position: relative;
+    flex: 1;
+    &::before {
+      position: absolute;
+      content: "";
+      height: 80px;
+      display: block;
+      background-repeat: no-repeat;
+      background-size: contain;
+      top: -55px;
+    }
+  }
+  .buy::before {
+    background-image: url(../img/common/titti02.svg);
+    width: 80px;
+  }
+  .sell::before {
+    background-image: url(../img/common/titti.svg);
+    width: 88px;
+    right: 0;
+    top: -62px;
+  }
+  &-list {
+    padding: 25px 35px 35px;
+  }
+  &__title {
+    position: relative;
+    font-size: 1.8rem;
+    font-weight: 600;
+    &::after {
+      position: absolute;
+      margin: auto;
+      content: "";
+      vertical-align: middle;
+      width: 9px;
+      height: 9px;
+      border-top: 2px solid #0042bc;
+      border-right: 2px solid #0042bc;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      right: 0;
+    }
+  }
+}
+
+// topのみ
+.swiper {
+  padding-top: 50px;
+  @include mixin.sp {
+    padding-top: 15px;
+  }
+  &-wrapper {
+    padding-top: 15px;
+  }
+  &-slide {
+    height: auto;
+  }
+  .swiper-slide-item {
+    height: 100%;
+  }
+}
+
+.section-arrival,
+.section-recommend {
+  .text__link02 {
+    @include mixin.sp {
+      display: none;
+    }
+  }
+}
+
+.section-column {
+  .text__link02 {
+    margin-top: -30px;
+  }
+}
+.column {
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 30px 0;
+  }
+  &-item {
+    max-width: 19%;
+    @include mixin.pad {
+      max-width: 24%;
+    }
+    @include mixin.sp {
+      max-width: 100%; //48%
+    }
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    position: relative;
+  }
+  &__img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  &__time {
+    position: absolute;
+    bottom: 10px;
+  }
+}
+
+// ピックアップ
+.section-pickup {
+  margin-top: 50px;
+}
+.pickup {
+  &.swiper {
+    overflow-y: initial;
+    padding-bottom: 40px;
+  }
+  .swiper-pagination {
+    bottom: 0;
+  }
+}
+
+// キャンペーン 2箇所共通
+.section-campaign,
+.section-helpful {
+  position: relative;
+  .headline__title {
+    font-weight: 900;
+    color: #0042bc;
+    font-size: 2rem;
+    text-align: center;
+    padding: 12px 0 14px;
+    background-color: #fff;
+    border: 4px solid #231815;
+    border-radius: 50px;
+    max-width: 456px;
+    margin-inline: auto;
+    z-index: 1;
+    width: 100%;
+    left: 50%;
+    @include mixin.pad {
+      border-width: 2px;
+      font-size: 1.7rem;
+      max-width: max-content;
+      padding-inline: 50px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      top: 80px;
+    }
+  }
+  .headline {
+    margin-bottom: 20px;
+  }
+}
+
+// お知らせ
+.section-news {
+  .section-content > .flex {
+    align-items: center;
+    @include mixin.sp {
+      flex-direction: column;
+      align-items: initial;
+    }
+  }
+  .headline__title {
+    color: #fff;
+    font-weight: 900;
+    background-color: #0042bc;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    padding: 2px 40px 4px;
+    width: fit-content;
+  }
+  .flex:has(.headline) {
+    gap: 40px;
+    @include mixin.pad {
+      gap: 5px;
+    }
+  }
+  @include mixin.pc {
+    .content {
+      width: 50%;
+    }
+  }
+}
+.news {
+  &__time,
+  &__title {
+    font-size: 1.5rem;
+    @include mixin.sp {
+      font-size: 1.2rem;
+    }
+    font-weight: bold;
+  }
+
+  &-item {
+    > .flex {
+      gap: 100px;
+      @include mixin.sp {
+        gap: 20px;
+      }
+    }
+    position: relative;
+    &::after {
+      position: absolute;
+      margin: auto;
+      content: "";
+      vertical-align: middle;
+      width: 9px;
+      height: 9px;
+      border-top: 1px solid #231815;
+      border-right: 1px solid #231815;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      right: 0;
+    }
+  }
+}

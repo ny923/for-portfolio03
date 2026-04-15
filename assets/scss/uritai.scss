@@ -1,0 +1,689 @@
+@charset "UTF-8";
+@use "mixin" as mixin;
+
+// このページのみのheader, footer, etc...
+// 大変でした。。。
+.is-uritai {
+  .section + section:not(.section-strength) {
+    margin-top: 80px;
+  }
+
+  .site-main {
+    max-width: 100%;
+    margin-left: 0;
+    background-color: initial;
+  }
+  .section-contact {
+    background-color: #ededed;
+    padding: 10px 0;
+    .section-content {
+      justify-content: center;
+      @include mixin.pad {
+        flex-direction: column;
+      }
+    }
+
+    input:not(.primary-btn, [type="radio"]),
+    textarea {
+      background-color: #fff;
+    }
+    // formのみ
+    .headline__title {
+      margin-top: 25px;
+    }
+  }
+
+  // 全体
+  .headline {
+    text-align: -webkit-center;
+
+    &__title,
+    &__text {
+      font-weight: bold;
+    }
+  }
+
+  .section:is(.section-contact, .section-strength) .headline__title,
+  .section:is(.section-contact, .section-strength) .headline__text {
+    @include mixin.pc {
+      writing-mode: vertical-rl;
+    }
+  }
+
+  .headline__title span,
+  .headline__text span {
+    color: #458ee9;
+  }
+
+  .headline__title,
+  .headline__text {
+    @include mixin.sp {
+      text-align: left;
+    }
+  }
+
+  .headline__title {
+    font-family: serif;
+    font-size: 5rem;
+    @include mixin.sp {
+      font-size: 3rem !important;
+    }
+  }
+  .headline__text {
+    @include mixin.sp {
+      font-size: 1.8rem !important;
+    }
+  }
+  .contact {
+    background-color: initial;
+    border: none;
+  }
+}
+
+.section-fv {
+  @include mixin.pc {
+    border-top: 20px solid#458ee9;
+  }
+
+  // 逆角丸
+  .corner {
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      left: -30px;
+    }
+    &::before {
+      background-color: #fff;
+      border-top-right-radius: 50px;
+      z-index: 1;
+    }
+    &::after {
+      background-color: #458ee9;
+    }
+  }
+}
+.fv {
+  > .flex {
+    @include mixin.sp {
+      position: relative;
+    }
+  }
+  &__catch {
+    writing-mode: vertical-rl;
+    font-family: serif;
+    font-size: 5.7rem;
+    margin-top: 40px;
+    @include mixin.sp {
+      font-size: 2.6rem;
+      position: absolute;
+      right: 0;
+    }
+  }
+  &__img {
+    max-width: 965px;
+    @include mixin.sp {
+      position: relative;
+    }
+  }
+
+  &__logo {
+    margin-top: 20px;
+    img {
+      max-width: 200px;
+      @include mixin.sp {
+        max-width: 100px;
+      }
+    }
+  }
+  &__name {
+    font-size: 2.6rem;
+    @include mixin.sp {
+      font-size: 1.2rem;
+    }
+  }
+  &-info {
+    text-align: right;
+    background-color: #458ee9;
+    color: #fff;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-left: auto;
+    width: fit-content;
+    padding: 0 55px 25px;
+
+    position: relative;
+  }
+
+  &-info__link {
+    margin-left: auto;
+    display: block;
+    color: #fff;
+    border-bottom: 2px solid #fde200;
+    width: fit-content;
+    &.logo::after,
+    &.mail::after {
+      content: "";
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-position: center;
+      vertical-align: middle;
+      margin-left: 5px;
+    }
+
+    &.logo::after {
+      background-image: url(../img/uritai/logo.png);
+    }
+    &.mail::after {
+      background-image: url(../img/uritai/mail.png);
+    }
+  }
+  &-info__tel {
+    font-size: 3rem;
+    span {
+      font-size: 1.8rem;
+    }
+  }
+  &-info__text {
+    font-size: 0.9rem;
+  }
+
+  &__lead {
+    margin-inline: auto;
+    width: fit-content;
+    margin-top: 10px;
+  }
+  position: relative;
+
+  &__float {
+    max-width: 240px;
+    position: absolute;
+    right: 0;
+    @include mixin.pc {
+      bottom: 0;
+    }
+    @include mixin.sp {
+      max-width: 84px;
+      top: -58px;
+    }
+  }
+}
+
+.section-promise {
+  background-color: #f2ede3;
+  padding: 50px 0;
+  .headline__title {
+    text-align: left;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+  }
+}
+.promise {
+  &-texts {
+    .promise__text {
+      @include mixin.pc {
+        font-size: 2rem;
+      }
+    }
+  }
+  &__img {
+    max-width: 440px;
+  }
+  &__text + &__text {
+    margin-top: 20px;
+  }
+  &__link {
+    width: fit-content;
+    display: block;
+    margin-left: auto;
+    border-bottom: 1px solid #458ee9;
+    padding-right: 10px;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      margin: auto;
+      width: 9px;
+      height: 9px;
+      border-top: 1px solid #458ee9;
+      border-right: 1px solid #458ee9;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
+  }
+  .flex:has(.headline) {
+    @include mixin.sp {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  .flex:has(.promise-staff) {
+    gap: 10px;
+  }
+  &-staff {
+    margin-top: 20px;
+    .promise__text {
+      font-weight: bold;
+    }
+    @include mixin.sp {
+      font-size: 1.2rem;
+    }
+  }
+  &__name {
+    font-size: initial;
+    @include mixin.sp {
+      font-size: 1.2rem;
+    }
+  }
+  &-staff__img {
+    img {
+      border-radius: 6px;
+      @include mixin.sp {
+        object-fit: cover;
+        aspect-ratio: 1;
+      }
+    }
+  }
+}
+
+.section-strength {
+  background-color: #ededed;
+  padding: 50px 0;
+  .section-content {
+    gap: 40px;
+    @include mixin.sp {
+      flex-direction: column;
+    }
+  }
+}
+.strength {
+  &__catch {
+    padding: 5px 30px 7px;
+    line-height: 1;
+    @include mixin.pc {
+      font-size: 3rem;
+    }
+    width: fit-content;
+    color: #79a22d;
+    border-top: 1px solid #79a22d;
+    border-bottom: 1px solid #79a22d;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-left: 1px solid #79a22d;
+      border-right: 1px solid #79a22d;
+      transform: skewX(-15deg);
+    }
+  }
+  &-sect {
+    display: flex;
+    background-color: #fff;
+    border: 3px solid #f2ede3;
+    padding: 30px 40px;
+    border-radius: 10px;
+    @include mixin.sp {
+      flex-direction: column;
+    }
+    &:nth-of-type(odd) {
+      .strength__catch {
+        color: #458ee9;
+        border-top-color: #458ee9;
+        border-bottom-color: #458ee9;
+        &::before {
+          border-left-color: #458ee9;
+          border-right-color: #458ee9;
+        }
+      }
+    }
+    & + .strength-sect {
+      margin-top: 20px;
+    }
+  }
+
+  &__title {
+    margin-top: 6px;
+    font-weight: bold;
+    font-size: 2.2rem;
+    @include mixin.sp {
+      font-size: initial;
+    }
+  }
+  &__img {
+    max-width: 260px;
+  }
+}
+
+.section-flow {
+}
+.flow {
+  &-step {
+    .flex {
+      align-items: center;
+      gap: 20px;
+    }
+    &:nth-of-type(odd) {
+      .flow__title {
+        color: #79a22d;
+        border-bottom-color: #79a22d;
+      }
+    }
+  }
+  &__title {
+    color: #458ee9;
+    border-bottom: 1px solid #458ee9;
+    width: fit-content;
+    font-weight: bold;
+  }
+  &__img.icon {
+    max-width: 80px;
+  }
+  &__img.line {
+    max-width: 5px;
+    margin-inline: auto;
+  }
+  &-imgs {
+    gap: 10px;
+    margin-top: 20px;
+    @include mixin.sp {
+      flex-direction: column;
+    }
+    .flow__img {
+      outline: 1px solid #231815;
+    }
+  }
+}
+
+.section-regret {
+  .headline__title {
+    font-size: 4.5rem;
+  }
+  .headline__text {
+    font-size: 3.5rem;
+    font-family: serif;
+  }
+}
+.regret {
+  &__lead {
+    font-weight: bold;
+  }
+  &-item {
+    border-bottom: 1px dashed #ededed;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @include mixin.pc {
+      padding-inline: 50px;
+    }
+    &:nth-of-type(odd) {
+      .regret-list__title,
+      .regret__title {
+        font-weight: bold;
+      }
+      .regret__title {
+        border-bottom-color: #79a22d;
+      }
+      .regret-list__title {
+        color: #79a22d;
+      }
+      .regret-list__title i {
+        background-color: #79a22d;
+      }
+    }
+  }
+
+  &-descript {
+    margin-top: 20px;
+    & > .flex {
+      gap: 15px;
+      @include mixin.sp {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .regret-list__title,
+  &__title {
+    font-weight: bold;
+  }
+  &__title {
+    white-space: nowrap;
+    padding-inline: 10px;
+    border-bottom: 3px solid #458ee9;
+    line-height: 1;
+    height: fit-content;
+    @include mixin.sp {
+      width: fit-content;
+    }
+  }
+  .regret-list__title {
+    color: #458ee9;
+    @include mixin.pc {
+      font-size: 2.8rem;
+    }
+  }
+  .regret-list__title i {
+    background-color: #458ee9;
+    color: #fff;
+    border-radius: 50px;
+    font-style: normal;
+    padding: 0px 12px 3px;
+    font-weight: normal;
+    @include mixin.pc {
+      font-size: 2.2rem;
+    }
+  }
+}
+
+.section-contact {
+  .headline__text {
+    @include mixin.pc {
+      margin-top: 40px;
+      font-feature-settings: "pkna";
+    }
+  }
+}
+.contact {
+  @include mixin.sp {
+    padding: 0 !important;
+  }
+  &__title,
+  &__detail {
+    display: block;
+  }
+  &__title {
+    max-width: 100% !important;
+    span {
+      color: #458ee9 !important;
+      border: 1px solid #458ee9;
+      margin-left: 5px;
+      padding: 0 4px 3px;
+    }
+  }
+
+  input[type="radio"] {
+    appearance: none;
+    background-color: #fff;
+    width: 38px;
+    height: 38px;
+    border: 6px solid #dbdbdb;
+    border-radius: 50%;
+    margin-bottom: -12px;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 60%;
+      height: 60%;
+      margin: 20% auto;
+      border-radius: 50%;
+    }
+
+    &:checked:before {
+      background: #458ee9;
+    }
+  }
+  span:has(input[type="radio"]) {
+    @include mixin.sp {
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
+
+  select {
+    background-color: #fff;
+    margin-left: 20px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+  .primary-btn {
+    @include mixin.pc {
+      font-size: 2.5rem;
+      font-weight: normal;
+    }
+    background-color: #458ee9;
+  }
+}
+
+.section-map {
+  .headline__title {
+    @include mixin.sp {
+      text-align: center;
+    }
+  }
+}
+
+.section-lp_footer {
+  .headline {
+    display: flex;
+    align-items: center;
+    @include mixin.pc {
+      gap: 20px;
+    }
+    @include mixin.sp {
+      flex-direction: column;
+    }
+  }
+
+  .headline__title {
+    font-size: 5.8rem;
+    @include mixin.sp {
+      font-size: 3.5rem !important;
+    }
+    &::before {
+      vertical-align: middle;
+      content: "";
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      background-image: url(../img/common/favicon.png);
+      background-repeat: no-repeat;
+      background-size: 80px;
+      background-position: center;
+      margin-right: 10px;
+      @include mixin.sp {
+        width: 45px;
+        height: 45px;
+        background-size: 45px;
+      }
+    }
+  }
+  .headline__address {
+    font-size: 2.1rem;
+    text-align: left;
+    @include mixin.sp {
+      font-size: 0.8rem;
+      margin-right: auto;
+    }
+  }
+}
+.lp_footer {
+  .flex {
+    justify-content: center;
+    @include mixin.pc {
+      gap: 20px;
+    }
+    &:has(.lp_footer__tel) {
+      align-items: flex-end;
+      @include mixin.sp {
+        flex-direction: column;
+      }
+    }
+    @include mixin.sp {
+      margin-top: 10px;
+    }
+  }
+  &__text,
+  &__tel,
+  &__close {
+    line-height: 1;
+  }
+
+  &__text {
+    margin-right: auto;
+    @include mixin.pc {
+      font-size: 3.8rem;
+    }
+  }
+  &__tel {
+    font-size: 7rem;
+    @include mixin.sp {
+      font-size: 4rem;
+      font-weight: bold;
+    }
+    color: #458ee9;
+
+    margin-inline: auto;
+    span {
+      font-size: 4.5rem;
+      @include mixin.sp {
+        font-size: 2.6rem;
+      }
+    }
+  }
+  &__time {
+    color: #458ee9;
+    font-size: 3.8rem;
+    @include mixin.sp {
+      font-size: 1.2rem;
+    }
+  }
+  &__close {
+    background-color: #458ee9;
+    color: #fff;
+    font-size: 2.6rem;
+    height: fit-content;
+    padding: 10px 20px 13px;
+    @include mixin.pc {
+      margin-top: 10px;
+    }
+    @include mixin.sp {
+      padding: 5px;
+      font-size: 0.8rem;
+    }
+  }
+  &__info {
+    font-size: 1.8rem;
+    @include mixin.sp {
+      font-size: 0.8rem;
+    }
+  }
+  &__copy {
+    font-size: 1.4rem;
+    @include mixin.sp {
+      text-align: right;
+      font-size: 0.8rem;
+    }
+  }
+}
