@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.47 12.47">
+<svg id="_レイヤー_2" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 12.5 12.5">
+  <!-- Generator: Adobe Illustrator 30.3.0, SVG Export Plug-In . SVG Version: 2.1.3 Build 182)  -->
   <defs>
     <style>
-      .cls-1 {
-        fill: #0042bc;
+      .st0 {
+        fill: #1879f7;
       }
 
-      .cls-2 {
+      .st1 {
         fill: none;
         stroke: #fff;
         stroke-linecap: round;
@@ -16,8 +17,8 @@
   </defs>
   <g id="L">
     <g id="arrow">
-      <circle class="cls-1" cx="6.24" cy="6.24" r="6.24"/>
-      <polyline class="cls-2" points="5.05 3.87 7.42 6.24 5.05 8.6"/>
+      <circle class="st0" cx="6.2" cy="6.2" r="6.2"/>
+      <polyline class="st1" points="5.1 3.9 7.4 6.2 5.1 8.6"/>
     </g>
   </g>
 </svg>

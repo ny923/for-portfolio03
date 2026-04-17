@@ -34,7 +34,7 @@
   margin-right: 3px;
 }
 .is-column .sidebar-list :not(a) {
-  color: #458ee9;
+  color: #1879f7;
 }
 .is-column .section-hero + .flex {
   padding-top: 20px;
@@ -90,7 +90,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   padding: 40px 0 10px;
 }
 .archive .headline__title {
-  color: #005fff;
+  color: #1879f7;
   text-align: center;
   font-weight: bold;
 }
@@ -145,7 +145,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   }
 }
 .archive .column .swiper-slide-item .column__title {
-  font-size: 2.1rem;
+  font-size: 2rem;
 }
 .archive .column-list {
   display: flex;
@@ -163,7 +163,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   }
 }
 .archive .column-item .category {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin-top: 10px;
 }
 
@@ -183,15 +183,15 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   padding-bottom: 30px;
   font-size: 2.6rem;
   line-height: 1.5;
-  color: #004fa3;
+  color: #1879f7;
 }
 .site-main:not(.archive, .news) .column__title {
-  font-size: 3.5rem;
+  font-size: 3.4rem;
 }
 .site-main:not(.archive, .news) .column h2.column__title {
-  border-bottom: 1px solid #004fa3;
+  border-bottom: 1px solid #1879f7;
   padding-bottom: 3px;
-  font-size: 2.2rem;
+  font-size: 2.4rem;
 }
 .site-main:not(.archive, .news) .column h3.column__title {
   font-size: 1.8rem;
@@ -222,7 +222,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
 .site-main:not(.archive, .news) .column th {
   font-size: 1.2rem;
   font-weight: normal;
-  background-color: #458ee9;
+  background-color: #1879f7;
   color: #fff;
   text-align: left;
   padding: 10px 15px;
@@ -306,7 +306,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   margin-inline: auto;
 }
 .process-buy .headline__title {
-  background-color: #004fa3;
+  background-color: #1879f7;
   color: #fff;
   font-weight: 600;
   padding-top: 10px;
@@ -318,7 +318,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   background-color: #fff;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
-  border: 2px solid #004fa3;
+  border: 2px solid #1879f7;
   padding: 20px 30px;
 }
 .process-buy .column__item {
@@ -343,8 +343,8 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
 }
 .process-buy .arrow {
   background-color: #fff;
-  border-left: 2px solid #282828;
-  border-right: 2px solid #282828;
+  border-left: 2px solid #232323;
+  border-right: 2px solid #232323;
   position: relative;
 }
 .process-buy .icon {
@@ -368,10 +368,10 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   font-weight: bold;
 }
 .process-buy .flow__title span {
-  background-color: #004fa3;
+  background-color: #1879f7;
   color: #fff;
   padding: 0 6px 4px;
-  border-radius: 4px;
+  border-radius: 3px;
   margin-right: 6px;
   font-size: 1.6rem;
 }
@@ -396,10 +396,10 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   background-color: #ffb700;
 }
 .process-sale .contract02 {
-  background-color: #a1c6ed;
+  background-color: rgba(69, 142, 233, 0.5);
 }
 .process-sale .contract03 {
-  background-color: #e4eff7;
+  background-color: rgba(69, 142, 233, 0.2);
 }
 .process-sale .hukidasi {
   margin-top: 15px;
@@ -407,8 +407,8 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   display: inline-block;
   margin-bottom: 20px;
   padding: 16px;
-  border-radius: 4px;
-  background-color: #e4eff7;
+  border-radius: 3px;
+  background-color: rgba(69, 142, 233, 0.2);
   text-align: left;
   font-size: 16px;
   font-weight: 400;
@@ -422,7 +422,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   left: 50%;
   border-style: solid;
   border-width: 20px 10px 0 10px;
-  border-color: #e4eff7 transparent transparent;
+  border-color: rgba(69, 142, 233, 0.2) transparent transparent;
   translate: -50% 100%;
 }
 .process-sale .merit,
@@ -431,22 +431,22 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   color: #fff;
   padding: 5px 8px 7px;
   line-height: 1;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 .process-sale .merit {
   background-color: #ff5b76;
 }
 .process-sale .demerit {
-  background-color: #004fa3;
+  background-color: #1879f7;
 }
 .process-sale .exclusive {
   background-color: #ffb700;
 }
 .process-sale .agreement {
-  background-color: #a1c6ed;
+  background-color: rgba(69, 142, 233, 0.5);
 }
 .process-sale .general {
-  background-color: #e4eff7;
+  background-color: rgba(69, 142, 233, 0.2);
 }
 .process-sale .flow__title {
   font-weight: bold;
@@ -470,7 +470,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   background-color: #ffb700;
 }
 .process-sale .receive {
-  background-color: #004fa3;
+  background-color: #1879f7;
   color: #fff;
 }
 .process-sale .arrow01.last,
@@ -490,31 +490,31 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   border-style: solid;
   border-right: 19px solid transparent;
   border-left: 19px solid transparent;
-  border-top: 15px solid #e4eff7;
+  border-top: 15px solid rgba(69, 142, 233, 0.2);
   border-bottom: 0;
   left: 0;
   bottom: -15px;
   z-index: 1;
 }
 .process-sale .arrow01 {
-  background-color: #e4eff7;
+  background-color: rgba(69, 142, 233, 0.2);
 }
 .process-sale .arrow02 {
-  background-color: #a1c6ed;
+  background-color: rgba(69, 142, 233, 0.5);
 }
 .process-sale .arrow02::after {
-  border-top-color: #a1c6ed;
+  border-top-color: rgba(69, 142, 233, 0.5);
 }
 .process-sale .arrow03 {
-  background-color: #004fa3;
+  background-color: #1879f7;
 }
 .process-sale .arrow03::after {
-  border-top-color: #004fa3;
+  border-top-color: #1879f7;
 }
 .process-sale .flow__finish {
   font-weight: bold;
   font-size: 3.4rem;
-  color: #004fa3;
+  color: #1879f7;
   position: relative;
   width: fit-content;
   line-height: 1;
@@ -527,7 +527,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   display: inline-block;
   width: 2px;
   height: 45px;
-  background-color: #004fa3;
+  background-color: #1879f7;
 }
 .process-sale .flow__finish::before {
   transform: rotate(-35deg);
@@ -563,11 +563,11 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   aspect-ratio: 1;
   border-radius: 100px;
   overflow: hidden;
-  border: 2px solid #282828;
+  border: 2px solid #232323;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 .staff__position {
-  color: #004fa3;
+  color: #1879f7;
   font-weight: bold;
   font-size: 1.4rem;
 }
@@ -617,7 +617,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
 .staff-detail .staff__position {
   position: absolute;
   top: -18px;
-  background-color: #004fa3;
+  background-color: #1879f7;
   color: #fff;
   padding: 6px 15px;
   font-weight: normal;
@@ -630,32 +630,32 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   left: 50%;
   border-style: solid;
   border-width: 12px 10px 0 10px;
-  border-color: #004fa3 transparent transparent;
+  border-color: #1879f7 transparent transparent;
   translate: -50% 100%;
 }
 .staff-detail .staff__name {
   font-size: 2.4rem;
 }
 .staff__ruby {
-  color: #004fa3;
+  color: #1879f7;
   font-size: 1.2rem;
   padding-left: 15px;
 }
 .staff__title {
-  color: #004fa3;
+  color: #1879f7;
   font-size: 1.8rem;
   font-weight: 500;
-  border-bottom: 1px solid #e4eff7;
+  border-bottom: 1px solid rgba(69, 142, 233, 0.2);
   padding-bottom: 4px;
 }
 .staff__title.column {
-  background-color: #004fa3;
+  background-color: #1879f7;
   color: #fff;
   width: fit-content;
   font-size: 1.2rem;
   padding: 4px 10px 6px;
   margin-bottom: 15px;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 .staff__name + .staff__title {
   margin-top: 15px;
@@ -670,7 +670,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
 }
 
 .faq__question {
-  background-color: #004fa3;
+  background-color: #1879f7;
   color: #fff;
   padding: 5px 15px 7px 65px;
   position: relative;
@@ -714,8 +714,8 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   content: "";
   width: 9px;
   height: 9px;
-  border-top: 1px solid #458ee9;
-  border-right: 1px solid #458ee9;
+  border-top: 1px solid #1879f7;
+  border-right: 1px solid #1879f7;
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
   right: 0;

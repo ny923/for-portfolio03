@@ -39,7 +39,7 @@
 }
 .is-uritai .headline__title span,
 .is-uritai .headline__text span {
-  color: #458ee9;
+  color: #1879f7;
 }
 @media (max-width: 760px) {
   .is-uritai .headline__title,
@@ -68,7 +68,7 @@
 
 @media (min-width: 1041px) {
   .section-fv {
-    border-top: 20px solid #458ee9;
+    border-top: 20px solid #1879f7;
   }
 }
 .section-fv .corner::before, .section-fv .corner::after {
@@ -86,7 +86,7 @@
   z-index: 1;
 }
 .section-fv .corner::after {
-  background-color: #458ee9;
+  background-color: #1879f7;
 }
 
 @media (max-width: 760px) {
@@ -97,7 +97,7 @@
 .fv__catch {
   writing-mode: vertical-rl;
   font-family: serif;
-  font-size: 5.7rem;
+  font-size: 5.6rem;
   margin-top: 40px;
 }
 @media (max-width: 760px) {
@@ -136,7 +136,7 @@
 }
 .fv-info {
   text-align: right;
-  background-color: #458ee9;
+  background-color: #1879f7;
   color: #fff;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -176,7 +176,7 @@
   font-size: 1.8rem;
 }
 .fv-info__text {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 .fv__lead {
   margin-inline: auto;
@@ -209,7 +209,7 @@
 }
 .section-promise .headline__title {
   text-align: left;
-  font-size: 3.5rem;
+  font-size: 3.4rem;
   margin-bottom: 20px;
 }
 
@@ -228,7 +228,7 @@
   width: fit-content;
   display: block;
   margin-left: auto;
-  border-bottom: 1px solid #458ee9;
+  border-bottom: 1px solid #1879f7;
   padding-right: 10px;
   position: relative;
 }
@@ -238,8 +238,8 @@
   margin: auto;
   width: 9px;
   height: 9px;
-  border-top: 1px solid #458ee9;
-  border-right: 1px solid #458ee9;
+  border-top: 1px solid #1879f7;
+  border-right: 1px solid #1879f7;
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
 }
@@ -305,9 +305,9 @@
 }
 .strength__catch {
   width: fit-content;
-  color: #79a22d;
-  border-top: 1px solid #79a22d;
-  border-bottom: 1px solid #79a22d;
+  color: #62c0b4;
+  border-top: 1px solid #62c0b4;
+  border-bottom: 1px solid #62c0b4;
   position: relative;
 }
 .strength__catch::before {
@@ -317,8 +317,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border-left: 1px solid #79a22d;
-  border-right: 1px solid #79a22d;
+  border-left: 1px solid #62c0b4;
+  border-right: 1px solid #62c0b4;
   transform: skewX(-15deg);
 }
 .strength-sect {
@@ -326,7 +326,7 @@
   background-color: #fff;
   border: 3px solid #f2ede3;
   padding: 30px 40px;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 @media (max-width: 760px) {
   .strength-sect {
@@ -334,13 +334,13 @@
   }
 }
 .strength-sect:nth-of-type(odd) .strength__catch {
-  color: #458ee9;
-  border-top-color: #458ee9;
-  border-bottom-color: #458ee9;
+  color: #1879f7;
+  border-top-color: #1879f7;
+  border-bottom-color: #1879f7;
 }
 .strength-sect:nth-of-type(odd) .strength__catch::before {
-  border-left-color: #458ee9;
-  border-right-color: #458ee9;
+  border-left-color: #1879f7;
+  border-right-color: #1879f7;
 }
 .strength-sect + .strength-sect {
   margin-top: 20px;
@@ -364,12 +364,12 @@
   gap: 20px;
 }
 .flow-step:nth-of-type(odd) .flow__title {
-  color: #79a22d;
-  border-bottom-color: #79a22d;
+  color: #62c0b4;
+  border-bottom-color: #62c0b4;
 }
 .flow__title {
-  color: #458ee9;
-  border-bottom: 1px solid #458ee9;
+  color: #1879f7;
+  border-bottom: 1px solid #1879f7;
   width: fit-content;
   font-weight: bold;
 }
@@ -390,14 +390,14 @@
   }
 }
 .flow-imgs .flow__img {
-  outline: 1px solid #231815;
+  outline: 1px solid #232323;
 }
 
 .section-regret .headline__title {
-  font-size: 4.5rem;
+  font-size: 4.4rem;
 }
 .section-regret .headline__text {
-  font-size: 3.5rem;
+  font-size: 3.4rem;
   font-family: serif;
 }
 
@@ -419,13 +419,13 @@
   font-weight: bold;
 }
 .regret-item:nth-of-type(odd) .regret__title {
-  border-bottom-color: #79a22d;
+  border-bottom-color: #62c0b4;
 }
 .regret-item:nth-of-type(odd) .regret-list__title {
-  color: #79a22d;
+  color: #62c0b4;
 }
 .regret-item:nth-of-type(odd) .regret-list__title i {
-  background-color: #79a22d;
+  background-color: #62c0b4;
 }
 .regret-descript {
   margin-top: 20px;
@@ -444,7 +444,7 @@
 .regret__title {
   white-space: nowrap;
   padding-inline: 10px;
-  border-bottom: 3px solid #458ee9;
+  border-bottom: 3px solid #1879f7;
   line-height: 1;
   height: fit-content;
 }
@@ -454,7 +454,7 @@
   }
 }
 .regret .regret-list__title {
-  color: #458ee9;
+  color: #1879f7;
 }
 @media (min-width: 1041px) {
   .regret .regret-list__title {
@@ -462,9 +462,9 @@
   }
 }
 .regret .regret-list__title i {
-  background-color: #458ee9;
+  background-color: #1879f7;
   color: #fff;
-  border-radius: 50px;
+  border-radius: 40px;
   font-style: normal;
   padding: 0px 12px 3px;
   font-weight: normal;
@@ -494,8 +494,8 @@
   max-width: 100% !important;
 }
 .contact__title span {
-  color: #458ee9 !important;
-  border: 1px solid #458ee9;
+  color: #1879f7 !important;
+  border: 1px solid #1879f7;
   margin-left: 5px;
   padding: 0 4px 3px;
 }
@@ -517,7 +517,7 @@
   border-radius: 50%;
 }
 .contact input[type=radio]:checked:before {
-  background: #458ee9;
+  background: #1879f7;
 }
 @media (max-width: 760px) {
   .contact span:has(input[type=radio]) {
@@ -529,16 +529,16 @@
   background-color: #fff;
   margin-left: 20px;
   padding: 12px;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 @media (min-width: 1041px) {
   .contact .primary-btn {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     font-weight: normal;
   }
 }
 .contact .primary-btn {
-  background-color: #458ee9;
+  background-color: #1879f7;
 }
 
 @media (max-width: 760px) {
@@ -566,7 +566,7 @@
 }
 @media (max-width: 760px) {
   .section-lp_footer .headline__title {
-    font-size: 3.5rem !important;
+    font-size: 3.4rem !important;
   }
 }
 .section-lp_footer .headline__title::before {
@@ -589,7 +589,7 @@
   }
 }
 .section-lp_footer .headline__address {
-  font-size: 2.1rem;
+  font-size: 2rem;
   text-align: left;
 }
 @media (max-width: 760px) {
@@ -632,7 +632,7 @@
   }
 }
 .lp_footer__tel {
-  font-size: 7rem;
+  font-size: 6.8rem;
 }
 @media (max-width: 760px) {
   .lp_footer__tel {
@@ -641,11 +641,11 @@
   }
 }
 .lp_footer__tel {
-  color: #458ee9;
+  color: #1879f7;
   margin-inline: auto;
 }
 .lp_footer__tel span {
-  font-size: 4.5rem;
+  font-size: 4.4rem;
 }
 @media (max-width: 760px) {
   .lp_footer__tel span {
@@ -653,7 +653,7 @@
   }
 }
 .lp_footer__time {
-  color: #458ee9;
+  color: #1879f7;
   font-size: 3.8rem;
 }
 @media (max-width: 760px) {
@@ -662,7 +662,7 @@
   }
 }
 .lp_footer__close {
-  background-color: #458ee9;
+  background-color: #1879f7;
   color: #fff;
   font-size: 2.6rem;
   height: fit-content;

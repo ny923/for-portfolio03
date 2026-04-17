@@ -4,9 +4,12 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
+:root {
+}
+
 body {
   background-color: #fff;
-  color: #231815;
+  color: #232323;
 }
 
 .wrap.flex {
@@ -69,7 +72,7 @@ body {
   font-weight: 900;
   border-radius: 6px;
   line-height: 1;
-  background-color: #005fff;
+  background-color: #1879f7;
   color: #fff;
   transition: 0.3s;
   position: relative;
@@ -84,7 +87,7 @@ body {
 
   padding: 14px 25px 16px;
   margin-top: 8px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   &::after {
     content: none;
   }
@@ -95,7 +98,7 @@ body {
 ============================*/
 .breadcrumbs {
   text-align: left;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   padding-top: 15px;
   @include mixin.sp {
     padding-top: 50px;
@@ -108,7 +111,7 @@ body {
       display: inline-block;
       vertical-align: middle;
       padding-top: 1px;
-      color: #231815;
+      color: #232323;
       letter-spacing: 0.1em;
 
       &:after {
@@ -123,7 +126,7 @@ body {
       }
 
       a {
-        color: #231815;
+        color: #232323;
       }
 
       &:last-of-type a span {
@@ -163,7 +166,7 @@ body {
       .footer-wrap {
         flex: 3;
         .footer__text {
-          font-size: 0.6rem;
+          font-size: 0.8rem;
         }
       }
     }
@@ -184,7 +187,7 @@ body {
     margin-top: 50px;
     align-items: center;
     display: flex;
-    gap: 18px;
+    gap: 10px;
     padding-bottom: 20px;
 
     @include mixin.sp {
@@ -199,10 +202,10 @@ body {
   }
   &__logo-name {
     font-weight: 900;
-    font-size: 4.2rem;
+    font-size: 4rem;
     line-height: 1;
     @include mixin.sp {
-      font-size: 2.1rem;
+      font-size: 2rem;
     }
   }
 
@@ -211,7 +214,7 @@ body {
   }
 
   &__title {
-    font-size: 1rem;
+    font-size: 1.2rem;
     @include mixin.sp {
       font-size: initial;
     }
@@ -220,9 +223,9 @@ body {
 
   &-links a {
     display: inline-block;
-    font-size: 1rem;
+    font-size: 1.2rem;
     position: relative;
-    font-weight: 900;
+    font-weight: 700;
     @include mixin.sp {
       width: 100%;
       font-size: initial;
@@ -236,8 +239,8 @@ body {
       vertical-align: middle;
       width: 6px;
       height: 6px;
-      border-top: 1px solid #005fff;
-      border-right: 1px solid #005fff;
+      border-top: 1px solid #1879f7;
+      border-right: 1px solid #1879f7;
       top: 50%;
       transform: translateY(-50%) rotate(45deg);
       left: -15px;
@@ -249,7 +252,7 @@ body {
   }
 
   .copyright {
-    font-size: 0.7rem;
+    font-size: 1.2rem;
     @include mixin.sp {
       line-height: 1.5;
       padding-top: 10px;
@@ -259,13 +262,12 @@ body {
   &__text {
     line-height: 1.5;
     font-size: 1.2rem;
-    font-weight: bold;
-
-    @include mixin.sp {
-      font-size: 1rem;
-    }
+    font-weight: 700;
+    // @include mixin.sp {
+    //   font-size: 1.2rem;
+    // }
     span {
-      background-color: #458ee9;
+      background-color: #1879f7;
       color: #fff;
       padding: 1px 10px 3px;
       border-radius: 3px;
@@ -301,7 +303,7 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 1px solid #005fff;
+  border: 1px solid #1879f7;
   z-index: 1;
   &::after {
     position: absolute;
@@ -315,8 +317,8 @@ body {
     top: 3px;
     width: 11px;
     height: 11px;
-    border-top: 1px solid #005fff;
-    border-right: 1px solid #005fff;
+    border-top: 1px solid #1879f7;
+    border-right: 1px solid #1879f7;
     transform: rotate(-45deg);
   }
 
@@ -370,7 +372,7 @@ body {
       }
 
       span {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         display: block;
         padding-top: 10px;
         font-weight: 900;
@@ -394,11 +396,11 @@ body {
     }
     .contact__text {
       margin-top: 15px;
-      font-size: 1rem;
-      font-weight: 900;
-      @include mixin.pad {
-        font-size: 1.2rem;
-      }
+      font-size: 1.2rem;
+      font-weight: 700;
+      // @include mixin.pad {
+      //   font-size: 1.2rem;
+      // }
     }
     .contact__tel {
       font-weight: 800;
@@ -410,13 +412,13 @@ body {
       }
     }
     .contact__info {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       color: #999;
     }
   }
 
   .copyright {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: #999;
     text-align: center;
     line-height: 1.3;
@@ -440,7 +442,7 @@ body {
 
   &__item,
   .menu-item {
-    border-bottom: 1px dotted #231815;
+    border-bottom: 1px dotted #232323;
     @include mixin.pad {
       border-bottom: none;
     }
@@ -462,7 +464,7 @@ body {
       }
     }
     &.menu-item-99 a {
-      color: #231815;
+      color: #232323;
     }
     @include mixin.pad {
       width: 100%;
@@ -470,14 +472,14 @@ body {
     a {
       display: block;
       line-height: 1.4;
-      color: #0042bc;
+      color: #1879f7;
       font-weight: 900;
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       padding: 16px 25px 17px;
 
       @include mixin.pad {
         text-align: center;
-        font-size: 1.9rem;
+        font-size: 1.8rem;
         font-weight: 900;
         padding-top: 20px;
         padding-bottom: 20px;
@@ -485,9 +487,9 @@ body {
       }
     }
     span {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       display: block;
-      color: #231815;
+      color: #232323;
     }
   }
 
@@ -559,16 +561,17 @@ body {
     border-radius: 6px;
     text-align: center;
     line-height: 1.2;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 900;
     padding: 15px 10px;
     background-color: #fff;
+    letter-spacing: 0;
     @include mixin.pc {
-      outline: 2px solid #231815;
+      outline: 2px solid #232323;
     }
     @include mixin.pad {
       flex: 1;
-      font-size: 1rem;
+      font-size: 1.2rem;
       min-width: 65px;
       padding: 5px;
       display: flex;
@@ -585,7 +588,6 @@ body {
     }
   }
   .icon-link.mail {
-    font-size: 1rem;
     @include mixin.pc {
       grid-area: 1 / 1 / 2 / 2;
     }
@@ -596,7 +598,7 @@ body {
     }
     @include mixin.pad {
       order: 1;
-      background-color: #458ee9;
+      background-color: #1879f7;
       color: #fff;
     }
   }
@@ -642,7 +644,7 @@ body {
       margin-inline: auto;
     }
     &.mail {
-      fill: #458ee9;
+      fill: #1879f7;
       @include mixin.pad {
         fill: #fff;
       }
@@ -650,18 +652,18 @@ body {
     &.satei {
       fill: #fde200;
       @include mixin.pad {
-        fill: #231815;
+        fill: #232323;
       }
     }
   }
 
   // topのみ
   .company {
-    font-weight: 900;
+    font-weight: 700;
     background-color: #dbdbdb;
     display: block;
     margin-inline: 13px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding: 5px 0;
     margin-top: 10px;
     border-radius: 3px;
@@ -683,7 +685,7 @@ body {
 // MENU の字
 .nav-bar-text {
   font-weight: 600;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   line-height: 1;
   color: #fff;
 }
@@ -691,8 +693,8 @@ body {
 // ハンバーガーメニュー
 @include mixin.pad {
   .nav-button {
-    background-color: #005fff;
-    border-radius: 50px;
+    background-color: #1879f7;
+    border-radius: 40px;
     aspect-ratio: 1;
     padding: 12px 11px 0px 11px;
     display: block;
@@ -765,11 +767,11 @@ body {
   // 検索
   font-size: 1.4rem;
   background-color: #fff;
-  border: 1px solid #005fff !important;
+  border: 1px solid #1879f7 !important;
   padding-inline: 50px;
 }
 .search-btn {
-  color: #005fff;
+  color: #1879f7;
 }
 
 #wpmem_login .buttons,
@@ -777,14 +779,14 @@ body {
   margin-right: auto;
   margin-top: 20px;
   margin-bottom: 20px;
-  color: #458ee9;
-  border-color: #458ee9;
+  color: #1879f7;
+  border-color: #1879f7;
 }
 
 // 戻る
 .back-btn {
   font-size: 1.2rem;
-  background-color: #005fff;
+  background-color: #1879f7;
   color: #fff;
   transition: 0.3s;
   position: relative;
@@ -803,7 +805,7 @@ body {
     transform: translateY(-50%);
     left: 14px;
     margin-left: 0;
-    border-radius: 50px;
+    border-radius: 40px;
   }
   &::after {
     position: absolute;
@@ -811,8 +813,8 @@ body {
     vertical-align: middle;
     width: 7px;
     height: 7px;
-    border-top: 2px solid #005fff;
-    border-right: 2px solid #005fff;
+    border-top: 2px solid #1879f7;
+    border-right: 2px solid #1879f7;
     top: 50%;
     transform: translateY(-50%) rotate(-135deg);
     left: 20px;
@@ -828,9 +830,9 @@ body {
 .primary02-btn {
   margin-top: 40px;
   background-color: #fff;
-  color: #0042bc;
-  border-radius: 50px;
-  border: 1px solid #0042bc;
+  color: #1879f7;
+  border-radius: 40px;
+  border: 1px solid #1879f7;
   font-weight: 900;
   margin-inline: auto;
   display: flex;
@@ -859,7 +861,7 @@ body {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #0042bc;
+    background: #1879f7;
   }
   &.ar02::after {
     right: 20px;
@@ -869,7 +871,7 @@ body {
     border-left: 6px solid #fde200;
   }
   .icon {
-    fill: #0042bc;
+    fill: #1879f7;
     max-width: 35px;
     svg {
       width: 100%;
@@ -887,7 +889,7 @@ body {
 .text__link,
 // wp members
 .register_links a {
-  color: #458ee9;
+  color: #1879f7;
   font-weight: 900;
   text-decoration: underline;
   text-underline-offset: 7px;
@@ -902,8 +904,8 @@ body {
     vertical-align: middle;
     width: 9px;
     height: 9px;
-    border-top: 2px solid #458ee9;
-    border-right: 2px solid #458ee9;
+    border-top: 2px solid #1879f7;
+    border-right: 2px solid #1879f7;
     top: 50%;
     transform: translateY(-50%) rotate(45deg);
   }
@@ -919,8 +921,8 @@ body {
 
 .more-link {
   font-weight: 900;
-  border: 1px solid #231815;
-  border-radius: 8px;
+  border: 1px solid #232323;
+  border-radius: 6px;
   margin-left: auto;
   display: block;
   width: fit-content;
@@ -953,7 +955,7 @@ body {
   &-item {
     a {
       border: 3px solid #adc3ea;
-      border-radius: 17px;
+      border-radius: 20px;
       background-color: #fff;
       padding: 26px 0px 22px 30px;
       text-align: center;
@@ -1027,7 +1029,7 @@ body {
   }
 
   &__text {
-    color: #005fff;
+    color: #1879f7;
     font-size: 1.4rem;
     position: relative;
     margin-top: 7px;
@@ -1062,15 +1064,15 @@ body {
   }
 
   &-pagination-bullet-active {
-    background-color: #005fff;
+    background-color: #1879f7;
   }
   &-button-prev,
   &-button-next {
     border: 0;
-    color: #005fff;
+    color: #1879f7;
     background-color: #fff;
-    border: 2px solid #005fff;
-    border-radius: 50px;
+    border: 2px solid #1879f7;
+    border-radius: 40px;
     width: 20px;
     height: 20px;
     @include mixin.pad {
@@ -1180,13 +1182,13 @@ body:not(.is-property, .is-column) .swiper {
 
     // ↓タグ別に色変える
     .classify {
-      background-color: #005fff;
-      border-radius: 4px;
+      background-color: #1879f7;
+      border-radius: 3px;
       color: #fff;
       padding: 6px 10px 9px;
       width: fit-content;
       line-height: 1;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin-right: auto;
       margin-top: -10px;
       position: relative;
@@ -1207,16 +1209,16 @@ body:not(.is-property, .is-column) .swiper {
     }
 
     .price {
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       line-height: 1;
       font-weight: 600;
       span {
-        font-size: 1rem;
+        font-size: 1.2rem;
       }
     }
 
     &.column .post-categories a {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
   }
   .property__img img,
@@ -1235,12 +1237,12 @@ body:not(.is-property, .is-column) .swiper {
   }
   .traffic {
     font-weight: 900;
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-top: 5px;
   }
 
   .address {
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-top: 5px;
   }
 
@@ -1294,7 +1296,7 @@ body:not(.is-property, .is-column) .swiper {
   }
   &-item a[rel="category tag"] {
     line-height: 1;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   &__text {
@@ -1310,7 +1312,7 @@ body:not(.is-property, .is-column) .swiper {
   }
 }
 main:not(.news).column__title {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 // form共通※適宜css分ける
@@ -1326,9 +1328,9 @@ main:not(.news).column__title {
     background-color: #fff;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
-    border: 4px solid #458ee9;
+    border: 4px solid #1879f7;
     padding: 20px 30px;
-    border-radius: 35px;
+    border-radius: 40px;
   }
   .contact__title,
   .contact__detail {
@@ -1362,9 +1364,9 @@ main:not(.news).column__title {
   textarea {
     background-color: #ededed;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 12px;
     text-decoration: none;
-    color: #231815;
+    color: #232323;
   }
   input[type="text"],
   input[type="tel"],
@@ -1401,7 +1403,7 @@ main:not(.news).column__title {
   display: flex;
   gap: 10px;
   justify-content: flex-end;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 
   span,
   a {
@@ -1420,7 +1422,7 @@ main:not(.news).column__title {
   }
 
   .page-numbers.current {
-    background-color: #005fff;
+    background-color: #1879f7;
     color: #fff;
     font-weight: 900;
   }
@@ -1450,16 +1452,16 @@ main:not(.company) .lower .hero {
   &__catch {
     font-weight: 900;
     line-height: 1.2;
-    font-size: 4rem; //2.5rem
+    font-size: 4rem;
     @include mixin.sp {
-      font-size: 2.5rem;
+      font-size: 2.4rem;
     }
     margin-top: 20px;
     margin-left: 30px;
-    color: #005fff;
+    color: #1879f7;
     text-align: left;
     span {
-      color: #231815;
+      color: #232323;
       font-size: 50%;
     }
   }
@@ -1521,7 +1523,7 @@ main:not(.company) .lower .hero {
       left: -13px;
       content: "";
       display: block;
-      border: 3px solid #005fff;
+      border: 3px solid #1879f7;
       border-radius: 100px;
       width: 70px;
       height: 70px;
@@ -1529,18 +1531,18 @@ main:not(.company) .lower .hero {
   }
   &__title {
     font-weight: 900;
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding-top: 20px;
     &.name {
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       padding-top: 10px;
     }
   }
   &__num {
-    color: #005fff;
+    color: #1879f7;
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    font-size: 2.5rem;
+    font-size: 2.4rem;
   }
 
   &__logo {
@@ -1579,7 +1581,7 @@ main:not(.company) .lower .hero {
     }
   }
   &-mail {
-    fill: #005fff;
+    fill: #1879f7;
   }
 
   @include mixin.sp {
@@ -1620,7 +1622,7 @@ main:not(.company) .lower .hero {
 .is-page,
 .is-category {
   .hero__catch {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     width: max-content;
   }
 }
@@ -1644,7 +1646,7 @@ main:not(.company) .lower .hero {
     font-weight: 600;
 
     &.general .hero__icon::before {
-      background-color: #005fff;
+      background-color: #1879f7;
     }
     &.limited .hero__icon::before {
       background-color: #ff0062;
@@ -1674,7 +1676,7 @@ main:not(.company) .lower .hero {
     font-weight: 800;
     font-family: "Manrope", sans-serif;
     span {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
   }
 
@@ -1695,7 +1697,7 @@ main:not(.company) .lower .hero {
       display: block;
       width: 48px;
       height: 48px;
-      border-radius: 50px;
+      border-radius: 40px;
       top: -9px;
       left: -11px;
       @include mixin.pad {
@@ -1713,7 +1715,7 @@ main:not(.company) .lower .hero {
   }
 
   &__section {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 900;
     line-height: 1;
     @include mixin.pad {
@@ -1741,7 +1743,7 @@ main:not(.company) .lower .hero {
   }
 
   &-num.general .wrap {
-    border-color: #005fff;
+    border-color: #1879f7;
   }
   &-num.limited .wrap {
     border-color: #ff0062;
@@ -1786,7 +1788,7 @@ main:not(.company) .lower .hero {
     text-align: center;
   }
   label:not([for="rememberme"]) {
-    background-color: #458ee9;
+    background-color: #1879f7;
     color: #fff;
   }
 }
@@ -1805,7 +1807,7 @@ main:not(.company) .lower .hero {
 .link-text-register,
 .link-text-forgot {
   a {
-    color: #458ee9;
+    color: #1879f7;
     position: relative;
     font-weight: bold;
     &::after {
@@ -1814,8 +1816,8 @@ main:not(.company) .lower .hero {
       content: "";
       width: 9px;
       height: 9px;
-      border-top: 1px solid #458ee9;
-      border-right: 1px solid #458ee9;
+      border-top: 1px solid #1879f7;
+      border-right: 1px solid #1879f7;
       top: 50%;
       transform: translateY(-50%) rotate(45deg);
     }
@@ -1830,5 +1832,9 @@ main:not(.company) .lower .hero {
 
 .wpmem_msg {
   margin-inline: auto;
+}
+
+#wpmem_reg .req {
+  color: #ff0062 !important;
 }
 // wp members ここまで

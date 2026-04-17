@@ -3,14 +3,14 @@
 }
 
 .section:not(.section-news, .section-campaign, .section-helpful) .headline {
-  border-top: 3px solid #231815;
-  border-bottom: 1px solid #231815;
+  border-top: 3px solid #232323;
+  border-bottom: 1px solid #232323;
   padding: 15px 0 16px;
 }
 
 .section:not(.section-news, .section-campaign, .section-helpful) .headline__title {
   font-weight: 900;
-  color: #0042bc;
+  color: #1879f7;
   font-size: 2rem;
   line-height: 1.4;
   text-align: center;
@@ -113,7 +113,7 @@
   margin-top: 40px;
 }
 .useful__tab {
-  background-color: #0042bc;
+  background-color: #1879f7;
   color: #fff;
   font-weight: 600;
   text-align: center;
@@ -166,8 +166,8 @@
   vertical-align: middle;
   width: 9px;
   height: 9px;
-  border-top: 2px solid #0042bc;
-  border-right: 2px solid #0042bc;
+  border-top: 2px solid #1879f7;
+  border-right: 2px solid #1879f7;
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
   right: 0;
@@ -255,13 +255,13 @@
 .section-campaign .headline__title,
 .section-helpful .headline__title {
   font-weight: 900;
-  color: #0042bc;
+  color: #1879f7;
   font-size: 2rem;
   text-align: center;
   padding: 12px 0 14px;
   background-color: #fff;
-  border: 4px solid #231815;
-  border-radius: 50px;
+  border: 4px solid #232323;
+  border-radius: 40px;
   max-width: 456px;
   margin-inline: auto;
   z-index: 1;
@@ -297,8 +297,8 @@
 .section-news .headline__title {
   color: #fff;
   font-weight: 900;
-  background-color: #0042bc;
-  border-radius: 50px;
+  background-color: #1879f7;
+  border-radius: 40px;
   font-size: 1.5rem;
   padding: 2px 40px 4px;
   width: fit-content;
@@ -346,8 +346,8 @@
   vertical-align: middle;
   width: 9px;
   height: 9px;
-  border-top: 1px solid #231815;
-  border-right: 1px solid #231815;
+  border-top: 1px solid #232323;
+  border-right: 1px solid #232323;
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
   right: 0;
