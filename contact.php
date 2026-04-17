@@ -8,7 +8,7 @@ Template Name:contact
 <main class="site-main" id="site-main">
 
   <section class="section section-hero lower" id="hero">
-    <div class="section-content">
+    <div class="section-content row w1000">
       <div class="content">
         <div class="hero">
 
@@ -20,7 +20,7 @@ Template Name:contact
   </section>
 
   <section class="section section-contact" id="section-contact">
-    <div class="section-content row w960">
+    <div class="section-content row w1000">
       <div class="headline">
 
         <!-- パンくず -->

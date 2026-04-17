@@ -8,30 +8,30 @@
 
 // TOPだけかまだ不明
 .section:not(.section-news, .section-campaign, .section-helpful) .headline {
-  border-top: 3px solid #232323;
-  border-bottom: 1px solid #232323;
+  border-top: 3px solid var(--text-color);
+  border-bottom: 1px solid var(--text-color);
   padding: 15px 0 16px;
 }
 
 .section:not(.section-news, .section-campaign, .section-helpful)
   .headline__title {
   font-weight: 900;
-  color: #1879f7;
-  font-size: 2rem;
+  color: var(--primary-color);
+  font-size: var(--medium-font);
   line-height: 1.4;
   text-align: center;
 }
 
 .hero {
   .primary-btn {
-    font-size: 1.5rem;
+    font-size: initial;
     text-align: center;
     line-height: 1.6;
     padding-top: 8px;
     padding-bottom: 8px;
     span {
       display: block;
-      font-size: 1.2rem;
+      font-size: var(--small-font);
       font-weight: normal;
     }
   }
@@ -117,21 +117,21 @@
     margin-top: 40px;
   }
   &__tab {
-    background-color: #1879f7;
+    background-color: var(--primary-color);
     color: #fff;
     font-weight: 600;
     text-align: center;
     padding-top: 12px;
     padding-bottom: 13px;
-    font-size: 2.6rem;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    font-size: var(--large-font);
+    border-top-left-radius: var(--small-radius);
+    border-top-right-radius: var(--small-radius);
   }
   .buy,
   .sell {
     max-width: 47%;
     background-color: #fff;
-    border-radius: 6px;
+    border-radius: var(--small-radius);
     position: relative;
     flex: 1;
     &::before {
@@ -159,7 +159,7 @@
   }
   &__title {
     position: relative;
-    font-size: 1.8rem;
+    font-size: var(--medium-font);
     font-weight: 600;
     &::after {
       position: absolute;
@@ -168,8 +168,8 @@
       vertical-align: middle;
       width: 9px;
       height: 9px;
-      border-top: 2px solid #1879f7;
-      border-right: 2px solid #1879f7;
+      border-top: 2px solid var(--primary-color);
+      border-right: 2px solid var(--primary-color);
       top: 50%;
       transform: translateY(-50%) rotate(45deg);
       right: 0;
@@ -225,7 +225,7 @@
     }
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    border-radius: 6px;
+    border-radius: var(--small-radius);
     position: relative;
   }
   &__img {
@@ -258,12 +258,12 @@
   position: relative;
   .headline__title {
     font-weight: 900;
-    color: #1879f7;
-    font-size: 2rem;
+    color: var(--primary-color);
+    font-size: var(--medium-font);
     text-align: center;
     padding: 12px 0 14px;
     background-color: #fff;
-    border: 4px solid #232323;
+    border: 4px solid var(--text-color);
     border-radius: 40px;
     max-width: 456px;
     margin-inline: auto;
@@ -272,7 +272,7 @@
     left: 50%;
     @include mixin.pad {
       border-width: 2px;
-      font-size: 1.7rem;
+      font-size: var(--medium-font);
       max-width: max-content;
       padding-inline: 50px;
       padding-top: 5px;
@@ -297,9 +297,9 @@
   .headline__title {
     color: #fff;
     font-weight: 900;
-    background-color: #1879f7;
+    background-color: var(--primary-color);
     border-radius: 40px;
-    font-size: 1.5rem;
+    font-size: initial;
     padding: 2px 40px 4px;
     width: fit-content;
   }
@@ -318,9 +318,9 @@
 .news {
   &__time,
   &__title {
-    font-size: 1.5rem;
+    font-size: initial;
     @include mixin.sp {
-      font-size: 1.2rem;
+      font-size: var(--small-font);
     }
     font-weight: bold;
   }
@@ -340,8 +340,8 @@
       vertical-align: middle;
       width: 9px;
       height: 9px;
-      border-top: 1px solid #232323;
-      border-right: 1px solid #232323;
+      border-top: 1px solid var(--text-color);
+      border-right: 1px solid var(--text-color);
       top: 50%;
       transform: translateY(-50%) rotate(45deg);
       right: 0;

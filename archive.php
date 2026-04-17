@@ -9,7 +9,7 @@
 
   <section class="section section-column" id="section-column">
 
-    <div class="section-content row w960">
+    <div class="section-content row w1000">
       <div class="headline">
 
         <!-- パンくず -->
@@ -23,7 +23,7 @@
             </li>
             <li itemprop="itemListElement" itemscope
               itemtype="http://schema.org/ListItem">
-              <span itemprop="name">コラム</span>
+              <span itemprop="name">ステッチコラム</span>
               <meta itemprop="position" content="2" />
             </li>
           </ol>
@@ -34,7 +34,7 @@
 
   <!-- swiper -->
   <section class="section section-swiper" id="swiper">
-    <div class="section-content row w960">
+    <div class="section-content row w1000">
       <div class="content">
         <div class="swiper-buttons">
           <div class="swiper-button-prev"></div>
@@ -84,10 +84,10 @@
   </section>
 
   <section class="section section-column" id="section-column">
-    <div class="section-content row w960">
+    <div class="section-content row w1000">
 
       <div class="headline">
-        <h1 class="headline__title">コラム</h1>
+        <h1 class="headline__title">ステッチコラム</h1>
       </div>
       <div class="content">
         <div class="column">

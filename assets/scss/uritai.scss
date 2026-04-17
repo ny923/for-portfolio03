@@ -14,7 +14,7 @@
     background-color: initial;
   }
   .section-contact {
-    background-color: #ededed;
+    background-color: rgba(0, 0, 0, 0.08);
     padding: 10px 0;
     .section-content {
       justify-content: center;
@@ -52,7 +52,7 @@
 
   .headline__title span,
   .headline__text span {
-    color: #1879f7;
+    color: var(--primary-color);
   }
 
   .headline__title,
@@ -64,14 +64,14 @@
 
   .headline__title {
     font-family: serif;
-    font-size: 5rem;
+    font-size: var(--x-large-font);
     @include mixin.sp {
-      font-size: 3rem !important;
+      font-size: var(--large-font) !important;
     }
   }
   .headline__text {
     @include mixin.sp {
-      font-size: 1.8rem !important;
+      font-size: var(--medium-font) !important;
     }
   }
   .contact {
@@ -82,7 +82,7 @@
 
 .section-fv {
   @include mixin.pc {
-    border-top: 20px solid#1879f7;
+    border-top: 20px solid var(--primary-color);
   }
 
   // 逆角丸
@@ -103,7 +103,7 @@
       z-index: 1;
     }
     &::after {
-      background-color: #1879f7;
+      background-color: var(--primary-color);
     }
   }
 }
@@ -116,10 +116,10 @@
   &__catch {
     writing-mode: vertical-rl;
     font-family: serif;
-    font-size: 5.6rem;
+    font-size: var(--x-large-font);
     margin-top: 40px;
     @include mixin.sp {
-      font-size: 2.6rem;
+      font-size: var(--large-font);
       position: absolute;
       right: 0;
     }
@@ -141,21 +141,20 @@
     }
   }
   &__name {
-    font-size: 2.6rem;
+    font-size: var(--medium-font);
     @include mixin.sp {
-      font-size: 1.2rem;
+      font-size: var(--small-font);
     }
   }
   &-info {
     text-align: right;
-    background-color: #1879f7;
+    background-color: var(--primary-color);
     color: #fff;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: var(--large-radius);
+    border-bottom-right-radius: var(--large-radius);
     margin-left: auto;
     width: fit-content;
     padding: 0 55px 25px;
-
     position: relative;
   }
 
@@ -186,19 +185,24 @@
     }
   }
   &-info__tel {
-    font-size: 3rem;
+    font-size: var(--large-font);
     span {
-      font-size: 1.8rem;
+      font-size: var(--medium-font);
     }
   }
   &-info__text {
-    font-size: 0.8rem;
+    font-size: var(--small-font);
   }
 
   &__lead {
-    margin-inline: auto;
+    margin-left: 50px;
+    @include mixin.sp {
+      margin-inline: auto;
+    }
     width: fit-content;
     margin-top: 10px;
+    position: relative;
+    z-index: 1;
   }
   position: relative;
 
@@ -217,11 +221,11 @@
 }
 
 .section-promise {
-  background-color: #f2ede3;
+  background-color: #f9f5ee;
   padding: 50px 0;
   .headline__title {
     text-align: left;
-    font-size: 3.4rem;
+    font-size: var(--large-font);
     margin-bottom: 20px;
   }
 }
@@ -229,7 +233,7 @@
   &-texts {
     .promise__text {
       @include mixin.pc {
-        font-size: 2rem;
+        font-size: var(--medium-font);
       }
     }
   }
@@ -243,7 +247,7 @@
     width: fit-content;
     display: block;
     margin-left: auto;
-    border-bottom: 1px solid #1879f7;
+    border-bottom: 1px solid var(--primary-color);
     padding-right: 10px;
     position: relative;
     &::after {
@@ -252,8 +256,8 @@
       margin: auto;
       width: 9px;
       height: 9px;
-      border-top: 1px solid #1879f7;
-      border-right: 1px solid #1879f7;
+      border-top: 1px solid var(--primary-color);
+      border-right: 1px solid var(--primary-color);
       top: 50%;
       transform: translateY(-50%) rotate(45deg);
     }
@@ -274,18 +278,18 @@
       font-weight: bold;
     }
     @include mixin.sp {
-      font-size: 1.2rem;
+      font-size: var(--small-font);
     }
   }
   &__name {
-    font-size: initial;
+    // font-size: initial;
     @include mixin.sp {
-      font-size: 1.2rem;
+      font-size: var(--small-font);
     }
   }
   &-staff__img {
     img {
-      border-radius: 6px;
+      border-radius: var(--small-radius);
       @include mixin.sp {
         object-fit: cover;
         aspect-ratio: 1;
@@ -295,7 +299,7 @@
 }
 
 .section-strength {
-  background-color: #ededed;
+  background-color: rgba(0, 0, 0, 0.08);
   padding: 50px 0;
   .section-content {
     gap: 40px;
@@ -309,12 +313,12 @@
     padding: 5px 30px 7px;
     line-height: 1;
     @include mixin.pc {
-      font-size: 3rem;
+      font-size: var(--medium-font);
     }
     width: fit-content;
-    color: #62c0b4;
-    border-top: 1px solid #62c0b4;
-    border-bottom: 1px solid #62c0b4;
+    color: var(--secondary-color);
+    border-top: 1px solid var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
     position: relative;
     &::before {
       content: "";
@@ -323,15 +327,15 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border-left: 1px solid #62c0b4;
-      border-right: 1px solid #62c0b4;
+      border-left: 1px solid var(--secondary-color);
+      border-right: 1px solid var(--secondary-color);
       transform: skewX(-15deg);
     }
   }
   &-sect {
     display: flex;
     background-color: #fff;
-    border: 3px solid #f2ede3;
+    // border: 3px solid #f9f5ee;
     padding: 30px 40px;
     border-radius: 12px;
     @include mixin.sp {
@@ -339,12 +343,12 @@
     }
     &:nth-of-type(odd) {
       .strength__catch {
-        color: #1879f7;
-        border-top-color: #1879f7;
-        border-bottom-color: #1879f7;
+        color: var(--primary-color);
+        border-top-color: var(--primary-color);
+        border-bottom-color: var(--primary-color);
         &::before {
-          border-left-color: #1879f7;
-          border-right-color: #1879f7;
+          border-left-color: var(--primary-color);
+          border-right-color: var(--primary-color);
         }
       }
     }
@@ -356,7 +360,7 @@
   &__title {
     margin-top: 6px;
     font-weight: bold;
-    font-size: 2.2rem;
+    font-size: var(--medium-font);
     @include mixin.sp {
       font-size: initial;
     }
@@ -376,16 +380,17 @@
     }
     &:nth-of-type(odd) {
       .flow__title {
-        color: #62c0b4;
-        border-bottom-color: #62c0b4;
+        color: var(--secondary-color);
+        border-bottom-color: var(--secondary-color);
       }
     }
   }
   &__title {
-    color: #1879f7;
-    border-bottom: 1px solid #1879f7;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
     width: fit-content;
     font-weight: bold;
+    font-size: var(--medium-font);
   }
   &__img.icon {
     max-width: 80px;
@@ -401,28 +406,28 @@
       flex-direction: column;
     }
     .flow__img {
-      outline: 1px solid #232323;
+      outline: 1px solid var(--text-color);
     }
   }
 }
 
 .section-regret {
   .headline__title {
-    font-size: 4.4rem;
+    font-size: var(--x-large-font);
   }
   .headline__text {
-    font-size: 3.4rem;
+    font-size: var(--large-font);
     font-family: serif;
   }
 }
 .regret {
   &__lead {
     font-weight: bold;
+    font-size: initial;
   }
   &-item {
-    border-bottom: 1px dashed #ededed;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     @include mixin.pc {
       padding-inline: 50px;
     }
@@ -432,13 +437,13 @@
         font-weight: bold;
       }
       .regret__title {
-        border-bottom-color: #62c0b4;
+        border-bottom-color: var(--secondary-color);
       }
       .regret-list__title {
-        color: #62c0b4;
+        color: var(--secondary-color);
       }
       .regret-list__title i {
-        background-color: #62c0b4;
+        background-color: var(--secondary-color);
       }
     }
   }
@@ -447,6 +452,7 @@
     margin-top: 20px;
     & > .flex {
       gap: 15px;
+      align-items: center;
       @include mixin.sp {
         flex-direction: column;
       }
@@ -460,28 +466,29 @@
   &__title {
     white-space: nowrap;
     padding-inline: 10px;
-    border-bottom: 3px solid #1879f7;
+    border-bottom: 3px solid var(--primary-color);
     line-height: 1;
     height: fit-content;
+    font-size: initial;
     @include mixin.sp {
       width: fit-content;
     }
   }
   .regret-list__title {
-    color: #1879f7;
+    color: var(--primary-color);
     @include mixin.pc {
-      font-size: 2.8rem;
+      font-size: var(--large-font);
     }
   }
   .regret-list__title i {
-    background-color: #1879f7;
+    background-color: var(--primary-color);
     color: #fff;
-    border-radius: 40px;
+    border-radius: var(--large-radius);
     font-style: normal;
     padding: 0px 12px 3px;
     font-weight: normal;
     @include mixin.pc {
-      font-size: 2.2rem;
+      font-size: var(--medium-font);
     }
   }
 }
@@ -491,6 +498,12 @@
     @include mixin.pc {
       margin-top: 40px;
       font-feature-settings: "pkna";
+    }
+  }
+
+  .content {
+    @include mixin.pc {
+      width: 85%;
     }
   }
 }
@@ -505,8 +518,8 @@
   &__title {
     max-width: 100% !important;
     span {
-      color: #1879f7 !important;
-      border: 1px solid #1879f7;
+      color: var(--primary-color) !important;
+      border: 1px solid var(--primary-color);
       margin-left: 5px;
       padding: 0 4px 3px;
     }
@@ -531,7 +544,7 @@
     }
 
     &:checked:before {
-      background: #1879f7;
+      background: var(--primary-color);
     }
   }
   span:has(input[type="radio"]) {
@@ -549,10 +562,10 @@
   }
   .primary-btn {
     @include mixin.pc {
-      font-size: 2.4rem;
+      font-size: var(--medium-font);
       font-weight: normal;
     }
-    background-color: #1879f7;
+    background-color: var(--primary-color);
   }
 }
 
@@ -568,6 +581,7 @@
   .headline {
     display: flex;
     align-items: center;
+    justify-content: center;
     @include mixin.pc {
       gap: 20px;
     }
@@ -577,19 +591,19 @@
   }
 
   .headline__title {
-    font-size: 5.8rem;
+    font-size: var(--x-large-font);
     @include mixin.sp {
-      font-size: 3.4rem !important;
+      font-size: var(--large-font) !important;
     }
     &::before {
       vertical-align: middle;
       content: "";
       display: inline-block;
-      width: 80px;
-      height: 80px;
+      width: 50px;
+      height: 50px;
       background-image: url(../img/common/favicon.png);
       background-repeat: no-repeat;
-      background-size: 80px;
+      background-size: 50px;
       background-position: center;
       margin-right: 10px;
       @include mixin.sp {
@@ -600,10 +614,10 @@
     }
   }
   .headline__address {
-    font-size: 2rem;
+    // font-size: var(--medium-font);
     text-align: left;
     @include mixin.sp {
-      font-size: 0.8rem;
+      font-size: var(--small-font);
       margin-right: auto;
     }
   }
@@ -631,59 +645,53 @@
   }
 
   &__text {
-    margin-right: auto;
     @include mixin.pc {
-      font-size: 3.8rem;
+      font-size: var(--large-font);
     }
   }
   &__tel {
-    font-size: 6.8rem;
+    font-size: var(--x-large-font);
     @include mixin.sp {
-      font-size: 4rem;
       font-weight: bold;
     }
-    color: #1879f7;
-
-    margin-inline: auto;
+    color: var(--primary-color);
     span {
-      font-size: 4.4rem;
+      font-size: var(--x-large-font);
       @include mixin.sp {
-        font-size: 2.6rem;
+        font-size: var(--large-font);
       }
     }
   }
   &__time {
-    color: #1879f7;
-    font-size: 3.8rem;
+    color: var(--primary-color);
+    font-size: var(--large-font);
     @include mixin.sp {
-      font-size: 1.2rem;
+      font-size: var(--small-font);
     }
   }
   &__close {
-    background-color: #1879f7;
+    background-color: var(--primary-color);
     color: #fff;
-    font-size: 2.6rem;
+    font-size: var(--medium-font);
     height: fit-content;
-    padding: 10px 20px 13px;
+    padding: 10px 15px 12px;
     @include mixin.pc {
       margin-top: 10px;
     }
     @include mixin.sp {
       padding: 5px;
-      font-size: 0.8rem;
+      font-size: var(--small-font);
     }
   }
   &__info {
-    font-size: 1.8rem;
-    @include mixin.sp {
-      font-size: 0.8rem;
-    }
+    font-size: var(--small-font);
+    text-align: center;
   }
   &__copy {
-    font-size: 1.4rem;
+    text-align: center;
+    font-size: var(--small-font);
     @include mixin.sp {
       text-align: right;
-      font-size: 0.8rem;
     }
   }
 }

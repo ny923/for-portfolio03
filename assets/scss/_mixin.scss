@@ -25,3 +25,17 @@ $sp: 760px;
     @content;
   }
 }
+
+:root {
+  --text-color: #232323;
+  --primary-color: #1879f7;
+  --secondary-color: #62c0b4;
+
+  --small-radius: 6px;
+  --large-radius: 30px;
+
+  --small-font: 1.2rem;
+  --medium-font: 2rem;
+  --large-font: 3.2rem;
+  --x-large-font: 4.5rem;
+}

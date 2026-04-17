@@ -35,15 +35,14 @@
   }
 
   &__catch {
-    font-size: 4rem;
+    font-size: var(--x-large-font);
     @include mixin.sp {
-      font-size: 1.8rem;
+      font-size: var(--medium-font);
     }
-    color: #232323;
+    color: var(--text-color);
     font-weight: 900;
   }
   &__lead {
-    font-size: 1.6rem;
     margin-top: 40px;
     @include mixin.sp {
       margin-top: 20px;
@@ -90,14 +89,15 @@
 
     &:nth-of-type(even) {
       .headline__title {
-        background: linear-gradient(transparent 70%, #62c0b4 0%);
+        background: linear-gradient(transparent 80%, var(--secondary-color) 0%);
       }
     }
   }
   .headline__title {
     font-weight: 900;
-    background: linear-gradient(transparent 70%, rgba(24, 121, 247, 0.7) 0%);
+    background: linear-gradient(transparent 80%, rgba(24, 121, 247, 0.7) 0%);
     width: fit-content;
+    font-size: var(--large-font);
   }
 }
 
@@ -168,7 +168,7 @@
         left: 14px;
       }
       color: #fff;
-      font-size: 2.2rem;
+      font-size: var(--medium-font);
       font-weight: bold;
       line-height: 1;
     }
@@ -176,12 +176,12 @@
     @include mixin.pc {
       &:nth-last-of-type(1)::before,
       &:nth-last-of-type(4)::before {
-        border-color: transparent transparent #62c0b4 transparent;
+        border-color: transparent transparent var(--secondary-color) transparent;
       }
     }
     @include mixin.sp {
       &:nth-last-of-type(odd)::before {
-        border-color: transparent transparent #62c0b4 transparent;
+        border-color: transparent transparent var(--secondary-color) transparent;
       }
     }
 
@@ -194,6 +194,7 @@
 
   &__title {
     font-weight: 900;
+    font-size: var(--medium-font);
     @include mixin.sp {
       padding-left: 45px;
     }
@@ -215,7 +216,7 @@
       }
 
       &:nth-last-of-type(odd)::before {
-        border-color: #62c0b4;
+        border-color: var(--secondary-color);
       }
     }
   }
@@ -242,23 +243,20 @@
   }
 
   &__position {
-    background-color: #1879f7;
+    background-color: var(--primary-color);
     color: #fff;
     line-height: 1;
     padding: 5px 10px 7px;
-    border-radius: 6px;
-    font-size: 1.2rem;
-    @include mixin.sp {
-      font-size: 0.8rem;
-    }
+    border-radius: var(--small-radius);
+    font-size: var(--small-font);
   }
 
   &__title {
-    font-size: 2.6rem;
+    font-size: var(--large-font);
     font-weight: 900;
     text-align: center;
     ruby {
-      font-size: 1.2rem;
+      font-size: var(--small-font);
       display: block;
     }
   }
@@ -269,7 +267,7 @@
     }
   }
   &__text {
-    font-size: 1.2rem;
+    font-size: var(--small-font);
     @include mixin.pc {
       max-width: 440px;
     }
@@ -292,7 +290,7 @@
     flex-wrap: wrap;
   }
   &__title {
-    border-top: 1px solid #1879f7;
+    border-top: 1px solid var(--primary-color);
     box-sizing: border-box;
     padding: 20px;
     max-width: 18%;
@@ -304,7 +302,7 @@
     }
   }
   &__detail {
-    border-top: 1px solid #1879f7;
+    border-top: 1px solid var(--primary-color);
     box-sizing: border-box;
     margin: 0;
     padding: 20px;

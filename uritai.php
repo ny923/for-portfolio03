@@ -9,7 +9,7 @@ Template Name:uritai
 
   <!-- このページのみのオリジナルheader/footer -->
   <section class="section section-fv" id="fv">
-    <div class="section-content row w1280">
+    <div class="section-content row w1000">
       <div class="headline">
         <div class="flex">
           <div class="fv__logo">
@@ -182,7 +182,7 @@ Template Name:uritai
   </section>
 
   <section class="section section-flow" id="flow">
-    <div class="section-content row w1000">
+    <div class="section-content row w700">
       <div class="headline">
         <h2 class="headline__title">ご依頼の流れ</h2>
       </div>

@@ -12,7 +12,7 @@
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
       <section class="section section-hero lower" id="hero">
-        <div class="section-content">
+        <div class="section-content row w1000">
           <div class="content">
             <div class="hero">
 
@@ -24,7 +24,7 @@
       </section>
 
       <section class="section section-column" id="section-column">
-        <div class="section-content row w960">
+        <div class="section-content row w1000">
           <div class="headline">
 
             <div class="breadcrumbs">

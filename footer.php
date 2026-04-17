@@ -3,7 +3,7 @@
 <?php if (! is_page('uritai')): ?>
   <!-- tel fax mail -->
   <section class="section section-means" id="means">
-    <div class="section-content row w1100">
+    <div class="section-content row w1000">
       <div class="content">
 
         <div class="means grid">
@@ -48,7 +48,7 @@
   </section>
   <!-- map -->
   <section class="section section-map" id="map">
-    <div class="section-content row w1100">
+    <div class="section-content row w1000">
       <div class="content">
         <div class="map">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d955.2733299368507!2d139.11224783288827!3d36.357298640033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601eede57cd1f639%3A0xfe0272dbb6d77580!2z5qCq5byP5Lya56S-44K544OG44OD44OB!5e0!3m2!1sja!2sjp!4v1770891394104!5m2!1sja!2sjp" width="" height="" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -57,7 +57,7 @@
     </div>
   </section>
   <footer class="site-footer" id="site-footer">
-    <div class="section-content row w1100 ">
+    <div class="section-content row w1000 ">
       <div class="footer">
 
         <div class="footer-logo">

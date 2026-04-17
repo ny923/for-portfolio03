@@ -171,7 +171,7 @@ Template Name:front-page
   <section class="section section-campaign" id="campaign">
     <div class="section-content row w1100">
       <div class="headline">
-        <h2 class="headline__title">コラム</h2>
+        <h2 class="headline__title">ステッチコラム</h2>
       </div>
       <div class="content">
         <a href="<?= site_url(); ?>/空き家再生の舞台裏/">
@@ -420,7 +420,7 @@ Template Name:front-page
   <section class="section section-column" id="column">
     <div class="section-content row w1100">
       <div class="headline">
-        <h2 class="headline__title">コラム</h2>
+        <h2 class="headline__title">ステッチコラム</h2>
         <a href="<?= site_url(); ?>/column/" class="text__link02"><i class="arrow__img">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/arrow.svg" alt="">
           </i>コラム一覧</a>

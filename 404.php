@@ -8,7 +8,7 @@
 <main class="site-main" id="site-main">
 
   <section class="section section-hero lower" id="hero">
-    <div class="section-content">
+    <div class="section-content row w1000">
       <div class="content">
         <div class="hero">
           <h1 class="hero__catch"><?php the_title(); ?></h1>
@@ -18,7 +18,7 @@
   </section>
 
   <section class="section section-notFound" id="section-notFound">
-    <div class="section-content row w960">
+    <div class="section-content row w1000">
       <div class="headline">
         <div class="breadcrumbs">
           <ol itemscope itemtype="http://schema.org/BreadcrumbList">

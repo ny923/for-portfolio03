@@ -12,7 +12,7 @@
   ?>
 
   <section class="section section-hero lower" id="hero">
-    <div class="section-content">
+    <div class="section-content row w1000">
       <div class="content">
         <div class="hero">
           <h1 class="hero__catch">「<?php echo esc_html($current_term->name); ?>」の物件一覧</h1>
@@ -23,8 +23,8 @@
   </section>
 
   <section class="section section-property" id="section-property">
-    <!-- w960 -->
-    <div class="section-content row ">
+
+    <div class="section-content row w1000">
       <div class="headline">
 
         <!-- パンくず -->

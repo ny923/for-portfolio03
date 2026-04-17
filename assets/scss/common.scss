@@ -4,12 +4,9 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
-:root {
-}
-
 body {
   background-color: #fff;
-  color: #232323;
+  color: var(--text-color);
 }
 
 .wrap.flex {
@@ -18,7 +15,7 @@ body {
   }
 }
 .site-main {
-  background-color: #ededed;
+  background-color: rgba(0, 0, 0, 0.08);
   width: 100%;
   @include mixin.pc {
     max-width: calc(100% - 226px);
@@ -70,9 +67,9 @@ body {
 
 .primary-btn {
   font-weight: 900;
-  border-radius: 6px;
+  border-radius: var(--small-radius);
   line-height: 1;
-  background-color: #1879f7;
+  background-color: var(--primary-color);
   color: #fff;
   transition: 0.3s;
   position: relative;
@@ -80,14 +77,14 @@ body {
   margin-inline: auto;
   display: block;
   max-width: fit-content;
+  padding: 14px 25px 16px;
+  margin-top: 8px;
+
   &:hover {
     transition: 0.3s;
     opacity: 0.7;
   }
 
-  padding: 14px 25px 16px;
-  margin-top: 8px;
-  font-size: 1.2rem;
   &::after {
     content: none;
   }
@@ -98,7 +95,7 @@ body {
 ============================*/
 .breadcrumbs {
   text-align: left;
-  font-size: 1.2rem;
+  font-size: var(--small-font);
   padding-top: 15px;
   @include mixin.sp {
     padding-top: 50px;
@@ -111,7 +108,7 @@ body {
       display: inline-block;
       vertical-align: middle;
       padding-top: 1px;
-      color: #232323;
+      color: var(--text-color);
       letter-spacing: 0.1em;
 
       &:after {
@@ -126,7 +123,7 @@ body {
       }
 
       a {
-        color: #232323;
+        color: var(--text-color);
       }
 
       &:last-of-type a span {
@@ -166,7 +163,7 @@ body {
       .footer-wrap {
         flex: 3;
         .footer__text {
-          font-size: 0.8rem;
+          font-size: var(--small-font);
         }
       }
     }
@@ -202,10 +199,10 @@ body {
   }
   &__logo-name {
     font-weight: 900;
-    font-size: 4rem;
+    font-size: var(--x-large-font);
     line-height: 1;
     @include mixin.sp {
-      font-size: 2rem;
+      font-size: var(--medium-font);
     }
   }
 
@@ -214,7 +211,7 @@ body {
   }
 
   &__title {
-    font-size: 1.2rem;
+    font-size: var(--small-font);
     @include mixin.sp {
       font-size: initial;
     }
@@ -223,7 +220,7 @@ body {
 
   &-links a {
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: var(--small-font);
     position: relative;
     font-weight: 700;
     @include mixin.sp {
@@ -239,8 +236,8 @@ body {
       vertical-align: middle;
       width: 6px;
       height: 6px;
-      border-top: 1px solid #1879f7;
-      border-right: 1px solid #1879f7;
+      border-top: 1px solid var(--primary-color);
+      border-right: 1px solid var(--primary-color);
       top: 50%;
       transform: translateY(-50%) rotate(45deg);
       left: -15px;
@@ -248,11 +245,11 @@ body {
   }
 
   &__link {
-    line-height: 1;
+    line-height: 1.25;
   }
 
   .copyright {
-    font-size: 1.2rem;
+    font-size: var(--small-font);
     @include mixin.sp {
       line-height: 1.5;
       padding-top: 10px;
@@ -261,16 +258,14 @@ body {
 
   &__text {
     line-height: 1.5;
-    font-size: 1.2rem;
+    font-size: var(--small-font);
     font-weight: 700;
-    // @include mixin.sp {
-    //   font-size: 1.2rem;
-    // }
+
     span {
-      background-color: #1879f7;
+      background-color: var(--primary-color);
       color: #fff;
       padding: 1px 10px 3px;
-      border-radius: 3px;
+      border-radius: var(--small-radius);
       min-width: 84px;
       display: inline-block;
       text-align: center;
@@ -303,7 +298,7 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 1px solid #1879f7;
+  border: 1px solid var(--primary-color);
   z-index: 1;
   &::after {
     position: absolute;
@@ -317,8 +312,8 @@ body {
     top: 3px;
     width: 11px;
     height: 11px;
-    border-top: 1px solid #1879f7;
-    border-right: 1px solid #1879f7;
+    border-top: 1px solid var(--primary-color);
+    border-right: 1px solid var(--primary-color);
     transform: rotate(-45deg);
   }
 
@@ -372,12 +367,12 @@ body {
       }
 
       span {
-        font-size: 1.6rem;
+        font-size: initial;
         display: block;
         padding-top: 10px;
         font-weight: 900;
         @include mixin.pad {
-          font-size: 1.2rem;
+          font-size: var(--small-font);
         }
       }
     }
@@ -396,30 +391,27 @@ body {
     }
     .contact__text {
       margin-top: 15px;
-      font-size: 1.2rem;
+      font-size: var(--small-font);
       font-weight: 700;
-      // @include mixin.pad {
-      //   font-size: 1.2rem;
-      // }
     }
     .contact__tel {
-      font-weight: 800;
+      font-weight: 700;
       font-family: "Manrope", sans-serif;
-      font-size: 3rem;
+      font-size: var(--large-font);
       letter-spacing: initial;
       @include mixin.pad {
-        font-size: 2.6rem;
+        font-size: var(--medium-font);
       }
     }
     .contact__info {
-      font-size: 0.8rem;
-      color: #999;
+      font-size: var(--small-font);
+      color: rgba(0, 0, 0, 0.5);
     }
   }
 
   .copyright {
-    font-size: 0.8rem;
-    color: #999;
+    font-size: var(--small-font);
+    color: rgba(0, 0, 0, 0.5);
     text-align: center;
     line-height: 1.3;
     padding-top: 10px;
@@ -442,7 +434,7 @@ body {
 
   &__item,
   .menu-item {
-    border-bottom: 1px dotted #232323;
+    border-bottom: 1px dotted var(--text-color);
     @include mixin.pad {
       border-bottom: none;
     }
@@ -464,7 +456,7 @@ body {
       }
     }
     &.menu-item-99 a {
-      color: #232323;
+      color: var(--text-color);
     }
     @include mixin.pad {
       width: 100%;
@@ -472,14 +464,14 @@ body {
     a {
       display: block;
       line-height: 1.4;
-      color: #1879f7;
+      color: var(--primary-color);
       font-weight: 900;
-      font-size: 1.8rem;
+      font-size: var(--medium-font);
       padding: 16px 25px 17px;
 
       @include mixin.pad {
         text-align: center;
-        font-size: 1.8rem;
+        font-size: var(--medium-font);
         font-weight: 900;
         padding-top: 20px;
         padding-bottom: 20px;
@@ -487,9 +479,9 @@ body {
       }
     }
     span {
-      font-size: 0.8rem;
+      font-size: var(--small-font);
       display: block;
-      color: #232323;
+      color: var(--text-color);
     }
   }
 
@@ -535,8 +527,8 @@ body {
       transition: 0.3s;
       z-index: 1;
       overflow-y: auto;
-      border: 3px solid #adc3ea;
-      border-radius: 20px;
+      border: 3px solid rgba(24, 121, 247, 0.4);
+      border-radius: var(--large-radius);
     }
   }
 
@@ -558,20 +550,20 @@ body {
   }
   .icon-link {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
+    border-radius: var(--small-radius);
     text-align: center;
     line-height: 1.2;
-    font-size: 1.2rem;
+    font-size: var(--small-font);
     font-weight: 900;
     padding: 15px 10px;
     background-color: #fff;
     letter-spacing: 0;
     @include mixin.pc {
-      outline: 2px solid #232323;
+      outline: 2px solid var(--text-color);
     }
     @include mixin.pad {
       flex: 1;
-      font-size: 1.2rem;
+      font-size: var(--small-font);
       min-width: 65px;
       padding: 5px;
       display: flex;
@@ -598,7 +590,7 @@ body {
     }
     @include mixin.pad {
       order: 1;
-      background-color: #1879f7;
+      background-color: var(--primary-color);
       color: #fff;
     }
   }
@@ -644,7 +636,7 @@ body {
       margin-inline: auto;
     }
     &.mail {
-      fill: #1879f7;
+      fill: var(--primary-color);
       @include mixin.pad {
         fill: #fff;
       }
@@ -652,7 +644,7 @@ body {
     &.satei {
       fill: #fde200;
       @include mixin.pad {
-        fill: #232323;
+        fill: var(--text-color);
       }
     }
   }
@@ -660,13 +652,13 @@ body {
   // topのみ
   .company {
     font-weight: 700;
-    background-color: #dbdbdb;
+    background-color: rgba(0, 0, 0, 0.1);
     display: block;
     margin-inline: 13px;
-    font-size: 1.2rem;
+    font-size: var(--small-font);
     padding: 5px 0;
     margin-top: 10px;
-    border-radius: 3px;
+    border-radius: var(--small-radius);
     .arrow__img {
       margin-left: 10px;
     }
@@ -685,16 +677,16 @@ body {
 // MENU の字
 .nav-bar-text {
   font-weight: 600;
-  font-size: 0.8rem;
-  line-height: 1;
+  font-size: 1rem;
+  line-height: 1.3;
   color: #fff;
 }
 
 // ハンバーガーメニュー
 @include mixin.pad {
   .nav-button {
-    background-color: #1879f7;
-    border-radius: 40px;
+    background-color: var(--primary-color);
+    border-radius: 100px;
     aspect-ratio: 1;
     padding: 12px 11px 0px 11px;
     display: block;
@@ -735,7 +727,7 @@ body {
 
   // メニュー(文字)
   #nav-toggle:checked + .nav-button .nav-bar-text {
-    display: none;
+    // display: none;
   }
 
   /* メニュートグルがチェックされた場合のメニューの表示アニメーション */
@@ -756,7 +748,7 @@ body {
   padding: 10px 20px;
   display: block;
   max-width: fit-content;
-  border-radius: 6px;
+  border-radius: var(--small-radius);
   margin-left: auto;
   cursor: pointer;
 }
@@ -764,14 +756,12 @@ body {
 #wpmem_login .buttons,
 #wpmem_reg .buttons,
 .search-btn {
-  // 検索
-  font-size: 1.4rem;
   background-color: #fff;
-  border: 1px solid #1879f7 !important;
+  border: 1px solid var(--primary-color) !important;
   padding-inline: 50px;
 }
 .search-btn {
-  color: #1879f7;
+  color: var(--primary-color);
 }
 
 #wpmem_login .buttons,
@@ -779,14 +769,13 @@ body {
   margin-right: auto;
   margin-top: 20px;
   margin-bottom: 20px;
-  color: #1879f7;
-  border-color: #1879f7;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 // 戻る
 .back-btn {
-  font-size: 1.2rem;
-  background-color: #1879f7;
+  background-color: var(--primary-color);
   color: #fff;
   transition: 0.3s;
   position: relative;
@@ -805,7 +794,7 @@ body {
     transform: translateY(-50%);
     left: 14px;
     margin-left: 0;
-    border-radius: 40px;
+    border-radius: var(--large-radius);
   }
   &::after {
     position: absolute;
@@ -813,8 +802,8 @@ body {
     vertical-align: middle;
     width: 7px;
     height: 7px;
-    border-top: 2px solid #1879f7;
-    border-right: 2px solid #1879f7;
+    border-top: 2px solid var(--primary-color);
+    border-right: 2px solid var(--primary-color);
     top: 50%;
     transform: translateY(-50%) rotate(-135deg);
     left: 20px;
@@ -830,14 +819,14 @@ body {
 .primary02-btn {
   margin-top: 40px;
   background-color: #fff;
-  color: #1879f7;
-  border-radius: 40px;
-  border: 1px solid #1879f7;
+  color: var(--primary-color);
+  border-radius: var(--large-radius);
+  border: 1px solid var(--primary-color);
   font-weight: 900;
   margin-inline: auto;
   display: flex;
   width: fit-content;
-  font-size: 2rem;
+  font-size: var(--medium-font);
   padding: 7px 48px 7px 28px;
   white-space: nowrap;
   align-items: center;
@@ -861,7 +850,7 @@ body {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #1879f7;
+    background: var(--primary-color);
   }
   &.ar02::after {
     right: 20px;
@@ -871,7 +860,7 @@ body {
     border-left: 6px solid #fde200;
   }
   .icon {
-    fill: #1879f7;
+    fill: var(--primary-color);
     max-width: 35px;
     svg {
       width: 100%;
@@ -889,7 +878,7 @@ body {
 .text__link,
 // wp members
 .register_links a {
-  color: #1879f7;
+  color: var(--primary-color);
   font-weight: 900;
   text-decoration: underline;
   text-underline-offset: 7px;
@@ -904,8 +893,8 @@ body {
     vertical-align: middle;
     width: 9px;
     height: 9px;
-    border-top: 2px solid #1879f7;
-    border-right: 2px solid #1879f7;
+    border-top: 2px solid var(--primary-color);
+    border-right: 2px solid var(--primary-color);
     top: 50%;
     transform: translateY(-50%) rotate(45deg);
   }
@@ -921,16 +910,15 @@ body {
 
 .more-link {
   font-weight: 900;
-  border: 1px solid #232323;
-  border-radius: 6px;
+  border: 1px solid var(--text-color);
+  border-radius: var(--small-radius);
   margin-left: auto;
   display: block;
   width: fit-content;
   line-height: 1;
   padding: 3px 10px 6px;
-  font-size: 1.4rem;
   @include mixin.pad {
-    font-size: 0.8rem;
+    font-size: var(--small-font);
     margin-top: 5px;
   }
 }
@@ -954,8 +942,9 @@ body {
   }
   &-item {
     a {
-      border: 3px solid #adc3ea;
-      border-radius: 20px;
+      border: 3px solid rgba(24, 121, 247, 0.4);
+
+      border-radius: var(--large-radius);
       background-color: #fff;
       padding: 26px 0px 22px 30px;
       text-align: center;
@@ -1018,9 +1007,9 @@ body {
   }
   &__name {
     font-weight: 900;
-    font-size: 3.3rem;
+    font-size: var(--large-font);
     @include mixin.sp {
-      font-size: 2.4rem;
+      font-size: var(--medium-font);
     }
     line-height: 1;
   }
@@ -1029,8 +1018,7 @@ body {
   }
 
   &__text {
-    color: #1879f7;
-    font-size: 1.4rem;
+    color: var(--primary-color);
     position: relative;
     margin-top: 7px;
     white-space: nowrap;
@@ -1060,19 +1048,19 @@ body {
       var(--swiper-pagination-bullet-size, 9px)
     ) !important;
     margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 10px) !important;
-    background-color: #999;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   &-pagination-bullet-active {
-    background-color: #1879f7;
+    background-color: var(--primary-color);
   }
   &-button-prev,
   &-button-next {
     border: 0;
-    color: #1879f7;
+    color: var(--primary-color);
     background-color: #fff;
-    border: 2px solid #1879f7;
-    border-radius: 40px;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--large-radius);
     width: 20px;
     height: 20px;
     @include mixin.pad {
@@ -1083,7 +1071,7 @@ body {
 
   &-button-next:after,
   &-button-prev:after {
-    font-size: 12px;
+    font-size: var(--small-font);
     font-weight: 900;
   }
 }
@@ -1149,7 +1137,7 @@ body:not(.is-property, .is-column) .swiper {
       position: relative;
       background-color: #fff;
       display: block;
-      border-radius: 6px;
+      border-radius: var(--small-radius);
       overflow: hidden;
     }
 
@@ -1160,35 +1148,36 @@ body:not(.is-property, .is-column) .swiper {
     .new {
       top: 10px;
       left: 0;
-      top: 2px;
+      top: 0;
       font-weight: 900;
-      font-size: 0.8rem;
+      font-size: var(--small-font);
       font-weight: 900;
       background-image: url(../img/common/new.svg);
       background-repeat: no-repeat;
-      line-height: 3.8;
-      width: 35px;
-      height: 35px;
+      line-height: 3.4;
+      width: 42px;
+      height: 42px;
       padding-left: 8px;
+      letter-spacing: 0;
     }
 
     .simplefavorite-button {
       bottom: 10px;
       right: 10px;
-      font-size: 3rem;
+      font-size: var(--large-font);
       line-height: 1;
       color: #ff0062;
     }
 
     // ↓タグ別に色変える
     .classify {
-      background-color: #1879f7;
-      border-radius: 3px;
+      background-color: var(--primary-color);
+      border-radius: var(--small-radius);
       color: #fff;
       padding: 6px 10px 9px;
       width: fit-content;
       line-height: 1;
-      font-size: 1.2rem;
+      font-size: var(--small-font);
       margin-right: auto;
       margin-top: -10px;
       position: relative;
@@ -1209,16 +1198,16 @@ body:not(.is-property, .is-column) .swiper {
     }
 
     .price {
-      font-size: 1.8rem;
+      font-size: var(--medium-font);
       line-height: 1;
       font-weight: 600;
       span {
-        font-size: 1.2rem;
+        font-size: var(--small-font);
       }
     }
 
     &.column .post-categories a {
-      font-size: 1.2rem;
+      font-size: var(--small-font);
     }
   }
   .property__img img,
@@ -1231,18 +1220,17 @@ body:not(.is-property, .is-column) .swiper {
   }
 
   .feature {
-    font-size: 1.4rem;
     line-height: 1.4;
     margin-top: 15px;
   }
   .traffic {
     font-weight: 900;
-    font-size: 1rem;
+    font-size: var(--small-font);
     margin-top: 5px;
   }
 
   .address {
-    font-size: 1rem;
+    font-size: var(--small-font);
     margin-top: 5px;
   }
 
@@ -1256,7 +1244,6 @@ body:not(.is-property, .is-column) .swiper {
     vertical-align: middle;
   }
   .floor {
-    font-size: 1.4rem;
   }
 }
 
@@ -1296,15 +1283,14 @@ body:not(.is-property, .is-column) .swiper {
   }
   &-item a[rel="category tag"] {
     line-height: 1;
-    font-size: 1.2rem;
+    font-size: var(--small-font);
   }
 
   &__text {
     line-height: 1.5;
-    font-size: 1.4rem;
   }
   &__time {
-    font-size: 1.2rem;
+    font-size: var(--small-font);
   }
 
   &__title + &__text {
@@ -1312,7 +1298,6 @@ body:not(.is-property, .is-column) .swiper {
   }
 }
 main:not(.news).column__title {
-  font-size: 1.4rem;
 }
 
 // form共通※適宜css分ける
@@ -1321,16 +1306,16 @@ main:not(.news).column__title {
     font-weight: 900;
     padding-top: 10px;
     padding-bottom: 10px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    border-top-left-radius: var(--small-radius);
+    border-top-right-radius: var(--small-radius);
   }
   .contact {
     background-color: #fff;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-    border: 4px solid #1879f7;
+    border-bottom-left-radius: var(--small-radius);
+    border-bottom-right-radius: var(--small-radius);
+    border: 4px solid var(--primary-color);
     padding: 20px 30px;
-    border-radius: 40px;
+    border-radius: var(--large-radius);
   }
   .contact__title,
   .contact__detail {
@@ -1344,7 +1329,6 @@ main:not(.news).column__title {
   .contact__title {
     text-align: left;
     font-weight: normal;
-    font-size: 1.4rem;
     width: 100%;
     max-width: 35%;
     @include mixin.sp {
@@ -1355,18 +1339,18 @@ main:not(.news).column__title {
 
     span {
       font-weight: 400;
-      font-size: 1.2rem;
+      font-size: var(--small-font);
       color: #ff0062;
     }
   }
 
   input:not(.primary-btn, [type="radio"]),
   textarea {
-    background-color: #ededed;
+    background-color: rgba(0, 0, 0, 0.1);
     padding: 10px;
     border-radius: 12px;
     text-decoration: none;
-    color: #232323;
+    color: var(--text-color);
   }
   input[type="text"],
   input[type="tel"],
@@ -1383,8 +1367,8 @@ main:not(.news).column__title {
     text-align: center;
   }
   select {
-    border-color: #dbdbdb;
-    background-color: #ededed;
+    border-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
     padding: 5px 10px;
   }
 
@@ -1403,7 +1387,6 @@ main:not(.news).column__title {
   display: flex;
   gap: 10px;
   justify-content: flex-end;
-  font-size: 1.2rem;
 
   span,
   a {
@@ -1413,7 +1396,7 @@ main:not(.news).column__title {
   }
 
   .page-numbers {
-    background-color: #999;
+    background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     &.prev,
     &.next {
@@ -1422,7 +1405,7 @@ main:not(.news).column__title {
   }
 
   .page-numbers.current {
-    background-color: #1879f7;
+    background-color: var(--primary-color);
     color: #fff;
     font-weight: 900;
   }
@@ -1452,16 +1435,13 @@ main:not(.company) .lower .hero {
   &__catch {
     font-weight: 900;
     line-height: 1.2;
-    font-size: 4rem;
-    @include mixin.sp {
-      font-size: 2.4rem;
-    }
+    font-size: var(--large-font);
+
     margin-top: 20px;
-    margin-left: 30px;
-    color: #1879f7;
+    color: var(--primary-color);
     text-align: left;
     span {
-      color: #232323;
+      color: var(--text-color);
       font-size: 50%;
     }
   }
@@ -1496,7 +1476,7 @@ main:not(.company) .lower .hero {
 .means {
   padding: 20px;
   width: 100%;
-  border-radius: 20px;
+  border-radius: var(--large-radius);
   @include mixin.sp {
     border-radius: 0;
   }
@@ -1523,7 +1503,7 @@ main:not(.company) .lower .hero {
       left: -13px;
       content: "";
       display: block;
-      border: 3px solid #1879f7;
+      border: 3px solid var(--primary-color);
       border-radius: 100px;
       width: 70px;
       height: 70px;
@@ -1531,18 +1511,18 @@ main:not(.company) .lower .hero {
   }
   &__title {
     font-weight: 900;
-    font-size: 1.2rem;
+    font-size: var(--small-font);
     padding-top: 20px;
     &.name {
-      font-size: 1.8rem;
+      font-size: var(--medium-font);
       padding-top: 10px;
     }
   }
   &__num {
-    color: #1879f7;
+    color: var(--primary-color);
     font-family: "Manrope", sans-serif;
-    font-weight: 800;
-    font-size: 2.4rem;
+    font-weight: 700;
+    font-size: var(--medium-font);
   }
 
   &__logo {
@@ -1557,19 +1537,19 @@ main:not(.company) .lower .hero {
   &__address,
   &__link,
   &__info {
-    color: #999;
-    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: var(--small-font);
     line-height: 1.5;
   }
 
   &-tel {
-    border-left: 1px solid #999;
-    border-right: 1px solid #999;
+    border-left: 1px solid rgba(0, 0, 0, 0.5);
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
     @include mixin.sp {
       border-left: none;
       border-right: none;
-      border-top: 1px solid #999;
-      border-bottom: 1px solid #999;
+      border-top: 1px solid rgba(0, 0, 0, 0.5);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
       padding-bottom: 10px;
     }
   }
@@ -1581,7 +1561,7 @@ main:not(.company) .lower .hero {
     }
   }
   &-mail {
-    fill: #1879f7;
+    fill: var(--primary-color);
   }
 
   @include mixin.sp {
@@ -1622,7 +1602,7 @@ main:not(.company) .lower .hero {
 .is-page,
 .is-category {
   .hero__catch {
-    font-size: 2.4rem;
+    font-size: var(--medium-font);
     width: max-content;
   }
 }
@@ -1646,7 +1626,7 @@ main:not(.company) .lower .hero {
     font-weight: 600;
 
     &.general .hero__icon::before {
-      background-color: #1879f7;
+      background-color: var(--primary-color);
     }
     &.limited .hero__icon::before {
       background-color: #ff0062;
@@ -1670,13 +1650,13 @@ main:not(.company) .lower .hero {
     }
   }
   &__num {
-    font-size: 2.2rem;
+    font-size: var(--medium-font);
     line-height: 1;
     text-align: right;
-    font-weight: 800;
+    font-weight: 700;
     font-family: "Manrope", sans-serif;
     span {
-      font-size: 1.2rem;
+      font-size: var(--small-font);
     }
   }
 
@@ -1697,7 +1677,7 @@ main:not(.company) .lower .hero {
       display: block;
       width: 48px;
       height: 48px;
-      border-radius: 40px;
+      border-radius: var(--large-radius);
       top: -9px;
       left: -11px;
       @include mixin.pad {
@@ -1715,11 +1695,11 @@ main:not(.company) .lower .hero {
   }
 
   &__section {
-    font-size: 1.2rem;
+    font-size: var(--small-font);
     font-weight: 900;
     line-height: 1;
     @include mixin.pad {
-      font-size: 0.8rem;
+      font-size: var(--small-font);
     }
     text-align: right;
   }
@@ -1727,9 +1707,9 @@ main:not(.company) .lower .hero {
     background-color: #fff;
     padding: 6px 15px 5px 0px;
     border: 2px solid;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    min-width: 113px;
+    border-top-right-radius: var(--large-radius);
+    border-bottom-right-radius: var(--large-radius);
+    min-width: 125px;
     @include mixin.pad {
       padding: 7px 12px 7px 30px;
       display: flex;
@@ -1738,12 +1718,15 @@ main:not(.company) .lower .hero {
       align-items: baseline;
 
       // ↓左角が見えるので
-      border-radius: 20px;
+      border-radius: var(--large-radius);
+    }
+    @include mixin.sp {
+      padding-left: 39px;
     }
   }
 
   &-num.general .wrap {
-    border-color: #1879f7;
+    border-color: var(--primary-color);
   }
   &-num.limited .wrap {
     border-color: #ff0062;
@@ -1773,7 +1756,6 @@ main:not(.company) .lower .hero {
   }
   label:not([for="rememberme"]) {
     padding: 6px 10px 5px;
-    font-size: 1.4rem;
     text-align: left;
     display: block;
     width: fit-content;
@@ -1788,7 +1770,7 @@ main:not(.company) .lower .hero {
     text-align: center;
   }
   label:not([for="rememberme"]) {
-    background-color: #1879f7;
+    background-color: var(--primary-color);
     color: #fff;
   }
 }
@@ -1807,7 +1789,7 @@ main:not(.company) .lower .hero {
 .link-text-register,
 .link-text-forgot {
   a {
-    color: #1879f7;
+    color: var(--primary-color);
     position: relative;
     font-weight: bold;
     &::after {
@@ -1816,8 +1798,8 @@ main:not(.company) .lower .hero {
       content: "";
       width: 9px;
       height: 9px;
-      border-top: 1px solid #1879f7;
-      border-right: 1px solid #1879f7;
+      border-top: 1px solid var(--primary-color);
+      border-right: 1px solid var(--primary-color);
       top: 50%;
       transform: translateY(-50%) rotate(45deg);
     }

@@ -12,7 +12,7 @@
 
       <section class="section section-hero lower" id="hero">
 
-        <div class="section-content row w960 ">
+        <div class="section-content row w1000 ">
           <div class="content">
             <div class="hero">
 
@@ -60,7 +60,7 @@
 
       <section class="section section-company" id="section-company">
 
-        <div class="section-content row w960">
+        <div class="section-content row w1000">
           <div class="headline">
             <h2 class="headline__title">私たちが紡ぐ４つの絆</h2>
           </div>
@@ -94,7 +94,7 @@
           </div>
         </div>
 
-        <div class="section-content row w960">
+        <div class="section-content row w1000">
           <div class="headline">
             <h2 class="headline__title">ステッチの行動指針</h2>
           </div>
@@ -120,7 +120,7 @@
           </div>
         </div>
 
-        <div class="section-content row w960">
+        <div class="section-content row w1000">
           <div class="headline">
             <h2 class="headline__title">スタッフ紹介</h2>
           </div>
@@ -176,7 +176,7 @@
       </section>
 
       <section class="section section-overview" id="section-overview">
-        <div class="section-content row w960">
+        <div class="section-content row w1000">
           <div class="headline">
             <h2 class="headline__title">NEXUSグループ<br>
               株式会社ステッチ 会社概要</h2>
@@ -241,9 +241,6 @@
           </div>
         </div>
       </section>
-
-
-
 
   <?php endwhile;
   endif; ?>

@@ -9,7 +9,7 @@
 <main class="site-main archive" id="site-main">
 
   <section class="section section-hero lower" id="hero">
-    <div class="section-content">
+    <div class="section-content row w1000">
       <div class="content">
         <div class="hero">
           <h1 class="hero__catch"><span>買いたい</span><br>物件検索</h1>
@@ -20,8 +20,7 @@
   </section>
 
   <section class="section section-property" id="section-property">
-    <!-- w960 -->
-    <div class="section-content row ">
+    <div class="section-content row w1000">
       <div class="headline">
 
         <!-- パンくず -->

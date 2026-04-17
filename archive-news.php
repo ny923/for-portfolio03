@@ -8,7 +8,7 @@
 <main class="site-main archive" id="site-main">
 
   <section class="section section-hero lower" id="hero">
-    <div class="section-content">
+    <div class="section-content row w1000">
       <div class="content">
         <div class="hero">
           <h1 class="hero__catch">News<br><span>お知らせ一覧</span></h1>
@@ -18,7 +18,7 @@
   </section>
 
   <section class="section section-column" id="section-column">
-    <div class="section-content row w1100">
+    <div class="section-content row w1000">
       <div class="headline">
 
         <!-- パンくず -->

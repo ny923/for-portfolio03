@@ -19,7 +19,7 @@
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
       <section class="section section-property" id="section-property">
-        <div class="section-content row w960">
+        <div class="section-content row w1000">
           <div class="headline">
 
             <!-- パンくず -->
@@ -261,7 +261,7 @@
 
       <!-- 各物件用問い合わせform -->
       <section class="section section-contact" id="section-contact">
-        <div class="section-content row w960">
+        <div class="section-content row w1000">
           <!-- <div class="headline">
             <h2 class="headline__title">この物件へのお問い合わせ</h2>
           </div> -->
@@ -274,11 +274,6 @@
           </div>
         </div>
       </section>
-
-
-
-
-
   <?php endwhile;
   endif; ?>
   <?php get_footer(); ?>
