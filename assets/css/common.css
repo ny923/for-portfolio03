@@ -1686,7 +1686,7 @@ main:not(.company) .lower .hero__catch span {
 @media (max-width: 1040px) {
   .hero__icon {
     max-width: 22px;
-    right: -30px;
+    right: -20px;
     top: -3px;
   }
 }
@@ -1704,7 +1704,7 @@ main:not(.company) .lower .hero__catch span {
   .hero__icon::before {
     width: 42px;
     height: 42px;
-    top: -2px;
+    top: -4px;
     left: -9px;
   }
 }

@@ -172,12 +172,13 @@ function custom_address_validation($result, $tag)
 
 
 /**
- * 検索対象にカスタムフィールド（物件名・住所）を追加する
+ * 1. 検索キーワードの対象を拡張
  */
 function my_posts_search($search, $wp_query)
 {
   global $wpdb;
 
+  // 管理画面やメインクエリ以外、検索ではない場合は何もしない
   if (!$wp_query->is_main_query() || !$wp_query->is_search() || is_admin()) {
     return $search;
   }
@@ -186,21 +187,21 @@ function my_posts_search($search, $wp_query)
   if (empty($s)) return $search;
 
   $search = "";
+  // 全角スペースを半角に変換して分割
   $keywords = explode(' ', str_replace('　', ' ', $s));
 
   foreach ($keywords as $keyword) {
     if (!empty($keyword)) {
       $esc_keyword = '%' . $wpdb->esc_like($keyword) . '%';
       $search .= " AND (
-                {$wpdb->posts}.post_title LIKE '{$esc_keyword}' 
-                OR {$wpdb->posts}.post_content LIKE '{$esc_keyword}' 
+                {$wpdb->posts}.post_title LIKE '{$esc_keyword}'
+                OR {$wpdb->posts}.post_content LIKE '{$esc_keyword}'
+                OR {$wpdb->posts}.post_excerpt LIKE '{$esc_keyword}'
                 OR EXISTS (
-                    SELECT 1 FROM {$wpdb->postmeta} 
-                    WHERE {$wpdb->postmeta}.post_id = {$wpdb->posts}.ID 
-                    AND (
-                        (meta_key = 'property_name' AND meta_value LIKE '{$esc_keyword}')
-                        OR (meta_key = 'address' AND meta_value LIKE '{$esc_keyword}')
-                    )
+                    SELECT 1 FROM {$wpdb->postmeta}
+                    WHERE {$wpdb->postmeta}.post_id = {$wpdb->posts}.ID
+                    AND meta_value LIKE '{$esc_keyword}'
+                    AND meta_key NOT LIKE '\_%'
                 )
             )";
     }
@@ -212,7 +213,7 @@ add_filter('posts_search', 'my_posts_search', 10, 2);
 
 
 /**
- * 物件検索およびアーカイブの統合ロジック
+ * 2. 物件検索およびアーカイブのクエリ設定（絞り込みロジック）
  */
 function my_property_query_settings($query)
 {
@@ -308,11 +309,11 @@ function my_property_query_settings($query)
         $query->set('orderby', 'meta_value_num');
         $query->set('order', 'DESC');
         break;
-      // case 'date_desc': // 新着順（追加）
+      // case 'date_desc': // 新着順
       //   $query->set('orderby', 'date');
       //   $query->set('order', 'DESC');
       //   break;
-      case 'modified_desc': // 更新順（追加）
+      case 'modified_desc': // 更新順
         $query->set('orderby', 'modified');
         $query->set('order', 'DESC');
         break;
@@ -322,13 +323,6 @@ function my_property_query_settings($query)
         break;
     }
     // 最後に中身がある場合のみクエリをセット
-    // if (count($tax_query) > 1) {
-    //   $query->set('tax_query', $tax_query);
-    // }
-    // if (count($meta_query) > 1) {
-    //   $query->set('meta_query', $meta_query);
-    // }
-
     if (count($tax_query) > 1) {
       $query->set('tax_query', $tax_query);
     }
@@ -343,6 +337,8 @@ function my_property_query_settings($query)
   }
 }
 add_action('pre_get_posts', 'my_property_query_settings');
+// 検索用コードここまで
+
 
 
 // mp-members 会員登録画面からユーザー名を取り除く

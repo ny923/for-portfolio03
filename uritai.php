@@ -9,7 +9,7 @@ Template Name:uritai
 
   <!-- このページのみのオリジナルheader/footer -->
   <section class="section section-fv" id="fv">
-    <div class="section-content row w1000">
+    <div class="section-content row w1100">
       <div class="headline">
         <div class="flex">
           <div class="fv__logo">
@@ -21,7 +21,7 @@ Template Name:uritai
           <div class="fv-info pc">
             <span class="corner"></span>
 
-            <a href="https://e-stitch.jp/" class="fv-info__link logo" target="_blank">ステッチについて</a>
+            <a href="<?= site_url(); ?>/company/" class="fv-info__link logo">ステッチについて</a>
             <a href="mailto:re@e-stitch.jp" class="fv-info__link mail">お問い合わせ</a>
             <p class="fv-info__tel"><span>TEL.</span>027-225-5100</p>
             <p class="fv-info__text">営業時間/10:00～18:00<br>
@@ -50,7 +50,9 @@ Template Name:uritai
           </div>
 
           <div class="fv__float">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/uritai/float.png" alt="" />
+            <a href="#contact">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/uritai/float.png" alt="" />
+            </a>
           </div>
 
         </div>
@@ -59,7 +61,7 @@ Template Name:uritai
   </section>
 
   <section class="section section-promise" id="promise">
-    <div class="section-content row w1000">
+    <div class="section-content row w700">
 
       <div class="content">
         <div class="promise">
@@ -85,7 +87,7 @@ Template Name:uritai
               <img src="<?php echo get_template_directory_uri(); ?>/assets/img/uritai/promise.png" alt="">
             </div>
           </div>
-          <a href="#" class="promise__link pc">スタッフ紹介</a>
+          <a href="<?= site_url(); ?>/company/#staff" class="promise__link pc">スタッフ紹介</a>
           <div class="flex">
             <div class="promise-staff">
               <div class=" promise-staff__img">
@@ -111,19 +113,16 @@ Template Name:uritai
               <h3 class="promise__name">渡邊(わたなべ)</h3>
             </div>
           </div>
-
-
-
         </div>
       </div>
     </div>
   </section>
 
   <section class="section section-strength" id="strength">
-    <div class="section-content row w1000 flex">
+    <div class="section-content row w700 flex">
       <div class="headline">
         <h2 class="headline__title">４つの<span>強み</span></h2>
-        <p class="headline__text ">「想い」に寄り添う温かさと、結果を出すための確かな相談。</p>
+        <p class="headline__text">「想い」に寄り添う温かさと、結果を出すための確かな相談。</p>
       </div>
       <div class="content">
         <div class="strength">
@@ -324,7 +323,7 @@ Template Name:uritai
   </section>
 
   <section class="section section-regret" id="regret">
-    <div class="section-content row w1000">
+    <div class="section-content row w700">
       <div class="headline">
         <h2 class="headline__title">後悔しない不動産売却のために。</h2>
         <p class="headline__text">～トラブルを防ぐための<span>7つのセルフチェック</span>～</p>
@@ -439,7 +438,7 @@ Template Name:uritai
   </section>
 
   <section class="section section-contact" id="contact">
-    <div class="section-content row w1000 flex">
+    <div class="section-content row w700 flex">
       <div class="headline">
         <h2 class="headline__title">売却の<span>ご相談</span></h2>
         <p class="headline__text pc">ご依頼・ご相談はこちらから</p>
@@ -466,7 +465,7 @@ Template Name:uritai
   </section>
 
   <section class="section section-lp_footer" id="lp_footer">
-    <div class="section-content row w1000 ">
+    <div class="section-content row w700 ">
       <div class="headline">
         <h2 class="headline__title">株式会社ステッチ</h2>
         <p class="headline__address">株式会社ステッチ　不動産部<br>
@@ -485,8 +484,8 @@ Template Name:uritai
             <p class="lp_footer__close">定休日：毎週水曜・日曜/ 祝日、年末年始</p>
           </div>
 
-          <p class="lp_footer__info">群馬県知事(1)第8001号
-            (一社)群馬県宅地建物取引業協会会員　(公社)全国宅地建物取引業保証協会会員　(公社)首都圏不動産公正取引協議会加盟</p>
+          <p class="lp_footer__info">群馬県知事(1)第8001号<br class="sp">
+            (一社)群馬県宅地建物取引業協会会員　<br class="sp">(公社)全国宅地建物取引業保証協会会員　<br class="sp">(公社)首都圏不動産公正取引協議会加盟</p>
           <p class="lp_footer__copy"><a href="https://e-stitch.jp/" target="_blank">https://e-stitch.jp/</a><br class="sp">　©Copyright STITCH CO.,Ltd. All rights reserv</p>
 
         </div>

@@ -120,7 +120,7 @@
           </div>
         </div>
 
-        <div class="section-content row w1000">
+        <div class="section-content row w1000" id="staff">
           <div class="headline">
             <h2 class="headline__title">スタッフ紹介</h2>
           </div>

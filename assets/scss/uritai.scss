@@ -4,7 +4,7 @@
 // このページのみのheader, footer, etc...
 // 大変でした。。。
 .is-uritai {
-  .section + section:not(.section-strength) {
+  .section + section:not(.section-strength, .section-map) {
     margin-top: 80px;
   }
 
@@ -18,7 +18,7 @@
     padding: 10px 0;
     .section-content {
       justify-content: center;
-      @include mixin.pad {
+      @include mixin.sp {
         flex-direction: column;
       }
     }
@@ -35,18 +35,25 @@
 
   // 全体
   .headline {
-    text-align: -webkit-center;
-
     &__title,
     &__text {
       font-weight: bold;
     }
   }
 
+  .section:is(.section-contact, .section-strength) .headline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .section:is(.section-contact, .section-strength) .headline__title,
   .section:is(.section-contact, .section-strength) .headline__text {
-    @include mixin.pc {
-      writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    font-feature-settings: initial;
+
+    @include mixin.sp {
+      writing-mode: initial;
     }
   }
 
@@ -66,12 +73,12 @@
     font-family: serif;
     font-size: var(--x-large-font);
     @include mixin.sp {
-      font-size: var(--large-font) !important;
+      font-size: var(--large-font);
     }
   }
   .headline__text {
     @include mixin.sp {
-      font-size: var(--medium-font) !important;
+      font-size: var(--medium-font);
     }
   }
   .contact {
@@ -142,6 +149,7 @@
   }
   &__name {
     font-size: var(--medium-font);
+    text-align: center;
     @include mixin.sp {
       font-size: var(--small-font);
     }
@@ -282,7 +290,6 @@
     }
   }
   &__name {
-    // font-size: initial;
     @include mixin.sp {
       font-size: var(--small-font);
     }
@@ -414,10 +421,16 @@
 .section-regret {
   .headline__title {
     font-size: var(--x-large-font);
+    @include mixin.sp {
+      font-size: var(--large-font);
+    }
   }
   .headline__text {
     font-size: var(--large-font);
     font-family: serif;
+    @include mixin.sp {
+      font-size: var(--medium-font);
+    }
   }
 }
 .regret {
@@ -472,6 +485,7 @@
     font-size: initial;
     @include mixin.sp {
       width: fit-content;
+      margin-right: auto;
     }
   }
   .regret-list__title {
@@ -571,17 +585,20 @@
 
 .section-map {
   .headline__title {
-    @include mixin.sp {
-      text-align: center;
-    }
+    text-align: center;
   }
+}
+.map iframe {
+  height: 500px;
 }
 
 .section-lp_footer {
+  letter-spacing: 0;
   .headline {
     display: flex;
     align-items: center;
-    justify-content: center;
+
+    justify-content: flex-start;
     @include mixin.pc {
       gap: 20px;
     }
@@ -592,8 +609,9 @@
 
   .headline__title {
     font-size: var(--x-large-font);
+    white-space: nowrap;
     @include mixin.sp {
-      font-size: var(--large-font) !important;
+      letter-spacing: -1px;
     }
     &::before {
       vertical-align: middle;
@@ -607,6 +625,7 @@
       background-position: center;
       margin-right: 10px;
       @include mixin.sp {
+        margin-right: 5px;
         width: 45px;
         height: 45px;
         background-size: 45px;
@@ -614,7 +633,6 @@
     }
   }
   .headline__address {
-    // font-size: var(--medium-font);
     text-align: left;
     @include mixin.sp {
       font-size: var(--small-font);
@@ -624,18 +642,24 @@
 }
 .lp_footer {
   .flex {
+    white-space: nowrap;
     justify-content: center;
-    @include mixin.pc {
-      gap: 20px;
-    }
+
     &:has(.lp_footer__tel) {
       align-items: flex-end;
       @include mixin.sp {
+        align-items: center;
         flex-direction: column;
       }
     }
     @include mixin.sp {
       margin-top: 10px;
+    }
+    + .flex {
+      // 2つ目のflex
+      @include mixin.pc {
+        gap: 15px;
+      }
     }
   }
   &__text,
@@ -645,8 +669,10 @@
   }
 
   &__text {
-    @include mixin.pc {
-      font-size: var(--large-font);
+    font-size: var(--large-font);
+    @include mixin.sp {
+      font-size: initial;
+      margin-right: auto;
     }
   }
   &__tel {
@@ -674,7 +700,7 @@
     color: #fff;
     font-size: var(--medium-font);
     height: fit-content;
-    padding: 10px 15px 12px;
+    padding: 9px 13px 10px;
     @include mixin.pc {
       margin-top: 10px;
     }
@@ -686,6 +712,9 @@
   &__info {
     font-size: var(--small-font);
     text-align: center;
+    @include mixin.sp {
+      text-align: left;
+    }
   }
   &__copy {
     text-align: center;
