@@ -55,8 +55,7 @@
                 </div>
 
                 <!-- 追加日／更新日-->
-                <p class="column__time"><time datetime="<?php the_time(); ?>"><?php the_time('Y/m/d'); ?></time></p>
-                <p class="column__time"><time datetime="<?php the_modified_date() ?>"><?php the_modified_date('Y/m/d') ?></time></p>
+                <p class="column__time">公開日：<time datetime="<?php the_time(); ?>"><?php the_time('Y/m/d'); ?></time>　更新日：<time datetime="<?php the_modified_date() ?>"><?php the_modified_date('Y/m/d') ?></time></p>
 
                 <h1 class="column__title"><?php the_title(); ?></h1>
                 <p class="category"><?php

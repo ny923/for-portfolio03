@@ -11,7 +11,7 @@
     <div class="section-content row w1000">
       <div class="content">
         <div class="hero">
-          <h1 class="hero__catch">News<br><span>お知らせ一覧</span></h1>
+          <h1 class="hero__catch">News<br><span>お知らせ</span></h1>
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@
             </li>
             <li itemprop="itemListElement" itemscope
               itemtype="http://schema.org/ListItem">
-              <span itemprop="name">お知らせ</span>
+              <span itemprop="name">お知らせ一覧</span>
               <meta itemprop="position" content="2" />
             </li>
           </ol>
