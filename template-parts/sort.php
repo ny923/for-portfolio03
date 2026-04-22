@@ -14,27 +14,26 @@ $post_type = get_query_var('post_type') ? get_query_var('post_type') : 'property
 
     <div class="sort-container">
         <span class="sort-label">並び替え</span>
-        <?php // $current_sort = $_GET['sort'] ?? ''; 
-        ?>
+
         <div class="sort-item">
-            <select name="sort" class="js-sort-select" onchange="submitSort(this)">
-                <option value="" disabled <?php echo !isset($_GET['sort']) ? 'selected' : ''; ?>>新着・更新順</option>
+            <select name="sort" class="js-sort-select" onchange="submitSortForm(this)">
+                <option value="" disabled <?php echo !in_array($_GET['sort'] ?? '', ['date_desc', 'modified_desc']) ? 'selected' : ''; ?>>新着・更新順</option>
                 <option value="date_desc" <?php selected($_GET['sort'] ?? '', 'date_desc'); ?>>新着順</option>
                 <option value="modified_desc" <?php selected($_GET['sort'] ?? '', 'modified_desc'); ?>>更新順</option>
             </select>
         </div>
 
         <div class="sort-item">
-            <select name="sort" class="js-sort-select" onchange="submitSort(this)">
-                <option value="" disabled <?php echo !isset($_GET['sort']) ? 'selected' : ''; ?>>価格順</option>
+            <select name="sort" class="js-sort-select" onchange="submitSortForm(this)">
+                <option value="" disabled <?php echo !in_array($_GET['sort'] ?? '', ['price_asc', 'price_desc']) ? 'selected' : ''; ?>>価格順</option>
                 <option value="price_asc" <?php selected($_GET['sort'] ?? '', 'price_asc'); ?>>安い順</option>
                 <option value="price_desc" <?php selected($_GET['sort'] ?? '', 'price_desc'); ?>>高い順</option>
             </select>
         </div>
 
         <div class="sort-item">
-            <select name="sort" class="js-sort-select" onchange="submitSort(this)">
-                <option value="" disabled <?php echo !isset($_GET['sort']) ? 'selected' : ''; ?>>築年数</option>
+            <select name="sort" class="js-sort-select" onchange="submitSortForm(this)">
+                <option value="" disabled <?php echo !in_array($_GET['sort'] ?? '', ['age_asc', 'age_desc']) ? 'selected' : ''; ?>>築年数</option>
                 <option value="age_asc" <?php selected($_GET['sort'] ?? '', 'age_asc'); ?>>古い順</option>
                 <option value="age_desc" <?php selected($_GET['sort'] ?? '', 'age_desc'); ?>>新しい順</option>
             </select>
@@ -42,11 +41,12 @@ $post_type = get_query_var('post_type') ? get_query_var('post_type') : 'property
 
         <div class="sort-item">
             <select name="member_only" onchange="this.form.submit()">
-                <option value="" disabled <?php echo !isset($_GET['sort']) ? 'selected' : ''; ?>>会員限定</option>
+                <option value="" disabled <?php echo !isset($_GET['member_only']) || $_GET['member_only'] === '' ? 'selected' : ''; ?>>会員限定</option>
                 <option value="1" <?php selected($_GET['member_only'] ?? '', '1'); ?>>会員限定のみ</option>
                 <option value="0" <?php selected($_GET['member_only'] ?? '', '0'); ?>>すべて表示</option>
             </select>
         </div>
+
     </div>
 
     <?php

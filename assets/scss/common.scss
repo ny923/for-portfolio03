@@ -1617,6 +1617,7 @@ main:not(.company) .lower .hero {
     z-index: 1;
     @include mixin.pc {
       top: 30px;
+      // left: calc(100% - 430px);
     }
   }
   &-num {
@@ -1667,7 +1668,7 @@ main:not(.company) .lower .hero {
     right: -15px;
     @include mixin.pad {
       max-width: 22px;
-      right: -30px;
+      right: -20px;
       top: -3px;
     }
 
@@ -1683,7 +1684,7 @@ main:not(.company) .lower .hero {
       @include mixin.pad {
         width: 42px;
         height: 42px;
-        top: -2px;
+        top: -4px;
         left: -9px;
       }
     }
@@ -1820,3 +1821,8 @@ main:not(.company) .lower .hero {
   color: #ff0062 !important;
 }
 // wp members ここまで
+
+// contactform7
+.wpcf7-previous {
+  min-width: 200px;
+}

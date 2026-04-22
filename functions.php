@@ -383,30 +383,6 @@ add_filter('wpmem_notify_addr', function ($email) {
 });
 
 
-/**
- * This is a multiple email example.  Note that your outgoing
- * mail server must support receiving multiple emails as
- * comma separated values for this to be supported.
- */
-// add_filter('wpmem_notify_addr', function ($email) {
-//   return 'f.toriizuka@e-stitch.jp, h.abe@e-stitch.jp, re@e-stitch.jp';
-// });
-
-
-/**
- * Notification addresses can be changed based on your own
- * crititeria, supposing you know a little PHP.
- */
-// add_filter('wpmem_notify_addr', function ($email) {
-
-//   // Change the email based on your own custom logic.
-//   if ($some_criteria) {
-//     $email = 'f.toriizuka@e-stitch.jp';
-//   }
-
-//   return $email;
-// });
-
 // 物件詳細 zipから住所を出す
 /**
  * 郵便番号から住所を取得する関数

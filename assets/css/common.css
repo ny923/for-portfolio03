@@ -1840,4 +1840,8 @@ main:not(.company) .lower .hero__catch span {
 
 #wpmem_reg .req {
   color: #ff0062 !important;
+}
+
+.wpcf7-previous {
+  min-width: 200px;
 }/*# sourceMappingURL=common.css.map */
