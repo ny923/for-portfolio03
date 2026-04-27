@@ -299,14 +299,14 @@ function my_property_query_settings($query)
         $query->set('orderby', 'meta_value_num');
         $query->set('order', 'DESC');
         break;
-      case 'age_asc':
+      case 'age_asc':  // 築年古い順
         $query->set('meta_key', 'property_age');
-        $query->set('orderby', 'meta_value_num');
+        $query->set('orderby', 'meta_value');
         $query->set('order', 'ASC');
         break;
-      case 'age_desc':
+      case 'age_desc':  // 築年新しい順
         $query->set('meta_key', 'property_age');
-        $query->set('orderby', 'meta_value_num');
+        $query->set('orderby', 'meta_value');
         $query->set('order', 'DESC');
         break;
       // case 'date_desc': // 新着順

@@ -70,7 +70,7 @@ $post_type = get_query_var('post_type') ? get_query_var('post_type') : 'property
          * 同じ 'name="sort"' を持つセレクトボックスが複数あるため、
          * 送信直前に選択されていない方の name を消去して重複を防ぐ処理
          */
-        function submitSort(ele) {
+        function submitSortForm(ele) {
             const selects = document.querySelectorAll('.js-sort-select');
             selects.forEach(sel => {
                 if (sel !== ele) {
