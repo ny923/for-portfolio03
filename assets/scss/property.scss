@@ -103,6 +103,9 @@
 
 .section-property {
   padding-top: 30px;
+  @include mixin.sp {
+    padding-top: 60px;
+  }
   padding-bottom: 30px;
 }
 .headline {

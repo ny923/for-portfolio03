@@ -83,7 +83,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) {
 .archive {
   .section-swiper {
     @include mixin.sp {
-      margin-top: 50px;
+      margin-top: 100px;
     }
     .content {
       position: relative;
@@ -93,6 +93,9 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) {
   .hero__catch,
   .headline__title {
     padding: 40px 0 10px;
+    @include mixin.sp {
+      padding-top: 0;
+    }
   }
   .headline__title {
     color: var(--primary-color);
@@ -277,7 +280,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) {
 // /column共通分
 
 // 固定ページも共通-edit用
-.column-contents {
+.column-contents:not(:has(#wpmem_login)) {
   padding-top: 40px;
   padding-bottom: 40px;
 

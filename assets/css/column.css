@@ -87,7 +87,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
 
 @media (max-width: 760px) {
   .archive .section-swiper {
-    margin-top: 50px;
+    margin-top: 100px;
   }
 }
 .archive .section-swiper .content {
@@ -96,6 +96,12 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
 .archive .hero__catch,
 .archive .headline__title {
   padding: 40px 0 10px;
+}
+@media (max-width: 760px) {
+  .archive .hero__catch,
+  .archive .headline__title {
+    padding-top: 0;
+  }
 }
 .archive .headline__title {
   color: var(--primary-color);
@@ -265,30 +271,30 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   border-top: 1px solid #dbdbdb;
 }
 
-.column-contents {
+.column-contents:not(:has(#wpmem_login)) {
   padding-top: 40px;
   padding-bottom: 40px;
 }
-.column-contents .wp-block-heading {
+.column-contents:not(:has(#wpmem_login)) .wp-block-heading {
   font-weight: bold;
 }
-.column-contents .wp-block-heading + p {
+.column-contents:not(:has(#wpmem_login)) .wp-block-heading + p {
   margin-top: 5px;
 }
-.column-contents p + .wp-block-heading {
+.column-contents:not(:has(#wpmem_login)) p + .wp-block-heading {
   margin-top: 30px;
 }
-.column-contents.fixed {
+.column-contents:not(:has(#wpmem_login)).fixed {
   padding-top: 20px;
 }
-.column-contents.fixed > .column__text {
+.column-contents:not(:has(#wpmem_login)).fixed > .column__text {
   padding-bottom: 20px;
 }
-.column-contents.fixed .column-texts {
+.column-contents:not(:has(#wpmem_login)).fixed .column-texts {
   background-color: #fff;
   padding: 25px 30px 30px;
 }
-.column-contents.fixed .column-texts .column__text + .column__text {
+.column-contents:not(:has(#wpmem_login)).fixed .column-texts .column__text + .column__text {
   margin-top: 20px;
 }
 

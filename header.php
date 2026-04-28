@@ -51,16 +51,6 @@
 
   <?php elseif (is_single() || is_page() || is_archive('column')): ?>
     <link rel="stylesheet" media="all" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/column.css" />
-
-
-    <!-- 一旦不要 -->
-    <?php // elseif (is_page('faq')):
-    ?>
-    <!-- <link rel="stylesheet" media="all" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/faq.css" /> -->
-  <?php elseif (is_page(array('contact', 'confirm', 'thanks', 'assessment'))): ?>
-    <!-- <link rel="stylesheet" media="all" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/contact.css" /> -->
-  <?php elseif (is_page(array('privacy-policy'))): ?>
-    <!-- <link rel="stylesheet" media="all" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/terms.css" /> -->
   <?php endif; ?>
 
   <?php if (isset($favicon_img)): ?>
@@ -255,6 +245,8 @@
                                 echo 'is-contact';
                               } else if (is_page('uritai')) {
                                 echo 'is-uritai';
+                              } else if (is_page('privacy-policy')) {
+                                echo 'is-team';
                               } else if (! is_page('uritai') || is_single() || is_page() || is_archive('column')) {
                                 echo 'is-column';
                               } else if (is_category()) {

@@ -38,12 +38,6 @@ body {
     padding-bottom: 60px;
   }
 }
-@media (max-width: 760px) {
-  .site-main.archive {
-    padding-top: 80px;
-  }
-}
-
 @media (min-width: 1041px) {
   a:hover {
     opacity: 0.7;
@@ -105,11 +99,6 @@ body {
   text-align: left;
   font-size: var(--small-font);
   padding-top: 15px;
-}
-@media (max-width: 760px) {
-  .breadcrumbs {
-    padding-top: 50px;
-  }
 }
 .breadcrumbs {
   padding-bottom: 15px;
@@ -252,6 +241,10 @@ body {
 }
 .footer__link {
   line-height: 1.25;
+  padding-right: 25px;
+}
+.footer__link a {
+  white-space: nowrap;
 }
 .footer .copyright {
   font-size: var(--small-font);
@@ -1451,13 +1444,20 @@ main:not(.company) .lower .hero__catch {
   font-weight: 900;
   line-height: 1.2;
   font-size: var(--large-font);
-  margin-top: 20px;
   color: var(--primary-color);
   text-align: left;
 }
 main:not(.company) .lower .hero__catch span {
   color: var(--text-color);
   font-size: 50%;
+}
+main:not(.company) .lower .hero__catch {
+  margin-top: 20px;
+}
+@media (max-width: 760px) {
+  main:not(.company) .lower .hero__catch {
+    margin-top: 100px;
+  }
 }
 @media (max-width: 1040px) {
   main:not(.company) .lower .hero-numProperty {
@@ -1468,6 +1468,15 @@ main:not(.company) .lower .hero__catch span {
 @media (max-width: 760px) {
   main:not(.company) .lower .hero-numProperty {
     margin-right: 0;
+  }
+}
+
+.is-team .hero__catch {
+  margin-bottom: 10px;
+}
+@media (max-width: 760px) {
+  .is-team .hero__catch {
+    margin-top: 10px !important;
   }
 }
 
@@ -1688,6 +1697,11 @@ main:not(.company) .lower .hero__catch span {
     max-width: 22px;
     right: -20px;
     top: -3px;
+  }
+}
+@media (max-width: 760px) {
+  .hero__icon {
+    right: -28px;
   }
 }
 .hero__icon::before {

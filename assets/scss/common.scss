@@ -26,7 +26,7 @@ body {
   }
   &.archive {
     @include mixin.sp {
-      padding-top: 80px;
+      // padding-top: 80px;
     }
   }
 }
@@ -98,7 +98,7 @@ body {
   font-size: var(--small-font);
   padding-top: 15px;
   @include mixin.sp {
-    padding-top: 50px;
+    // padding-top: 50px;
   }
   padding-bottom: 15px;
   ol {
@@ -246,7 +246,16 @@ body {
 
   &__link {
     line-height: 1.25;
+    padding-right: 25px;
+    a {
+      white-space: nowrap;
+    }
   }
+
+  // wp側で出る
+  // .menu-item {
+  //   display: none;
+  // }
 
   .copyright {
     font-size: var(--small-font);
@@ -1429,20 +1438,23 @@ main:not(.news).column__title {
   }
 }
 
-// 下層ページのみ
+// 下層ページのみ main:not(.company) .lower .hero
+// body:not(.is-team) .lower .hero,
 main:not(.company) .lower .hero {
   display: flex;
   &__catch {
     font-weight: 900;
     line-height: 1.2;
     font-size: var(--large-font);
-
-    margin-top: 20px;
     color: var(--primary-color);
     text-align: left;
     span {
       color: var(--text-color);
       font-size: 50%;
+    }
+    margin-top: 20px;
+    @include mixin.sp {
+      margin-top: 100px;
     }
   }
 
@@ -1454,6 +1466,13 @@ main:not(.company) .lower .hero {
     @include mixin.sp {
       margin-right: 0;
     }
+  }
+}
+
+.is-team .hero__catch {
+  margin-bottom: 10px;
+  @include mixin.sp {
+    margin-top: 10px !important;
   }
 }
 
@@ -1617,7 +1636,6 @@ main:not(.company) .lower .hero {
     z-index: 1;
     @include mixin.pc {
       top: 30px;
-      // left: calc(100% - 430px);
     }
   }
   &-num {
@@ -1671,7 +1689,9 @@ main:not(.company) .lower .hero {
       right: -20px;
       top: -3px;
     }
-
+    @include mixin.sp {
+      right: -28px;
+    }
     &::before {
       content: "";
       position: absolute;
@@ -1687,6 +1707,9 @@ main:not(.company) .lower .hero {
         top: -4px;
         left: -9px;
       }
+      // @include mixin.sp {
+      //   left: -1px;
+      // }
     }
     img {
       position: relative;
