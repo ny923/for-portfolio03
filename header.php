@@ -27,7 +27,7 @@
     }
     ?>
   </title>
-  <meta name="description" content="ここはステッチ不動産事業部のサイトです。">
+  <meta name="description" content="群馬県で不動産の購入・売却をご検討なら株式会社ステッチ不動産事業へ。新築・中古戸建、土地、マンションの最新物件情報から、売却時の無料査定・買取まで幅広くサポート。無料の会員登録で限定物件もご覧いただけます。">
   <meta name="keywords" content="ステッチ, stitch, 不動産, 新築, 中古, 土地, 戸建, マンション, 売買, 売りたい, 買いたい">
   <link rel="canonical" href="<?= site_url(); ?>/">
 
@@ -62,7 +62,7 @@
   <meta property="og:url" content="<?= site_url(); ?>/" />
   <meta property="og:type" content="website" />
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="ここはステッチ不動産事業部のサイトです。" />
+  <meta property="og:description" content="群馬県で不動産の購入・売却をご検討なら株式会社ステッチ不動産事業へ。新築・中古戸建、土地、マンションの最新物件情報から、売却時の無料査定・買取まで幅広くサポート。無料の会員登録で限定物件もご覧いただけます。" />
   <meta property="og:title" content="<?php wp_title(' | ', true, 'right');
                                       bloginfo('name'); ?>" />
   <meta property="og:site_name" content="<?php bloginfo('name'); ?>のWebサイト" />
@@ -84,7 +84,7 @@
           "name": "Stitch Co., Ltd.",
           "url": "https://stitch-home.jp/",
           "logo": "https://stitch-home.jp/wp-content/themes/stitch/img/common/logo.png",
-          "description": "ここはステッチ不動産事業部のサイトです。",
+          "description": "群馬県で不動産の購入・売却をご検討なら株式会社ステッチ不動産事業へ。新築・中古戸建、土地、マンションの最新物件情報から、売却時の無料査定・買取まで幅広くサポート。無料の会員登録で限定物件もご覧いただけます。",
           "image": "https://stitch-home.jp/wp-content/themes/stitch/assets/img/common/ogp.jpg",
           "address": {
             "@type": "PostalAddress",

@@ -25,9 +25,6 @@ body {
     padding-bottom: 60px;
   }
   &.archive {
-    @include mixin.sp {
-      // padding-top: 80px;
-    }
   }
 }
 
@@ -97,9 +94,6 @@ body {
   text-align: left;
   font-size: var(--small-font);
   padding-top: 15px;
-  @include mixin.sp {
-    // padding-top: 50px;
-  }
   padding-bottom: 15px;
   ol {
     display: inline-block;
@@ -155,10 +149,13 @@ body {
 
 .footer {
   .flex {
-    padding-bottom: 15px;
-    @include mixin.pad {
-      padding-bottom: 0;
+    &:first-of-type {
+      padding-bottom: 15px;
+      @include mixin.pad {
+        padding-bottom: 0;
+      }
     }
+
     width: 100%;
     justify-content: space-between;
 
@@ -253,6 +250,7 @@ body {
   &__link {
     line-height: 1.25;
     padding-right: 25px;
+    text-align: left;
     a {
       white-space: nowrap;
     }
@@ -260,7 +258,13 @@ body {
 
   .copyright {
     font-size: var(--small-font);
+    @include mixin.pc {
+      text-align: right;
+      margin-right: 37px;
+    }
+
     @include mixin.sp {
+      text-align: left;
       line-height: 1.5;
       padding-top: 10px;
     }
@@ -270,7 +274,7 @@ body {
     line-height: 1.5;
     font-size: var(--small-font);
     font-weight: 700;
-
+    text-align: left;
     span {
       background-color: var(--primary-color);
       color: #fff;
