@@ -148,11 +148,17 @@ body {
 #footer 3,4度デザインが変わり大変でした…
 ============================*/
 .site-footer {
+  @include mixin.sp {
+    padding-bottom: 20px;
+  }
 }
 
 .footer {
   .flex {
     padding-bottom: 15px;
+    @include mixin.pad {
+      padding-bottom: 0;
+    }
     width: 100%;
     justify-content: space-between;
 
@@ -252,11 +258,6 @@ body {
     }
   }
 
-  // wp側で出る
-  // .menu-item {
-  //   display: none;
-  // }
-
   .copyright {
     font-size: var(--small-font);
     @include mixin.sp {
@@ -279,6 +280,12 @@ body {
       display: inline-block;
       text-align: center;
       margin-right: 5px;
+    }
+    &.pad {
+      // privacy
+      @include mixin.sp {
+        padding-top: 5px;
+      }
     }
   }
 
@@ -492,6 +499,11 @@ body {
       display: block;
       color: var(--text-color);
     }
+  }
+
+  // 会社概要
+  &__item.pad a {
+    color: var(--text-color);
   }
 
   @include mixin.pc {

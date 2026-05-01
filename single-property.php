@@ -4,13 +4,6 @@
 */
 ?>
 
-<?php
-// if (!is_user_logged_in()) {
-//   wp_redirect('/create-account/'); 
-//   exit();
-// }
-?>
-
 
 <?php get_header(); ?>
 
@@ -109,14 +102,9 @@
                 <?php echo do_shortcode('[favorite_button]'); ?>
               </div>
 
-              <!-- 一旦保留 -->
-              <!-- <ul class="property-list">
-                <li class="property__item">※wordpress側に項目登録する必要あります</li>
-                <li class="property__item">中庭</li>
-                <li class="property__item">小学校近い　…他</li>
-              </ul> -->
 
-              <!-- ここも種別で出し分け -->
+
+              <!-- 種別で出し分け -->
               <?php
               // 現在の投稿に付いているカテゴリーのスラッグを判定
               if (has_category('new-house')) {
@@ -233,24 +221,62 @@
               }
               ?>
 
-              <div class="property-map">
-                <h2 class="property__title">アクセスマップ</h2>
-                <!-- googleMap -->
-                <?php
-                $location = get_post_meta(get_the_ID(), 'location', true);
-                if ($location) :
-                ?>
 
-                  <iframe
-                    width="100%"
-                    height="350"
-                    frameborder="0"
-                    style="border:0"
-                    src="https://maps.google.co.jp/maps?output=embed&q=<?php echo urlencode($location); ?>&z=15"
-                    allowfullscreen>
-                  </iframe>
-              </div>
-            <?php endif; ?>
+              <!-- 所在map -->
+              <?php $location = get_post_meta(get_the_ID(), 'location', true); ?>
+
+              <?php if (!empty($location)) : ?>
+                <?php if (! is_single(14512)): ?>
+                  <div class="property-map">
+                    <h2 class="property__title">アクセスマップ</h2>
+                    <?php
+                    if ($location) :
+                      $map_query = ''; // 初期化
+                      $parts = explode('/', $location);
+
+                      if (count($parts) === 2) {
+                        $lat_raw = $parts[0]; // 例: 36.20.34.657
+                        $lng_raw = $parts[1]; // 例: 139.1.27.631
+
+                        $lat_d = explode('.', $lat_raw);
+                        $lng_d = explode('.', $lng_raw);
+
+                        if (count($lat_d) >= 3 && count($lng_d) >= 3) {
+                          // 度° 分' 秒" の形に整形
+                          // 4つ目の要素（ミリ秒相当）があればドットで繋いで秒に含める
+                          $lat_sec = $lat_d[2] . (isset($lat_d[3]) ? "." . $lat_d[3] : "");
+                          $lng_sec = $lng_d[2] . (isset($lng_d[3]) ? "." . $lng_d[3] : "");
+
+                          $formatted_lat = $lat_d[0] . '°' . $lat_d[1] . "'" . $lat_sec . '"N';
+                          $formatted_lng = $lng_d[0] . '°' . $lng_d[1] . "'" . $lng_sec . '"E';
+
+                          $map_query = $formatted_lat . ' ' . $formatted_lng;
+                        } else {
+                          // ドット分割が期待通りでない場合は元の値をそのまま使う
+                          $map_query = $location;
+                        }
+                      } else {
+                        // スラッシュ分割が期待通りでない場合は元の値をそのまま使う
+                        $map_query = $location;
+                      }
+
+                      if ($map_query) : ?>
+                        <iframe
+                          width="100%"
+                          height="350"
+                          frameborder="0"
+                          style="border:0"
+                          src="https://www.google.com/maps?output=embed&q=<?php echo urlencode($map_query); ?>&z=15"
+                          allowfullscreen>
+                        </iframe>
+                    <?php
+                      endif;
+                    endif;
+                    ?>
+                  </div>
+                <?php endif; ?>
+              <?php endif; ?>
+
 
 
 
@@ -262,9 +288,7 @@
       <!-- 各物件用問い合わせform -->
       <section class="section section-contact" id="section-contact">
         <div class="section-content row w1000">
-          <!-- <div class="headline">
-            <h2 class="headline__title">この物件へのお問い合わせ</h2>
-          </div> -->
+
           <div class="content">
             <div class="contact">
               <h2 class="headline__title">この物件へのお問い合わせ</h2>
@@ -274,6 +298,7 @@
           </div>
         </div>
       </section>
+
   <?php endwhile;
   endif; ?>
   <?php get_footer(); ?>

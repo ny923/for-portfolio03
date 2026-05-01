@@ -415,10 +415,6 @@
     flex-direction: column;
   }
 }
-.flow-imgs .flow__img {
-  outline: 1px solid var(--text-color);
-}
-
 .section-regret .headline__title {
   font-size: var(--x-large-font);
 }

@@ -297,7 +297,9 @@
             <div class="globalnav-inner">
 
               <div class="globalnav__logo pad">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/favicon.png" alt="">
+                <a href="<?= site_url(); ?>">
+                  <img src=" <?php echo get_template_directory_uri(); ?>/assets/img/common/favicon.png" alt="">
+                </a>
               </div>
 
               <ul class="globalnav-list">
@@ -305,7 +307,6 @@
                   <a href="<?= site_url(); ?>/property/" class="buy"><span>戸建 土地 マンションを</span>
                     買いたい</a>
                 </li>
-                <!-- /consult/ -->
                 <li class="globalnav__item" itemprop="name">
                   <a href="<?= site_url(); ?>/uritai/" class="sell"><span>戸建 土地 マンションを</span>
                     売りたい</a>
@@ -315,8 +316,13 @@
                   'menu' => 'header',
                   'container'      => false,
                   'items_wrap'     => '%3$s',
-
                 )); ?>
+
+                <li class="globalnav__item pad" itemprop="name">
+                  <a href="<?= site_url(); ?>/company/" class="">
+                    会社概要</a>
+                </li>
+
               </ul>
             </div>
 

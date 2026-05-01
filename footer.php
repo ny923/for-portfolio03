@@ -23,11 +23,12 @@
               <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/tel.svg" alt="tel">
             </div>
             <div class="means-texts">
-              <h3 class=" means__title">お電話でのお問い合わせ</h3>
+              <h3 class="means__title">お電話でのお問い合わせ</h3>
               <p class="means__num">027-225-5100</p>
               <p class="means__info">営業時間：10:00～18:00<br>
                 定休日：水・日曜日・祝、年末年始
               </p>
+
             </div>
           </div>
           <!-- ここはsideber -->
@@ -46,7 +47,6 @@
       </div>
     </div>
   </section>
-  <!-- map -->
   <section class="section section-map" id="map">
     <div class="section-content row w1000">
       <div class="content">
@@ -74,6 +74,8 @@
               〒371-0812 群馬県前橋市広瀬町3-2-15</p>
             <p class="footer__text"><span>営業時間</span>10:00～18:00</p>
             <p class="footer__text"><span>定休日</span>水・日曜日・祝、年末年始</p>
+
+            <p class="pad footer__text"><a href="<?= site_url(); ?>/privacy-policy/">プライバシーポリシー</a></p>
           </div>
 
           <div class="footer-wrap">
@@ -126,12 +128,11 @@
               (一社)群馬県宅地建物取引業協会会員<br>
               (公社)全国宅地建物取引業保証協会会員<br class="sp">
               (公社)首都圏不動産公正取引協議会加盟</p>
-            <p class="copyright"><a href="https://e-stitch.jp" target="_blank">https://e-stitch.jp/</a><br class="sp">
-              ©Copyright STITCH CO.,Ltd. All rights reserved</p>
           </div>
-
         </div>
 
+        <p class="copyright"><a href="https://e-stitch.jp" target="_blank">https://e-stitch.jp/</a><br class="sp">
+          ©Copyright STITCH CO.,Ltd. All rights reserved</p>
 
       </div>
     </div>
@@ -181,7 +182,7 @@
 <?php if (is_page(array('contact', 'contact-confirm', 'contact-thanks', 'consult', 'consult-confirm', 'consult-thanks', 'assessment'))): ?>
   <script type="text/javascript">
     jQuery(function($) {
-      // 判定を行う関数
+
       function toggleAddressInput() {
         const val = $('input[name="check-addr"]:checked').val();
         if (val === '所在地以外') {
@@ -205,8 +206,7 @@
 
 <?php wp_footer(); ?>
 
-<!-- </div>
-/.wrap -->
+
 
 </body>
 

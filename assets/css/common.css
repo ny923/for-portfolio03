@@ -142,8 +142,21 @@ body {
 /*============================
 #footer 3,4度デザインが変わり大変でした…
 ============================*/
+@media (max-width: 760px) {
+  .site-footer {
+    padding-bottom: 20px;
+  }
+}
+
 .footer .flex {
   padding-bottom: 15px;
+}
+@media (max-width: 1040px) {
+  .footer .flex {
+    padding-bottom: 0;
+  }
+}
+.footer .flex {
   width: 100%;
   justify-content: space-between;
 }
@@ -269,6 +282,11 @@ body {
   display: inline-block;
   text-align: center;
   margin-right: 5px;
+}
+@media (max-width: 760px) {
+  .footer__text.pad {
+    padding-top: 5px;
+  }
 }
 .footer-info .footer__text + .footer__text {
   margin-top: 5px;
@@ -497,6 +515,9 @@ body {
 .globalnav .menu-item span {
   font-size: var(--small-font);
   display: block;
+  color: var(--text-color);
+}
+.globalnav__item.pad a {
   color: var(--text-color);
 }
 @media (min-width: 1041px) {

@@ -305,7 +305,7 @@ Template Name:uritai
             </div>
           </div>
 
-          <!-- <div class="flex flow-imgs">
+          <div class="flex flow-imgs">
             <div class="flow__img">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/img/uritai/flow-img01.jpg" alt="">
             </div>
@@ -315,7 +315,7 @@ Template Name:uritai
             <div class="flow__img">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/img/uritai/flow-img03.jpg" alt="">
             </div>
-          </div> -->
+          </div>
 
         </div>
       </div>
