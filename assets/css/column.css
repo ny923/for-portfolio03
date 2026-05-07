@@ -11,11 +11,18 @@
   --x-large-font: 4.5rem;
 }
 
+@media (min-width: 1041px) {
+  .is-column .sidebar {
+    position: fixed;
+    right: 0;
+    top: 60px;
+  }
+}
 .is-column .sidebar {
-  max-width: 220px;
+  max-width: 200px;
   width: 100%;
 }
-@media (max-width: 760px) {
+@media (max-width: 1040px) {
   .is-column .sidebar {
     max-width: stretch;
     margin-inline: 15px;
@@ -24,7 +31,6 @@
 .is-column .sidebar {
   padding: 10px 20px 20px;
   background-color: #fff;
-  height: 100%;
 }
 .is-column .sidebar__title {
   font-size: var(--medium-font);
@@ -54,7 +60,17 @@
     flex-direction: column;
   }
 }
+@media (min-width: 1041px) {
+  .is-column main:not(.archive) {
+    position: relative;
+  }
+}
 
+@media (min-width: 1041px) {
+  .section-column .section-content {
+    max-width: 1000px;
+  }
+}
 .section-column {
   width: auto;
 }
@@ -77,7 +93,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
 }
 @media (max-width: 760px) {
   main:not(.archive, .news, :is(.members), :has(.register_links)) {
-    padding-top: 75px;
+    padding-top: 90px;
   }
 }
 
@@ -85,6 +101,9 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   display: none;
 }
 
+.archive .section-swiper {
+  margin-top: 50px;
+}
 @media (max-width: 760px) {
   .archive .section-swiper {
     margin-top: 100px;
@@ -142,7 +161,6 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
 }
 .archive .column .swiper-slide-item .column__img {
   flex: 5;
-  max-height: 330px;
 }
 .archive .column .swiper-slide-item .column-texts {
   flex: 2;
@@ -188,7 +206,6 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   margin-top: 40px;
 }
 .site-main:not(.archive, .news) .column__thumbnail img {
-  max-height: 400px;
   object-fit: cover;
 }
 .site-main:not(.archive, .news) .column__catch {
@@ -271,6 +288,11 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
   border-top: 1px solid #dbdbdb;
 }
 
+@media (min-width: 1041px) {
+  .column-contents {
+    max-width: 1000px;
+  }
+}
 .column-contents:not(:has(#wpmem_login)) {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -286,6 +308,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) .section-column 
 }
 .column-contents:not(:has(#wpmem_login)).fixed {
   padding-top: 20px;
+  margin-inline: auto;
 }
 .column-contents:not(:has(#wpmem_login)).fixed > .column__text {
   padding-bottom: 20px;

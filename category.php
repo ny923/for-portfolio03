@@ -52,7 +52,6 @@
             </li>
           </ol>
         </div>
-        <!-- <p class="headline__lead"><?php echo $wp_query->found_posts; ?>件</p> -->
       </div>
 
       <div class="content ">

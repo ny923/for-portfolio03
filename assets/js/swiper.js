@@ -7,8 +7,8 @@ let pickupSwiper = new Swiper('.pickup.swiper', {
         delay: 10000,
     },
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next.pickup',
+        prevEl: '.swiper-button-prev.pickup',
     },
     pagination: {
         el: '.swiper-pagination',
@@ -39,8 +39,8 @@ let arrivalPropertySwiper = new Swiper('.property.swiper.arrival', {
         delay: 10000,
     },
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next.arrival',
+        prevEl: '.swiper-button-prev.arrival',
     },
     pagination: {
         el: '.swiper-pagination',
@@ -71,8 +71,8 @@ let recommendPropertySwiper = new Swiper('.property.swiper.recommend', {
         delay: 10000,
     },
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next.recommend',
+        prevEl: '.swiper-button-prev.recommend',
     },
     pagination: {
         el: '.swiper-pagination',
@@ -130,7 +130,7 @@ let detailSwiper = new Swiper('.swiper-main', {
 // コラム用
 let columnSwiper = new Swiper('.column.swiper', {
     loop: true,
-    // centeredSlides: true,
+
     speed: 1000,
     autoplay: {
         delay: 10000,

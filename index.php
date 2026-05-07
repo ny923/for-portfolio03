@@ -79,8 +79,8 @@ Template Name:front-page
       <div class="content">
 
         <div class="swiper-buttons sp">
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev pickup"></div>
+          <div class="swiper-button-next pickup"></div>
         </div>
         <div class="property swiper pickup">
           <div class="swiper-wrapper">
@@ -192,8 +192,8 @@ Template Name:front-page
       <div class="content">
 
         <div class="swiper-buttons">
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev arrival"></div>
+          <div class="swiper-button-next arrival"></div>
         </div>
         <div class="property swiper arrival">
           <div class="swiper-wrapper">
@@ -311,8 +311,8 @@ Template Name:front-page
       </div>
       <div class="content">
         <div class="swiper-buttons">
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev recommend"></div>
+          <div class="swiper-button-next recommend"></div>
         </div>
 
         <div class="property swiper recommend">

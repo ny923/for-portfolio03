@@ -223,52 +223,53 @@
 
 
               <!-- 所在map -->
-              <?php $location = get_post_meta(get_the_ID(), 'location', true); ?>
-
+              <?php $location = get_post_meta(get_the_ID(), 'location', true);
+              $map_query = ''; ?>
               <?php if (!empty($location)) : ?>
                 <?php if (! is_single(14512)): ?>
                   <div class="property-map">
                     <h2 class="property__title">アクセスマップ</h2>
+
                     <?php
                     if ($location) :
-                      $map_query = ''; // 初期化
                       $parts = explode('/', $location);
-
                       if (count($parts) === 2) {
-                        $lat_raw = $parts[0]; // 例: 36.20.34.657
-                        $lng_raw = $parts[1]; // 例: 139.1.27.631
+                        // 1. 文字列から数値を抽出（度・分・秒・ミリ秒）
+                        $lat_d = explode('.', $parts[0]);
+                        $lng_d = explode('.', $parts[1]);
 
-                        $lat_d = explode('.', $lat_raw);
-                        $lng_d = explode('.', $lng_raw);
+                        // 要素が3つ以上（度・分・秒）あるかチェック
+                        if (isset($lat_d[0], $lat_d[1], $lat_d[2]) && isset($lng_d[0], $lng_d[1], $lng_d[2])) {
+                          $lat_sec = (float)$lat_d[2] . (isset($lat_d[3]) ? "." . $lat_d[3] : "");
+                          $lng_sec = (float)$lng_d[2] . (isset($lng_d[3]) ? "." . $lng_d[3] : "");
 
-                        if (count($lat_d) >= 3 && count($lng_d) >= 3) {
-                          // 度° 分' 秒" の形に整形
-                          // 4つ目の要素（ミリ秒相当）があればドットで繋いで秒に含める
-                          $lat_sec = $lat_d[2] . (isset($lat_d[3]) ? "." . $lat_d[3] : "");
-                          $lng_sec = $lng_d[2] . (isset($lng_d[3]) ? "." . $lng_d[3] : "");
+                          $raw_lat = (float)$lat_d[0] + ((float)$lat_d[1] / 60) + ($lat_sec / 3600);
+                          $raw_lng = (float)$lng_d[0] + ((float)$lng_d[1] / 60) + ($lng_sec / 3600);
 
-                          $formatted_lat = $lat_d[0] . '°' . $lat_d[1] . "'" . $lat_sec . '"N';
-                          $formatted_lng = $lng_d[0] . '°' . $lng_d[1] . "'" . $lng_sec . '"E';
+                          // ここをコメントアウトすれば、補正なしの座標（raw_lat/raw_lng）が使用されます
+                          $wgs_lat = $raw_lat - 0.00010695 * $raw_lat + 0.000017464 * $raw_lng + 0.046017;
+                          $wgs_lng = $raw_lng - 0.000046038 * $raw_lat - 0.000083043 * $raw_lng + 0.010040;
+                          $map_query = $wgs_lat . ',' . $wgs_lng;
+                          // 変換の為の計算式
 
-                          $map_query = $formatted_lat . ' ' . $formatted_lng;
                         } else {
-                          // ドット分割が期待通りでない場合は元の値をそのまま使う
                           $map_query = $location;
                         }
                       } else {
-                        // スラッシュ分割が期待通りでない場合は元の値をそのまま使う
                         $map_query = $location;
                       }
+
 
                       if ($map_query) : ?>
                         <iframe
                           width="100%"
                           height="350"
-                          frameborder="0"
                           style="border:0"
-                          src="https://www.google.com/maps?output=embed&q=<?php echo urlencode($map_query); ?>&z=15"
+                          src="https://maps.google.co.jp/maps?q=<?php echo urlencode($map_query); ?>&z=17&output=embed"
                           allowfullscreen>
                         </iframe>
+
+
                     <?php
                       endif;
                     endif;
@@ -276,6 +277,7 @@
                   </div>
                 <?php endif; ?>
               <?php endif; ?>
+
 
 
 

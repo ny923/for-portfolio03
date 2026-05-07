@@ -58,28 +58,7 @@
     </div>
   </section>
 
-  <!-- <section class="section section-column" id="section-column">
-    <div class="section-content row w1000">
-      <div class="headline">
 
-        <div class="breadcrumbs">
-          <ol itemscope itemtype="http://schema.org/BreadcrumbList">
-            <li itemprop="itemListElement" itemscope
-              itemtype="http://schema.org/ListItem">
-              <a itemprop="item" href="<?= site_url(); ?>/">
-                <span itemprop="name">ホーム</span></a>
-              <meta itemprop="position" content="1" />
-            </li>
-            <li itemprop="itemListElement" itemscope
-              itemtype="http://schema.org/ListItem">
-              <span itemprop="name">ステッチコラム</span>
-              <meta itemprop="position" content="2" />
-            </li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </section> -->
 
   <section class="section section-column" id="section-column">
     <div class="section-content row w1000">

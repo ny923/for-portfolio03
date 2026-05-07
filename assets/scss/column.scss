@@ -3,15 +3,21 @@
 
 .is-column {
   .sidebar {
-    max-width: 220px;
+    @include mixin.pc {
+      position: fixed;
+      right: 0;
+      top: 60px;
+    }
+    max-width: 200px;
     width: 100%;
-    @include mixin.sp {
+
+    //sp
+    @include mixin.pad {
       max-width: stretch;
       margin-inline: 15px;
     }
     padding: 10px 20px 20px;
     background-color: #fff;
-    height: 100%;
 
     &__title {
       font-size: var(--medium-font);
@@ -22,8 +28,6 @@
       margin-bottom: 20px;
     }
 
-    .column__title {
-    }
     &-list {
       font-weight: bold;
       a::before {
@@ -45,8 +49,30 @@
       flex-direction: column;
     }
   }
+
+  // add 20260507
+  // コンテンツエリア幅合わせの為
+  main:not(.archive) {
+    @include mixin.pc {
+      position: relative;
+
+      // .section-column {
+      //   margin-left: 20px;
+      // }
+      // .section-content,
+      // .column-contents {
+      //   margin-left: 0;
+      //   margin-inline: initial !important;
+      // }
+    }
+  }
 }
 .section-column {
+  .section-content {
+    @include mixin.pc {
+      max-width: 1000px;
+    }
+  }
   // only約款page
   width: auto;
 
@@ -71,7 +97,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) {
     padding-bottom: 30px;
   }
   @include mixin.sp {
-    padding-top: 75px;
+    padding-top: 90px;
   }
 }
 
@@ -82,6 +108,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) {
 // 一覧
 .archive {
   .section-swiper {
+    margin-top: 50px;
     @include mixin.sp {
       margin-top: 100px;
     }
@@ -132,7 +159,6 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) {
       }
       .column__img {
         flex: 5;
-        max-height: 330px;
       }
       .column-texts {
         flex: 2;
@@ -186,7 +212,7 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) {
     margin-top: 40px;
   }
   &__thumbnail img {
-    max-height: 400px;
+    // max-height: 400px;
     object-fit: cover;
   }
 
@@ -280,34 +306,41 @@ main:not(.archive, .news, :is(.members), :has(.register_links)) {
 // /column共通分
 
 // 固定ページも共通-edit用
-.column-contents:not(:has(#wpmem_login)) {
-  padding-top: 40px;
-  padding-bottom: 40px;
-
-  .wp-block-heading {
-    font-weight: bold;
+.column-contents {
+  @include mixin.pc {
+    max-width: 1000px;
   }
 
-  .wp-block-heading + p {
-    margin-top: 5px;
-  }
-  p + .wp-block-heading {
-    margin-top: 30px;
-  }
+  &:not(:has(#wpmem_login)) {
+    padding-top: 40px;
+    padding-bottom: 40px;
 
-  // 固定文
-  &.fixed {
-    padding-top: 20px;
-    & > .column__text {
-      padding-bottom: 20px;
+    .wp-block-heading {
+      font-weight: bold;
     }
-    .column-texts {
-      background-color: #fff;
-      padding: 25px 30px 30px;
-      .column__text {
+
+    .wp-block-heading + p {
+      margin-top: 5px;
+    }
+    p + .wp-block-heading {
+      margin-top: 30px;
+    }
+
+    // 固定文
+    &.fixed {
+      padding-top: 20px;
+      margin-inline: auto;
+      & > .column__text {
+        padding-bottom: 20px;
       }
-      .column__text + .column__text {
-        margin-top: 20px;
+      .column-texts {
+        background-color: #fff;
+        padding: 25px 30px 30px;
+        .column__text {
+        }
+        .column__text + .column__text {
+          margin-top: 20px;
+        }
       }
     }
   }

@@ -37,6 +37,7 @@ function add_property_to_category_archive($query)
 {
   if (! is_admin() && $query->is_main_query() && $query->is_category()) {
     $query->set('post_type', array('post', 'property'));
+    $query->set('posts_per_page', 15);
   }
 }
 add_action('pre_get_posts', 'add_property_to_category_archive');
@@ -225,7 +226,7 @@ function my_property_query_settings($query)
   if ($query->is_search() || is_post_type_archive('property')) {
 
     $query->set('post_type', 'property');
-    $query->set('posts_per_page', 9);
+    $query->set('posts_per_page', 15);
 
     $meta_query = array('relation' => 'AND');
     $tax_query = array('relation' => 'AND');
