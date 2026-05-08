@@ -1304,6 +1304,7 @@ body:not(.is-property, .is-column) .swiper-button-next {
   background-repeat: no-repeat;
   vertical-align: middle;
 }
+
 .section-arrival .arrow__img,
 .section-recommend .arrow__img {
   max-width: 16px;
@@ -1407,6 +1408,21 @@ body:not(.is-property, .is-column) .swiper-button-next {
   margin-top: 30px;
   cursor: pointer;
 }
+@media (max-width: 760px) {
+  .section-contact input[type=radio] {
+    transform: scale(2);
+    margin-right: 5px;
+  }
+  .section-contact .wpcf7-list-item:has(input[type=radio]) {
+    width: 100%;
+  }
+  .section-contact .wpcf7-list-item:has(input[type=radio]) + .wpcf7-list-item {
+    padding-top: 10px;
+  }
+}
+.section-contact .notes {
+  font-size: var(--small-font);
+}
 .section-contact .cf7-cf-turnstile {
   text-align: center;
 }
@@ -1421,6 +1437,14 @@ body:not(.is-property, .is-column) .swiper-button-next {
 
 .contact-form {
   width: 100%;
+}
+
+input[name=time01],
+input[name=time02],
+input[name=time03] {
+  max-width: 55px;
+  margin-left: 20px;
+  margin-right: 10px;
 }
 
 .pagination {
@@ -1496,6 +1520,12 @@ main:not(.company) .lower .hero__catch {
 @media (max-width: 760px) {
   main:not(.company) .lower .hero-numProperty {
     margin-right: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  main.contact .lower .hero__catch {
+    margin-top: initial;
   }
 }
 

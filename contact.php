@@ -5,7 +5,7 @@ Template Name:contact
 ?>
 <?php get_header(); ?>
 
-<main class="site-main" id="site-main">
+<main class="site-main contact" id="site-main">
 
   <section class="section section-hero lower" id="hero">
     <div class="section-content row w1000">
@@ -43,12 +43,11 @@ Template Name:contact
           </ol>
         </div>
 
-        <!-- <h1 class="headline__title"><?php the_title(); ?></h1> -->
 
       </div>
 
       <div class="content">
-        <div class="contact">
+        <div class="contact h-adr">
           <?php the_content();
           ?>
         </div>

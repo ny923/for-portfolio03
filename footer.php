@@ -148,6 +148,7 @@
 
 <!-- jquery読込 -->
 <!-- <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script> -->
+<script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
 
 <!-- swiper -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
