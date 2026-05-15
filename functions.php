@@ -37,7 +37,7 @@ function add_property_to_category_archive($query)
 {
   if (! is_admin() && $query->is_main_query() && $query->is_category()) {
     $query->set('post_type', array('post', 'property'));
-    $query->set('posts_per_page', 15);
+    $query->set('posts_per_page', 20);
   }
 }
 add_action('pre_get_posts', 'add_property_to_category_archive');
@@ -226,7 +226,7 @@ function my_property_query_settings($query)
   if ($query->is_search() || is_post_type_archive('property')) {
 
     $query->set('post_type', 'property');
-    $query->set('posts_per_page', 15);
+    $query->set('posts_per_page', 20);
 
     $meta_query = array('relation' => 'AND');
     $tax_query = array('relation' => 'AND');
@@ -437,3 +437,22 @@ add_action('template_redirect', function () {
     }
   }
 });
+
+
+// add 20260511 新着一覧へ
+function filter_property_by_recent_month($query)
+{
+  if (! is_admin() && $query->is_main_query() && isset($_GET['recently'])) {
+
+    // strtotimeで1ヶ月前のタイムスタンプを取得し、日付形式に変換
+    $one_month_ago = date('Y-m-d', strtotime('-1 month'));
+
+    $query->set('date_query', array(
+      array(
+        'after'     => $one_month_ago,
+        'inclusive' => true,
+      ),
+    ));
+  }
+}
+add_action('pre_get_posts', 'filter_property_by_recent_month');

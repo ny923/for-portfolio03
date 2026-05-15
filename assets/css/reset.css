@@ -278,6 +278,11 @@ img.cover {
 .w1100 {
   max-width: 1140px;
 }
+
+.w1240 {
+  max-width: 1240px;
+}
+
 .w1280 {
   max-width: 1280px;
 }
@@ -288,4 +293,8 @@ img.cover {
 
 .w1320 {
   max-width: 1360px;
+}
+
+.w1500 {
+  max-width: 1500px;
 }

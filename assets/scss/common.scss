@@ -1385,19 +1385,6 @@ body:not(.is-property, .is-column) .swiper {
     cursor: pointer;
   }
 
-  @include mixin.sp {
-    input[type="radio"] {
-      transform: scale(2);
-      margin-right: 5px;
-    }
-    .wpcf7-list-item:has(input[type="radio"]) {
-      width: 100%;
-    }
-    .wpcf7-list-item:has(input[type="radio"]) + .wpcf7-list-item {
-      padding-top: 10px;
-    }
-  }
-
   .notes {
     font-size: var(--small-font);
   }
@@ -1416,6 +1403,23 @@ body:not(.is-property, .is-column) .swiper {
     max-height: 100px;
   }
 }
+
+// uritai以外 body:not(:is(.is-uritai))
+body:not(.is-uritai) .section-contact {
+  @include mixin.sp {
+    input[type="radio"] {
+      transform: scale(2);
+      margin-right: 5px;
+    }
+    .wpcf7-list-item:has(input[type="radio"]) {
+      width: 100%;
+    }
+    .wpcf7-list-item:has(input[type="radio"]) + .wpcf7-list-item {
+      padding-top: 10px;
+    }
+  }
+}
+
 .contact-form {
   width: 100%;
 }

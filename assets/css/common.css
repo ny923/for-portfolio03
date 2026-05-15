@@ -1408,18 +1408,6 @@ body:not(.is-property, .is-column) .swiper-button-next {
   margin-top: 30px;
   cursor: pointer;
 }
-@media (max-width: 760px) {
-  .section-contact input[type=radio] {
-    transform: scale(2);
-    margin-right: 5px;
-  }
-  .section-contact .wpcf7-list-item:has(input[type=radio]) {
-    width: 100%;
-  }
-  .section-contact .wpcf7-list-item:has(input[type=radio]) + .wpcf7-list-item {
-    padding-top: 10px;
-  }
-}
 .section-contact .notes {
   font-size: var(--small-font);
 }
@@ -1433,6 +1421,19 @@ body:not(.is-property, .is-column) .swiper-button-next {
 }
 .section-contact #selected-posts {
   max-height: 100px;
+}
+
+@media (max-width: 760px) {
+  body:not(.is-uritai) .section-contact input[type=radio] {
+    transform: scale(2);
+    margin-right: 5px;
+  }
+  body:not(.is-uritai) .section-contact .wpcf7-list-item:has(input[type=radio]) {
+    width: 100%;
+  }
+  body:not(.is-uritai) .section-contact .wpcf7-list-item:has(input[type=radio]) + .wpcf7-list-item {
+    padding-top: 10px;
+  }
 }
 
 .contact-form {

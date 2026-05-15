@@ -278,10 +278,6 @@ Template Name:front-page
                         }
                       }
                       ?><span>円</span></p>
-
-                    <!-- <p class="feature"><?php echo get_post_meta(get_the_ID(), 'feature', true); ?></p> -->
-                    <!-- <p class="floor"><?php echo get_post_meta(get_the_ID(), 'floor', true); ?></p> -->
-
                     <!-- fav -->
                     <?php echo do_shortcode('[favorite_button]'); ?>
 
@@ -294,10 +290,10 @@ Template Name:front-page
           </div>
           <div class="swiper-pagination sp"></div>
         </div>
-        <!--  -->
-        <a href="<?= site_url(); ?>/property/" class="text__link02"><i class="arrow__img">
+
+        <a href="<?= site_url(); ?>/?s=&post_type=property&recently=1" class="text__link02"><i class="arrow__img">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/arrow.svg" alt="">
-          </i>新着物件検索</a>
+          </i>新着物件一覧</a>
       </div>
     </div>
   </section>
@@ -394,9 +390,9 @@ Template Name:front-page
           </div>
           <div class="swiper-pagination sp"></div>
         </div>
-        <a href="<?= site_url(); ?>/property/" class="text__link02"><i class="arrow__img">
+        <a href="<?= site_url(); ?>/?s=&post_type=property&tag=recommend" class="text__link02"><i class="arrow__img">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/arrow.svg" alt="">
-          </i>新着物件検索</a>
+          </i>おすすめ物件一覧</a>
       </div>
     </div>
   </section>

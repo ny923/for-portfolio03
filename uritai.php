@@ -6,10 +6,8 @@ Template Name:uritai
 <?php get_header(); ?>
 
 <main class="site-main" id="site-main">
-
-  <!-- このページのみのオリジナルheader/footer -->
   <section class="section section-fv" id="fv">
-    <div class="section-content row w1100">
+    <div class="section-content row w1500">
       <div class="headline">
         <div class="flex">
           <div class="fv__logo">
@@ -36,7 +34,7 @@ Template Name:uritai
             <p class="fv__catch">「大切にしてきた時間」を、<br>
               　納得の「価値」へ。</p>
 
-            <div class="">
+            <div class="fv__img-wrap">
               <picture class="fv__img">
                 <source
                   srcset="<?php echo get_template_directory_uri(); ?>/assets/img/uritai/fv-sp.png"
@@ -61,7 +59,7 @@ Template Name:uritai
   </section>
 
   <section class="section section-promise" id="promise">
-    <div class="section-content row w700">
+    <div class="section-content row w1280">
 
       <div class="content">
         <div class="promise">
@@ -76,16 +74,20 @@ Template Name:uritai
               <p class="promise__text">私たちは「聴く」プロであり、「売る」プロであること。<br>
                 不動産売買は、人生の大きな節目です。だからこそ、私たちは
                 マニュアル通りの営業はいたしません。</p>
-              <p class="promise__text">あなたの不安やこだわりを深く「聴く」こと。
+              <p class="promise__text">あなたの不安やこだわりを深く「聴く」こと。<br>
                 そして、最新の市場データと独自のネットワークで最適解を
                 「導く」こと。</p>
               <p class="promise__text">感情に寄り添う温かさと、プロとしての鋭い視点。
                 その両方を持って、対応いたします。</p>
             </div>
 
-            <div class="promise__img">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/uritai/promise.png" alt="">
-            </div>
+            <picture class="promise__img">
+              <source
+                srcset="<?php echo get_template_directory_uri(); ?>/assets/img/uritai/promise-sp.png"
+                media="(max-width:760px)" />
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/uritai/promise.png" alt="" />
+            </picture>
+
           </div>
           <a href="<?= site_url(); ?>/company/#staff" class="promise__link pc">スタッフ紹介</a>
           <div class="flex">
@@ -119,7 +121,7 @@ Template Name:uritai
   </section>
 
   <section class="section section-strength" id="strength">
-    <div class="section-content row w700 flex">
+    <div class="section-content row w1280 flex">
       <div class="headline">
         <h2 class="headline__title">４つの<span>強み</span></h2>
         <p class="headline__text">「想い」に寄り添う温かさと、結果を出すための確かな相談。</p>
@@ -144,7 +146,7 @@ Template Name:uritai
               <p class="strength__catch">繋ぐ力</p>
               <h3 class="strength__title">WEB＋対面で築いた信頼網</h3>
               <p class="strength__text">WEB掲載により全国から幅広い購入希望者へアプローチ。同時に、私たちは
-                地元で一人ひとりのお客様と「対面」で向き合い、ネットには載らない深い
+                地元で一人ひとり<br class="pc">のお客様と「対面」で向き合い、ネットには載らない深い
                 信頼関係を築いてきました。</p>
             </div>
             <div class="strength__img">
@@ -156,8 +158,7 @@ Template Name:uritai
             <div class="strength-texts">
               <p class="strength__catch">相談</p>
               <h3 class="strength__title">「どうしよう」の段階で、相談できる安心を</h3>
-              <p class="strength__text">結論が出ていなくても大丈夫です。不動産のプロである前に、一人の相談相手とし
-                て。あなたの「大切にしたいこと」を軸に、住まいのこれからをプロデュースします。</p>
+              <p class="strength__text">結論が出ていなくても大丈夫です。不動産のプロである前に、一人の相談相手として。あなた<br class="pc">の「大切にしたいこと」を軸に、住まいのこれからをプロデュースします。</p>
             </div>
             <div class="strength__img">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/img/uritai/strength03.png" alt="">
@@ -168,7 +169,8 @@ Template Name:uritai
             <div class="strength-texts">
               <p class="strength__catch">透明性</p>
               <h3 class="strength__title">しつこい勧誘なし、営業はいたしません</h3>
-              <p class="strength__text">相談のハードルを徹底的に低く。まずは担当者と話して「信頼できるか」を確かめてください。強引な契約一切ありません。</p>
+              <p class="strength__text">相談のハードルを徹底的に低く。まずは担当者と話して「信頼できるか」を確かめてください。<br>
+                強引な契約一切ありません。</p>
             </div>
             <div class="strength__img">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/img/uritai/strength04.png" alt="">
@@ -181,7 +183,7 @@ Template Name:uritai
   </section>
 
   <section class="section section-flow" id="flow">
-    <div class="section-content row w700">
+    <div class="section-content row w1280">
       <div class="headline">
         <h2 class="headline__title">ご依頼の流れ</h2>
       </div>
@@ -323,7 +325,7 @@ Template Name:uritai
   </section>
 
   <section class="section section-regret" id="regret">
-    <div class="section-content row w700">
+    <div class="section-content row w1280">
       <div class="headline">
         <h2 class="headline__title">後悔しない不動産売却のために。</h2>
         <p class="headline__text">～トラブルを防ぐための<span>7つのセルフチェック</span>～</p>
@@ -438,7 +440,7 @@ Template Name:uritai
   </section>
 
   <section class="section section-contact" id="contact">
-    <div class="section-content row w700 flex">
+    <div class="section-content row w1280 flex">
       <div class="headline">
         <h2 class="headline__title">売却の<span>ご相談</span></h2>
         <p class="headline__text pc">ご依頼・ご相談はこちらから</p>
@@ -452,23 +454,24 @@ Template Name:uritai
   </section>
 
   <section class="section section-map" id="map">
-    <div class="section-content ">
+    <div class="section-content row w1280">
       <div class="headline">
         <h2 class="headline__title">アクセスマップ</h2>
       </div>
       <div class="content">
         <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d955.2733299368507!2d139.11224783288827!3d36.357298640033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601eede57cd1f639%3A0xfe0272dbb6d77580!2z5qCq5byP5Lya56S-44K544OG44OD44OB!5e0!3m2!1sja!2sjp!4v1770891394104!5m2!1sja!2sjp" width="" height="" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6426.3757199245465!2d139.1122262785658!3d36.356228284056385!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601eede57cd1f639%3A0xfe0272dbb6d77580!2z5qCq5byP5Lya56S-44K544OG44OD44OB!5e0!3m2!1sja!2sjp!4v1778747882982!5m2!1sja!2sjp" width="" height="" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
         </div>
       </div>
     </div>
   </section>
 
   <section class="section section-lp_footer" id="lp_footer">
-    <div class="section-content row w700 ">
+    <div class="section-content row w1280">
       <div class="headline">
         <h2 class="headline__title">株式会社ステッチ</h2>
-        <p class="headline__address">株式会社ステッチ　不動産部<br>
+        <p class="headline__address pc">株式会社ステッチ　不動産部<br>
           〒371-0812 群馬県前橋市広瀬町3-2-15</p>
       </div>
       <div class="content">
@@ -484,8 +487,18 @@ Template Name:uritai
             <p class="lp_footer__close">定休日：毎週水曜・日曜/ 祝日、年末年始</p>
           </div>
 
-          <p class="lp_footer__info">群馬県知事(1)第8001号<br class="sp">
-            (一社)群馬県宅地建物取引業協会会員　<br class="sp">(公社)全国宅地建物取引業保証協会会員　<br class="sp">(公社)首都圏不動産公正取引協議会加盟</p>
+          <p class="lp_footer__info pc">群馬県知事(1)第8001号(一社)群馬県宅地建物取引業協会会員　(公社)全国宅地建物取引業保証協会会員　(公社)首都圏不動産公正取引協議会加盟</p>
+
+          <div class="flex sp">
+            <p class="headline__address">株式会社ステッチ　不動産部<br>
+              〒371-0812 群馬県前橋市広瀬町3-2-15<br>
+              tel:027-225-5100　fax:027-289-3317<br>
+              定休日：毎週水曜・日曜/祝、年末年始</p>
+
+            <p class="lp_footer__info">群馬県知事(1)第8001号<br>
+              (一社)群馬県宅地建物取引業協会会員　<br>(公社)全国宅地建物取引業保証協会会員　<br>(公社)首都圏不動産公正取引協議会加盟</p>
+          </div>
+
           <p class="lp_footer__copy"><a href="https://e-stitch.jp/" target="_blank">https://e-stitch.jp/</a><br class="sp">　©Copyright STITCH CO.,Ltd. All rights reserv</p>
 
         </div>
@@ -494,3 +507,6 @@ Template Name:uritai
   </section>
 
   <?php get_footer(); ?>
+
+  <!-- Yaku Han JP -->
+  <link rel="stylesheet" href="https://jsdelivr.net">
