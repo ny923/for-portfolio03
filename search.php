@@ -2,8 +2,6 @@
 /*
   Template Name: archive-property
 */
-
-
 ?>
 
 <?php get_header(); ?>
@@ -180,7 +178,7 @@
                       <?php if (has_post_thumbnail()) : ?>
                         <?php the_post_thumbnail(); ?>
                       <?php else: ?>
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/dammy.jpg" alt="no image">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/dammy.png" alt="no image">
                       <?php endif; ?>
                     </div>
                     <?php

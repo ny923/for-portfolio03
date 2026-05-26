@@ -125,7 +125,7 @@ Template Name:front-page
                     <?php if (has_post_thumbnail()) : ?>
                       <?php echo get_the_post_thumbnail(); ?>
                     <?php else: ?>
-                      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/dammy.jpg" alt="no image" decoding="async">
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/dammy.png" alt="no image" decoding="async">
                     <?php endif; ?>
                   </div>
                   <?php
@@ -246,7 +246,7 @@ Template Name:front-page
                     <?php if (has_post_thumbnail()) : ?>
                       <?php echo get_the_post_thumbnail(); ?>
                     <?php else: ?>
-                      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/dammy.jpg" alt="no image" decoding="async">
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/dammy.png" alt="no image" decoding="async">
                     <?php endif; ?>
                   </div>
                   <!-- １ヶ月以内ならnew -->
@@ -353,7 +353,7 @@ Template Name:front-page
                     <?php if (has_post_thumbnail()) : ?>
                       <?php echo get_the_post_thumbnail(); ?>
                     <?php else: ?>
-                      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/dammy.jpg" alt="no image" decoding="async">
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/dammy.png" alt="no image" decoding="async">
                     <?php endif; ?>
                   </div>
                   <?php

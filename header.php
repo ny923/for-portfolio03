@@ -2,10 +2,8 @@
 <html lang="ja">
 
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
   <title>
     <?php
     if (is_singular('property')) {
@@ -32,7 +30,7 @@
   <link rel="canonical" href="<?= site_url(); ?>/">
 
   <!-- swiper -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 
   <link rel="stylesheet" media="all" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/reset.css" />
   <link rel="stylesheet" media="all" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/common.css" />
@@ -247,6 +245,8 @@
                                 echo 'is-uritai';
                               } else if (is_page('privacy-policy')) {
                                 echo 'is-team';
+                              } else if (is_page('favorites')) {
+                                echo 'is-favorites';
                               } else if (! is_page('uritai') || is_single() || is_page() || is_archive('column')) {
                                 echo 'is-column';
                               } else if (is_category()) {

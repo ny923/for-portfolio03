@@ -224,12 +224,13 @@
   // ~について問い合わせる
   .post-checker {
     width: 100%;
-    max-width: 24px;
-    height: 24px;
+    max-width: 20px;
+    height: 20px;
     appearance: none;
     background-color: #fff;
     border: solid 2px #dbdbdb;
     vertical-align: middle;
+    margin-left: 10px;
     &:checked {
       border-color: var(--primary-color);
       &::after {
@@ -245,6 +246,10 @@
       line-height: 1.3;
       padding-top: 6px;
       padding-bottom: 7px;
+      padding-inline: 10px;
+      font-size: var(--small-font);
+      color: #fff;
+      font-weight: bold;
     }
   }
 }
@@ -513,7 +518,8 @@
     &.adjust {
       @include mixin.sp {
         max-width: 31%;
-        width: 100%;
+        // width: 100%; firefoxはみ出す
+        width: 31%;
       }
     }
   }
@@ -600,9 +606,8 @@
     gap: 30px 10px;
   }
   &-item {
-    max-width: calc(100% / 5.5); //4.2
+    max-width: calc(100% / 5.5);
     width: 100%;
-    background-color: #fff;
     @include mixin.sp {
       max-width: initial;
     }
@@ -613,6 +618,14 @@
     .name {
       font-weight: bold;
       line-height: 1.3;
+    }
+
+    .flex:has(label) {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-bottom-left-radius: var(--small-radius);
+      border-bottom-right-radius: var(--small-radius);
+      // padding-top: 10px;
+      // padding-bottom: 10px;
     }
   }
   &-detail {
@@ -632,6 +645,35 @@
   &__detail {
     .price {
       font-size: inherit;
+    }
+  }
+}
+
+// お気に入りページのみ
+.is-favorites {
+  //.archive
+  .property-item {
+    @include mixin.pc {
+      max-width: calc(100% / 4.2);
+    }
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 6fr 1fr;
+    gap: 0px;
+  }
+
+  .property-detail {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .flex:has(label) {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+
+  .property .primary-btn {
+    margin-top: 50px;
+    text-align: center;
+    @include mixin.sp {
+      line-height: 1.3;
     }
   }
 }
@@ -771,6 +813,10 @@
       @include mixin.sp {
         flex-direction: column;
       }
+    }
+
+    & + .search__sub-title {
+      margin-top: 40px;
     }
   }
 
