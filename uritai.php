@@ -474,34 +474,35 @@ Template Name:uritai
         <p class="headline__address pc">株式会社ステッチ　不動産部<br>
           〒371-0812 群馬県前橋市広瀬町3-2-15</p>
       </div>
-      <div class="content">
-        <div class="lp_footer">
 
-          <div class="flex">
+      <div class="content">
+
+        <div class="lp_footer">
+          <div class="grid">
             <p class="lp_footer__text">お電話でのお問い合わせ</p>
             <p class="lp_footer__tel"><span>TEL.</span>027-225-5100</p>
-          </div>
 
-          <div class="flex">
             <p class="lp_footer__time">営業時間/10:00～18:00</p>
             <p class="lp_footer__close">定休日：毎週水曜・日曜/ 祝日、年末年始</p>
           </div>
 
-          <p class="lp_footer__info pc">群馬県知事(1)第8001号(一社)群馬県宅地建物取引業協会会員　(公社)全国宅地建物取引業保証協会会員　(公社)首都圏不動産公正取引協議会加盟</p>
+          <div class="wrap">
+            <p class="lp_footer__info pc">群馬県知事(1)第8001号(一社)群馬県宅地建物取引業協会会員　(公社)全国宅地建物取引業保証協会会員　(公社)首都圏不動産公正取引協議会加盟</p>
+            <div class="flex pad">
+              <p class="headline__address">株式会社ステッチ　不動産部<br>
+                〒371-0812 群馬県前橋市広瀬町3-2-15<br>
+                tel:027-225-5100　fax:027-289-3317<br>
+                定休日：毎週水曜・日曜/祝、年末年始</p>
 
-          <div class="flex sp">
-            <p class="headline__address">株式会社ステッチ　不動産部<br>
-              〒371-0812 群馬県前橋市広瀬町3-2-15<br>
-              tel:027-225-5100　fax:027-289-3317<br>
-              定休日：毎週水曜・日曜/祝、年末年始</p>
-
-            <p class="lp_footer__info">群馬県知事(1)第8001号<br>
-              (一社)群馬県宅地建物取引業協会会員　<br>(公社)全国宅地建物取引業保証協会会員　<br>(公社)首都圏不動産公正取引協議会加盟</p>
+              <p class="lp_footer__info">群馬県知事(1)第8001号<br>
+                (一社)群馬県宅地建物取引業協会会員　<br>(公社)全国宅地建物取引業保証協会会員　<br>(公社)首都圏不動産公正取引協議会加盟</p>
+            </div>
+            <p class="lp_footer__copy"><a href="https://e-stitch.jp/" target="_blank">https://e-stitch.jp/</a><br class="sp">　©Copyright STITCH CO.,Ltd. All rights reserv</p>
           </div>
 
-          <p class="lp_footer__copy"><a href="https://e-stitch.jp/" target="_blank">https://e-stitch.jp/</a><br class="sp">　©Copyright STITCH CO.,Ltd. All rights reserv</p>
 
         </div>
+
       </div>
     </div>
   </section>
@@ -509,4 +510,4 @@ Template Name:uritai
   <?php get_footer(); ?>
 
   <!-- Yaku Han JP -->
-  <link rel="stylesheet" href="https://jsdelivr.net">
+  <link rel="stylesheet" href="https://jsdelivr.net" />
