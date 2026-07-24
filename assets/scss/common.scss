@@ -5,762 +5,771 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
 body {
-  background-color: #fff;
-  color: var(--text-color);
+    background-color: #fff;
+    color: var(--text-color);
 }
 
 .wrap.flex {
-  @include mixin.pad {
-    flex-direction: column;
-  }
+    @include mixin.pad {
+        flex-direction: column;
+    }
 }
 .site-main {
-  background-color: rgba(0, 0, 0, 0.08);
-  width: 100%;
-  @include mixin.pc {
-    max-width: calc(100% - 226px);
-    margin-left: 226px;
-  }
-  @include mixin.pad {
-    padding-bottom: 60px;
-  }
-  &.archive {
-  }
+    background-color: rgba(0, 0, 0, 0.08);
+    width: 100%;
+    @include mixin.pc {
+        max-width: calc(100% - 226px);
+        margin-left: 226px;
+    }
+    @include mixin.pad {
+        padding-bottom: 60px;
+    }
+    &.archive {
+    }
 }
 
 @include mixin.pc {
-  a:hover {
-    opacity: 0.7;
-    transition: 0.3s;
-  }
+    a:hover {
+        opacity: 0.7;
+        transition: 0.3s;
+    }
 
-  .sp,
-  .pad {
-    display: none !important;
-  }
+    .sp,
+    .pad {
+        display: none !important;
+    }
 }
 
 @include mixin.pad {
-  .pc {
-    display: none !important;
-  }
-  .pad {
-    display: block;
-  }
+    .pc {
+        display: none !important;
+    }
+    .pad {
+        display: block;
+    }
 }
 
 @include mixin.sp {
-  .sp {
-    display: block !important;
-  }
+    .sp {
+        display: block !important;
+    }
 }
 
 .flex {
-  display: flex;
+    display: flex;
 }
 .grid {
-  display: grid;
+    display: grid;
 }
 
 .primary-btn {
-  font-weight: 900;
-  border-radius: var(--small-radius);
-  line-height: 1;
-  background-color: var(--primary-color);
-  color: #fff;
-  transition: 0.3s;
-  position: relative;
-  letter-spacing: 2px;
-  margin-inline: auto;
-  display: block;
-  max-width: fit-content;
-  padding: 14px 25px 16px;
-  margin-top: 8px;
-
-  &:hover {
+    font-weight: 900;
+    border-radius: var(--small-radius);
+    line-height: 1;
+    background-color: var(--primary-color);
+    color: #fff;
     transition: 0.3s;
-    opacity: 0.7;
-  }
+    position: relative;
+    letter-spacing: 2px;
+    margin-inline: auto;
+    display: block;
+    max-width: fit-content;
+    padding: 14px 25px 16px;
+    margin-top: 8px;
 
-  &::after {
-    content: none;
-  }
+    &:hover {
+        transition: 0.3s;
+        opacity: 0.7;
+    }
+
+    &::after {
+        content: none;
+    }
 }
 
 /*============================
 パンくず
 ============================*/
 .breadcrumbs {
-  text-align: left;
-  font-size: var(--small-font);
-  padding-top: 15px;
-  padding-bottom: 15px;
-  ol {
-    display: inline-block;
-
-    li {
-      display: inline-block;
-      vertical-align: middle;
-      padding-top: 1px;
-      color: var(--text-color);
-      letter-spacing: 0.1em;
-
-      &:after {
-        content: ">";
-        padding: 4px 4px 0;
+    text-align: left;
+    font-size: var(--small-font);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    ol {
         display: inline-block;
-        vertical-align: top;
-      }
 
-      &:last-of-type:after {
-        content: none;
-      }
+        li {
+            display: inline-block;
+            vertical-align: middle;
+            padding-top: 1px;
+            color: var(--text-color);
+            letter-spacing: 0.1em;
 
-      a {
-        color: var(--text-color);
-      }
+            &:after {
+                content: ">";
+                padding: 4px 4px 0;
+                display: inline-block;
+                vertical-align: top;
+            }
 
-      &:last-of-type a span {
-        text-decoration: none;
-      }
+            &:last-of-type:after {
+                content: none;
+            }
 
-      a span {
-        display: inline-block;
-        vertical-align: middle;
-        padding-top: 1px;
-        text-decoration: underline;
-        font-weight: 400;
-        font-style: normal;
-        white-space: nowrap;
-        letter-spacing: 0.1em;
-      }
+            a {
+                color: var(--text-color);
+            }
+
+            &:last-of-type a span {
+                text-decoration: none;
+            }
+
+            a span {
+                display: inline-block;
+                vertical-align: middle;
+                padding-top: 1px;
+                text-decoration: underline;
+                font-weight: 400;
+                font-style: normal;
+                white-space: nowrap;
+                letter-spacing: 0.1em;
+            }
+        }
     }
-  }
 }
 
 /*============================
 #footer 3,4度デザインが変わり大変でした…
 ============================*/
 .site-footer {
-  @include mixin.sp {
-    padding-bottom: 20px;
-  }
+    @include mixin.sp {
+        padding-bottom: 20px;
+    }
 }
 
 .footer {
-  .flex {
-    &:first-of-type {
-      padding-bottom: 15px;
-      @include mixin.pad {
-        padding-bottom: 0;
-      }
-    }
-
-    width: 100%;
-    justify-content: space-between;
-
-    @include mixin.sp {
-      .footer-info {
-        flex: 4;
-      }
-      .footer-wrap {
-        flex: 3;
-        .footer__text {
-          font-size: var(--small-font);
+    .flex {
+        &:first-of-type {
+            padding-bottom: 15px;
+            @include mixin.pad {
+                padding-bottom: 0;
+            }
         }
-      }
-    }
-  }
 
-  // footer menu箇所
-  &-wrap {
-    height: fit-content;
-    @include mixin.pc {
-      margin-top: -60px;
-    }
-  }
+        width: 100%;
+        justify-content: space-between;
 
-  &-section {
-    width: 100%;
-  }
-  &-logo {
-    margin-top: 50px;
-    align-items: center;
-    display: flex;
-    gap: 10px;
-    padding-bottom: 20px;
-
-    @include mixin.sp {
-      gap: 10px;
-    }
-  }
-  &__logo-img {
-    max-width: 45px;
-    @include mixin.sp {
-      max-width: 35px;
-    }
-  }
-  &__logo-name {
-    font-weight: 900;
-    font-size: var(--x-large-font);
-    line-height: 1;
-    @include mixin.sp {
-      font-size: var(--medium-font);
-    }
-  }
-
-  &__title {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-  }
-
-  &__title {
-    font-size: var(--small-font);
-    @include mixin.sp {
-      font-size: initial;
-    }
-    font-weight: 900;
-  }
-
-  &-links a {
-    display: inline-block;
-    font-size: var(--small-font);
-    position: relative;
-    font-weight: 700;
-    @include mixin.sp {
-      width: 100%;
-      font-size: initial;
-      min-width: initial;
+        @include mixin.sp {
+            .footer-info {
+                flex: 4;
+            }
+            .footer-wrap {
+                flex: 3;
+                .footer__text {
+                    font-size: var(--small-font);
+                }
+            }
+        }
     }
 
-    &::after {
-      position: absolute;
-      margin: auto;
-      content: "";
-      vertical-align: middle;
-      width: 6px;
-      height: 6px;
-      border-top: 1px solid var(--primary-color);
-      border-right: 1px solid var(--primary-color);
-      top: 50%;
-      transform: translateY(-50%) rotate(45deg);
-      left: -15px;
-    }
-  }
-
-  &__link {
-    line-height: 1.25;
-    padding-right: 25px;
-    text-align: left;
-    a {
-      white-space: nowrap;
-    }
-  }
-
-  .copyright {
-    font-size: var(--small-font);
-    @include mixin.pc {
-      text-align: right;
-      margin-right: 37px;
+    // footer menu箇所
+    &-wrap {
+        height: fit-content;
+        @include mixin.pc {
+            margin-top: -60px;
+        }
     }
 
-    @include mixin.sp {
-      text-align: left;
-      line-height: 1.5;
-      padding-top: 10px;
+    &-section {
+        width: 100%;
     }
-  }
+    &-logo {
+        margin-top: 50px;
+        align-items: center;
+        display: flex;
+        gap: 10px;
+        padding-bottom: 20px;
 
-  &__text {
-    line-height: 1.5;
-    font-size: var(--small-font);
-    font-weight: 700;
-    text-align: left;
-    span {
-      background-color: var(--primary-color);
-      color: #fff;
-      padding: 1px 10px 3px;
-      border-radius: var(--small-radius);
-      min-width: 84px;
-      display: inline-block;
-      text-align: center;
-      margin-right: 5px;
+        @include mixin.sp {
+            gap: 10px;
+        }
     }
-    &.pad {
-      // privacy
-      @include mixin.sp {
-        padding-top: 5px;
-      }
+    &__logo-img {
+        max-width: 45px;
+        @include mixin.sp {
+            max-width: 35px;
+        }
     }
-  }
+    &__logo-name {
+        font-weight: 900;
+        font-size: var(--x-large-font);
+        line-height: 1;
+        @include mixin.sp {
+            font-size: var(--medium-font);
+        }
+    }
 
-  &-info {
-    .footer__text + .footer__text {
-      margin-top: 5px;
+    &__title {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     }
-    @include mixin.pc {
-      align-items: center;
-      gap: 50px;
+
+    &__title {
+        font-size: var(--small-font);
+        @include mixin.sp {
+            font-size: initial;
+        }
+        font-weight: 900;
     }
-  }
+
+    &-links a {
+        display: inline-block;
+        font-size: var(--small-font);
+        position: relative;
+        font-weight: 700;
+        @include mixin.sp {
+            width: 100%;
+            font-size: initial;
+            min-width: initial;
+        }
+
+        &::after {
+            position: absolute;
+            margin: auto;
+            content: "";
+            vertical-align: middle;
+            width: 6px;
+            height: 6px;
+            border-top: 1px solid var(--primary-color);
+            border-right: 1px solid var(--primary-color);
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            left: -15px;
+        }
+    }
+
+    &__link {
+        line-height: 1.25;
+        padding-right: 25px;
+        text-align: left;
+        a {
+            white-space: nowrap;
+        }
+    }
+
+    .copyright {
+        font-size: var(--small-font);
+        @include mixin.pc {
+            text-align: right;
+            margin-right: 37px;
+        }
+
+        @include mixin.sp {
+            text-align: left;
+            line-height: 1.5;
+            padding-top: 10px;
+        }
+    }
+
+    &__text {
+        line-height: 1.5;
+        font-size: var(--small-font);
+        font-weight: 700;
+        text-align: left;
+        span {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1px 10px 3px;
+            border-radius: var(--small-radius);
+            min-width: 84px;
+            display: inline-block;
+            text-align: center;
+            margin-right: 5px;
+        }
+        &.pad {
+            // privacy
+            @include mixin.sp {
+                padding-top: 5px;
+            }
+        }
+    }
+
+    &-info {
+        .footer__text + .footer__text {
+            margin-top: 5px;
+        }
+        @include mixin.pc {
+            align-items: center;
+            gap: 50px;
+        }
+    }
 } // /.footer
 
 // to top
 .page_top {
-  cursor: pointer;
-  transition: opacity 0.5s ease-out;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  position: fixed;
-  bottom: 10%;
-  right: 3%;
-  display: inline-block;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 1px solid var(--primary-color);
-  z-index: 1;
-  &::after {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    content: "";
-    vertical-align: middle;
-    left: 23px;
-    top: 3px;
-    width: 11px;
-    height: 11px;
-    border-top: 1px solid var(--primary-color);
-    border-right: 1px solid var(--primary-color);
-    transform: rotate(-45deg);
-  }
-
-  &.show {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  @include mixin.pc {
-    &:hover {
-      opacity: 0.7;
-      transition: 0.3s;
+    cursor: pointer;
+    transition: opacity 0.5s ease-out;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    position: fixed;
+    bottom: 10%;
+    right: 3%;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid var(--primary-color);
+    z-index: 1;
+    &::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        content: "";
+        vertical-align: middle;
+        left: 23px;
+        top: 3px;
+        width: 11px;
+        height: 11px;
+        border-top: 1px solid var(--primary-color);
+        border-right: 1px solid var(--primary-color);
+        transform: rotate(-45deg);
     }
-  }
+
+    &.show {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    @include mixin.pc {
+        &:hover {
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+    }
 }
 
 // nav
 /*__ header _______________________*/
 .site-header {
-  @include mixin.pc {
-    max-width: 226px;
-    padding: 20px 0;
-  }
-  width: 100%;
-  margin-inline: auto;
-  position: fixed;
-  z-index: 3;
-  top: 0;
-  left: 0;
-
-  .masthead {
-    @include mixin.pad {
-      padding: 9px 10px 11px;
+    @include mixin.pc {
+        max-width: 226px;
+        padding: 20px 0;
     }
-    .brand-logo {
-      line-height: 1;
-      letter-spacing: 1px;
-      white-space: nowrap;
-      text-align: center;
+    width: 100%;
+    margin-inline: auto;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
 
-      @include mixin.pad {
-        width: fit-content;
-      }
-
-      img {
-        max-width: 150px;
+    .masthead {
         @include mixin.pad {
-          max-width: 120px;
+            padding: 9px 10px 11px;
         }
-      }
+        .brand-logo {
+            line-height: 1;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            text-align: center;
 
-      span {
-        font-size: initial;
-        display: block;
+            @include mixin.pad {
+                width: fit-content;
+            }
+
+            img {
+                max-width: 150px;
+                @include mixin.pad {
+                    max-width: 120px;
+                }
+            }
+
+            span {
+                font-size: initial;
+                display: block;
+                padding-top: 10px;
+                font-weight: 900;
+                @include mixin.pad {
+                    font-size: var(--small-font);
+                }
+            }
+        }
+
+        .contact {
+            text-align: center;
+            line-height: 1.5;
+
+            @include mixin.pad {
+                display: none;
+            }
+
+            @include mixin.sp {
+                display: none;
+            }
+        }
+        .contact__text {
+            margin-top: 15px;
+            font-size: var(--small-font);
+            font-weight: 700;
+        }
+        .contact__tel {
+            font-weight: 700;
+            font-family: "Manrope", sans-serif;
+            font-size: var(--large-font);
+            letter-spacing: initial;
+            @include mixin.pad {
+                font-size: var(--medium-font);
+            }
+        }
+        .contact__info {
+            font-size: var(--small-font);
+            color: rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    .copyright {
+        font-size: var(--small-font);
+        color: rgba(0, 0, 0, 0.5);
+        text-align: center;
+        line-height: 1.3;
         padding-top: 10px;
-        font-weight: 900;
         @include mixin.pad {
-          font-size: var(--small-font);
+            padding-bottom: 20px;
         }
-      }
     }
-
-    .contact {
-      text-align: center;
-      line-height: 1.5;
-
-      @include mixin.pad {
-        display: none;
-      }
-
-      @include mixin.sp {
-        display: none;
-      }
-    }
-    .contact__text {
-      margin-top: 15px;
-      font-size: var(--small-font);
-      font-weight: 700;
-    }
-    .contact__tel {
-      font-weight: 700;
-      font-family: "Manrope", sans-serif;
-      font-size: var(--large-font);
-      letter-spacing: initial;
-      @include mixin.pad {
-        font-size: var(--medium-font);
-      }
-    }
-    .contact__info {
-      font-size: var(--small-font);
-      color: rgba(0, 0, 0, 0.5);
-    }
-  }
-
-  .copyright {
-    font-size: var(--small-font);
-    color: rgba(0, 0, 0, 0.5);
-    text-align: center;
-    line-height: 1.3;
-    padding-top: 10px;
-    @include mixin.pad {
-      padding-bottom: 20px;
-    }
-  }
 }
 
 .globalnav {
-  &-list {
+    &-list {
+        @include mixin.pc {
+            padding-top: 15px;
+            padding-bottom: 30px;
+        }
+        @include mixin.pad {
+            margin-top: 80px;
+        }
+    }
+
+    &__item,
+    .menu-item {
+        border-bottom: 1px dotted var(--text-color);
+        @include mixin.pad {
+            border-bottom: none;
+        }
+
+        &.menu-item-112 a,
+        &.menu-item-99 a {
+            @include mixin.pad {
+                padding-top: 10px;
+            }
+        }
+        &.menu-item-112 a {
+            background-image: url(../img/common/nav03.png);
+            background-repeat: no-repeat;
+            background-position: 160px center;
+            background-size: 40px;
+            color: #ff0062;
+            @include mixin.pad {
+                background-image: none;
+            }
+        }
+        &.menu-item-99 a {
+            color: var(--text-color);
+        }
+        @include mixin.pad {
+            width: 100%;
+        }
+        a {
+            display: block;
+            line-height: 1.4;
+            color: var(--primary-color);
+            font-weight: 900;
+            font-size: var(--medium-font);
+            padding: 16px 25px 17px;
+
+            @include mixin.pad {
+                text-align: center;
+                font-size: var(--medium-font);
+                font-weight: 900;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                background-color: #fff;
+            }
+        }
+        span {
+            font-size: var(--small-font);
+            display: block;
+            color: var(--text-color);
+        }
+    }
+
+    // 会社概要
+    &__item.pad a {
+        color: var(--text-color);
+    }
+
     @include mixin.pc {
-      padding-top: 15px;
-      padding-bottom: 30px;
+        &__item a,
+        .menu-item a {
+            position: relative;
+        }
     }
-    @include mixin.pad {
-      margin-top: 80px;
+    &__item a.buy {
+        background-image: url(../img/common/nav01.png);
+        background-size: 53px;
     }
-  }
+    &__item a.sell {
+        background-image: url(../img/common/nav02.png);
+        background-size: 60px;
+    }
+    &__item a.buy,
+    &__item a.sell {
+        background-repeat: no-repeat;
+        background-position: 155px bottom;
+        @include mixin.pad {
+            background-image: none;
+        }
+    }
 
-  &__item,
-  .menu-item {
-    border-bottom: 1px dotted var(--text-color);
+    // spMenu
     @include mixin.pad {
-      border-bottom: none;
+        /* メニューコンテナ全体のスタイル */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        // ipadMiniだけ崩れる
+        @media (width: 744px) {
+            display: flex;
+        }
+
+        &-inner {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -100%;
+            width: 90%;
+            height: 95%;
+            background-color: #fff;
+            transition: 0.3s;
+            z-index: 1;
+            overflow-y: auto;
+            border: 3px solid rgba(24, 121, 247, 0.4);
+            border-radius: var(--large-radius);
+        }
     }
 
-    &.menu-item-112 a,
-    &.menu-item-99 a {
-      @include mixin.pad {
-        padding-top: 10px;
-      }
-    }
-    &.menu-item-112 a {
-      background-image: url(../img/common/nav03.png);
-      background-repeat: no-repeat;
-      background-position: 160px center;
-      background-size: 40px;
-      color: #ff0062;
-      @include mixin.pad {
-        background-image: none;
-      }
-    }
-    &.menu-item-99 a {
-      color: var(--text-color);
-    }
-    @include mixin.pad {
-      width: 100%;
-    }
-    a {
-      display: block;
-      line-height: 1.4;
-      color: var(--primary-color);
-      font-weight: 900;
-      font-size: var(--medium-font);
-      padding: 16px 25px 17px;
+    .icon-links {
+        padding-inline: 12px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr 0.8fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
 
-      @include mixin.pad {
+        @include mixin.pad {
+            grid-column-gap: 8px;
+            display: flex;
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+        }
+    }
+    .icon-link {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: var(--small-radius);
         text-align: center;
-        font-size: var(--medium-font);
+        line-height: 1.2;
+        font-size: var(--small-font);
         font-weight: 900;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding: 15px 10px;
         background-color: #fff;
-      }
-    }
-    span {
-      font-size: var(--small-font);
-      display: block;
-      color: var(--text-color);
-    }
-  }
+        letter-spacing: 0;
+        @include mixin.pc {
+            outline: 2px solid var(--text-color);
+        }
+        @include mixin.pad {
+            flex: 1;
+            font-size: var(--small-font);
+            min-width: 65px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-  // 会社概要
-  &__item.pad a {
-    color: var(--text-color);
-  }
-
-  @include mixin.pc {
-    &__item a,
-    .menu-item a {
-      position: relative;
+        // pc hover
+        @include mixin.pc {
+            &:hover {
+                box-shadow: none;
+                outline: 1px solid rgba(0, 0, 0, 0.2);
+            }
+        }
     }
-  }
-  &__item a.buy {
-    background-image: url(../img/common/nav01.png);
-    background-size: 53px;
-  }
-  &__item a.sell {
-    background-image: url(../img/common/nav02.png);
-    background-size: 60px;
-  }
-  &__item a.buy,
-  &__item a.sell {
-    background-repeat: no-repeat;
-    background-position: 155px bottom;
-    @include mixin.pad {
-      background-image: none;
+    .icon-link.mail {
+        @include mixin.pc {
+            grid-area: 1 / 1 / 2 / 2;
+        }
+        .icon__img {
+            @include mixin.pad {
+                padding-top: 8px;
+            }
+        }
+        @include mixin.pad {
+            order: 1;
+            background-color: var(--primary-color);
+            color: #fff;
+        }
     }
-  }
-
-  // spMenu
-  @include mixin.pad {
-    /* メニューコンテナ全体のスタイル */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-
-    &-inner {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -100%;
-      width: 90%;
-      height: 95%;
-      background-color: #fff;
-      transition: 0.3s;
-      z-index: 1;
-      overflow-y: auto;
-      border: 3px solid rgba(24, 121, 247, 0.4);
-      border-radius: var(--large-radius);
+    .icon-link.satei {
+        @include mixin.pc {
+            grid-area: 1 / 2 / 2 / 3;
+        }
+        .icon__text {
+            margin-top: 10px;
+            @include mixin.pad {
+                margin-top: 3px;
+            }
+        }
+        @include mixin.pad {
+            order: 2;
+            background-color: #fde200;
+        }
     }
-  }
-
-  .icon-links {
-    padding-inline: 12px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr 0.8fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-
-    @include mixin.pad {
-      grid-column-gap: 8px;
-      display: flex;
-      position: fixed;
-      bottom: 10px;
-      width: 100%;
-    }
-  }
-  .icon-link {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: var(--small-radius);
-    text-align: center;
-    line-height: 1.2;
-    font-size: var(--small-font);
-    font-weight: 900;
-    padding: 15px 10px;
-    background-color: #fff;
-    letter-spacing: 0;
-    @include mixin.pc {
-      outline: 2px solid var(--text-color);
-    }
-    @include mixin.pad {
-      flex: 1;
-      font-size: var(--small-font);
-      min-width: 65px;
-      padding: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    // pc hover
-    @include mixin.pc {
-      &:hover {
-        box-shadow: none;
-        outline: 1px solid rgba(0, 0, 0, 0.2);
-      }
-    }
-  }
-  .icon-link.mail {
-    @include mixin.pc {
-      grid-area: 1 / 1 / 2 / 2;
+    .icon-link.fav {
+        grid-area: 2 / 1 / 3 / 3;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        .icon__img {
+            width: 100%;
+            @include mixin.pc {
+                margin-left: 8px;
+                margin-right: 0;
+            }
+            @include mixin.pad {
+                padding-top: 5px;
+            }
+        }
+        @include mixin.pad {
+            order: 3;
+        }
     }
     .icon__img {
-      @include mixin.pad {
-        padding-top: 8px;
-      }
+        max-width: 32px;
+        width: 100%;
+        @include mixin.pc {
+            margin-inline: auto;
+        }
+        &.mail {
+            fill: var(--primary-color);
+            @include mixin.pad {
+                fill: #fff;
+            }
+        }
+        &.satei {
+            fill: #fde200;
+            @include mixin.pad {
+                fill: var(--text-color);
+            }
+        }
     }
-    @include mixin.pad {
-      order: 1;
-      background-color: var(--primary-color);
-      color: #fff;
-    }
-  }
-  .icon-link.satei {
-    @include mixin.pc {
-      grid-area: 1 / 2 / 2 / 3;
-    }
-    .icon__text {
-      margin-top: 10px;
-      @include mixin.pad {
-        margin-top: 3px;
-      }
-    }
-    @include mixin.pad {
-      order: 2;
-      background-color: #fde200;
-    }
-  }
 
-  .icon-link.fav {
-    grid-area: 2 / 1 / 3 / 3;
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    .icon__img {
-      width: 100%;
-      @include mixin.pc {
-        margin-left: 8px;
-        margin-right: 0;
-      }
-      @include mixin.pad {
-        padding-top: 5px;
-      }
+    // topのみ
+    .company {
+        font-weight: 700;
+        background-color: rgba(0, 0, 0, 0.1);
+        display: block;
+        margin-inline: 13px;
+        font-size: var(--small-font);
+        padding: 5px 0;
+        margin-top: 10px;
+        border-radius: var(--small-radius);
+        .arrow__img {
+            margin-left: 10px;
+        }
+        @include mixin.pad {
+            display: none;
+        }
     }
-    @include mixin.pad {
-      order: 3;
-    }
-  }
-  .icon__img {
-    max-width: 32px;
-    width: 100%;
-    @include mixin.pc {
-      margin-inline: auto;
-    }
-    &.mail {
-      fill: var(--primary-color);
-      @include mixin.pad {
-        fill: #fff;
-      }
-    }
-    &.satei {
-      fill: #fde200;
-      @include mixin.pad {
-        fill: var(--text-color);
-      }
-    }
-  }
 
-  // topのみ
-  .company {
-    font-weight: 700;
-    background-color: rgba(0, 0, 0, 0.1);
-    display: block;
-    margin-inline: 13px;
-    font-size: var(--small-font);
-    padding: 5px 0;
-    margin-top: 10px;
-    border-radius: var(--small-radius);
-    .arrow__img {
-      margin-left: 10px;
+    &__logo {
+        max-width: 70px;
+        margin-inline: auto;
+        padding-top: 100px;
     }
-    @include mixin.pad {
-      display: none;
-    }
-  }
-
-  &__logo {
-    max-width: 70px;
-    margin-inline: auto;
-    padding-top: 100px;
-  }
 }
 
 // MENU の字
 .nav-bar-text {
-  font-weight: 600;
-  font-size: 1rem;
-  line-height: 1.3;
-  color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.3;
+    color: #fff;
+    letter-spacing: 0;
 }
 
 // ハンバーガーメニュー
 @include mixin.pad {
-  .nav-button {
-    background-color: var(--primary-color);
-    border-radius: 100px;
-    aspect-ratio: 1;
-    padding: 12px 11px 0px 11px;
-    display: block;
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    cursor: pointer;
-    z-index: 2;
-  }
+    .nav-button {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        z-index: 2;
+        display: block;
+        background-color: var(--primary-color);
+        padding: 12px 11px 0px 11px;
+        cursor: pointer;
 
-  .nav-bar {
-    display: block;
-    width: 30px;
-    height: 2px;
-    margin: 4px 0;
-    background-color: #fff;
-    transition: 0.3s;
-    margin-inline: auto;
-  }
+        border-radius: 50%;
+        // width: 63px;
+        // height: 63px;
+        flex-shrink: 0;
+        aspect-ratio: 1;
+    }
 
-  // ハンバーガーメニューのアニメーション
-  #nav-toggle:checked + .nav-button .nav-bar:nth-of-type(1) {
-    transform: rotate(45deg) translate(7px, 6px);
-  }
+    .nav-bar {
+        display: block;
+        width: 30px;
+        height: 2px;
+        margin: 4px 0;
+        background-color: #fff;
+        transition: 0.3s;
+        margin-inline: auto;
+    }
 
-  #nav-toggle:checked + .nav-button .nav-bar:nth-of-type(2) {
-    opacity: 0;
-  }
+    // ハンバーガーメニューのアニメーション
+    #nav-toggle:checked + .nav-button .nav-bar:nth-of-type(1) {
+        transform: rotate(45deg) translate(7px, 6px);
+    }
 
-  #nav-toggle:checked + .nav-button .nav-bar:nth-of-type(3) {
-    transform: rotate(-45deg) translate(3px, -1px);
-  }
+    #nav-toggle:checked + .nav-button .nav-bar:nth-of-type(2) {
+        opacity: 0;
+    }
 
-  /* メニュートグルのスタイル */
-  #nav-toggle {
-    display: none;
-  }
+    #nav-toggle:checked + .nav-button .nav-bar:nth-of-type(3) {
+        transform: rotate(-45deg) translate(3px, -1px);
+    }
 
-  // メニュー(文字)
-  #nav-toggle:checked + .nav-button .nav-bar-text {
-    // display: none;
-  }
+    /* メニュートグルのスタイル */
+    #nav-toggle {
+        display: none;
+    }
 
-  /* メニュートグルがチェックされた場合のメニューの表示アニメーション */
-  #nav-toggle:checked ~ .globalnav-inner {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
+    // メニュー(文字)
+    #nav-toggle:checked + .nav-button .nav-bar-text {
+        // display: none;
+    }
+
+    /* メニュートグルがチェックされた場合のメニューの表示アニメーション */
+    #nav-toggle:checked ~ .globalnav-inner {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 // ボタン群 (webデザ新人さんなので諸々バラバラです…)
@@ -768,1133 +777,1133 @@ body {
 #wpmem_reg .buttons,
 .search-btn,
 .back-btn {
-  font-weight: 900;
-  line-height: 1;
-  padding: 10px 20px;
-  display: block;
-  max-width: fit-content;
-  border-radius: var(--small-radius);
-  margin-left: auto;
-  cursor: pointer;
+    font-weight: 900;
+    line-height: 1;
+    padding: 10px 20px;
+    display: block;
+    max-width: fit-content;
+    border-radius: var(--small-radius);
+    margin-left: auto;
+    cursor: pointer;
 }
 
 #wpmem_login .buttons,
 #wpmem_reg .buttons,
 .search-btn {
-  background-color: #fff;
-  border: 1px solid var(--primary-color) !important;
-  padding-inline: 50px;
+    background-color: #fff;
+    border: 1px solid var(--primary-color) !important;
+    padding-inline: 50px;
 }
 .search-btn {
-  color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 #wpmem_login .buttons,
 #wpmem_reg .buttons {
-  margin-right: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  color: var(--primary-color);
-  border-color: var(--primary-color);
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 // 戻る
 .back-btn {
-  background-color: var(--primary-color);
-  color: #fff;
-  transition: 0.3s;
-  position: relative;
-  letter-spacing: 2px;
-  padding-right: 25px;
-  padding-left: 40px;
-  margin-top: 15px;
-  &::before {
-    position: absolute;
-    content: "";
-    vertical-align: middle;
-    width: 17px;
-    height: 17px;
-    background-color: #fff;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 14px;
-    margin-left: 0;
-    border-radius: var(--large-radius);
-  }
-  &::after {
-    position: absolute;
-    content: "";
-    vertical-align: middle;
-    width: 7px;
-    height: 7px;
-    border-top: 2px solid var(--primary-color);
-    border-right: 2px solid var(--primary-color);
-    top: 50%;
-    transform: translateY(-50%) rotate(-135deg);
-    left: 20px;
-  }
-
-  &:hover {
+    background-color: var(--primary-color);
+    color: #fff;
     transition: 0.3s;
-    opacity: 0.7;
-  }
+    position: relative;
+    letter-spacing: 2px;
+    padding-right: 25px;
+    padding-left: 40px;
+    margin-top: 15px;
+    &::before {
+        position: absolute;
+        content: "";
+        vertical-align: middle;
+        width: 17px;
+        height: 17px;
+        background-color: #fff;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 14px;
+        margin-left: 0;
+        border-radius: var(--large-radius);
+    }
+    &::after {
+        position: absolute;
+        content: "";
+        vertical-align: middle;
+        width: 7px;
+        height: 7px;
+        border-top: 2px solid var(--primary-color);
+        border-right: 2px solid var(--primary-color);
+        top: 50%;
+        transform: translateY(-50%) rotate(-135deg);
+        left: 20px;
+    }
+
+    &:hover {
+        transition: 0.3s;
+        opacity: 0.7;
+    }
 }
 
 // 20260307 頻度不明なので
 .primary02-btn {
-  margin-top: 40px;
-  background-color: #fff;
-  color: var(--primary-color);
-  border-radius: var(--large-radius);
-  border: 1px solid var(--primary-color);
-  font-weight: 900;
-  margin-inline: auto;
-  display: flex;
-  width: fit-content;
-  font-size: var(--medium-font);
-  padding: 7px 48px 7px 28px;
-  white-space: nowrap;
-  align-items: center;
-  gap: 10px;
-  &.arrow {
-    position: relative;
-    vertical-align: middle;
-    text-decoration: none;
-  }
-  &.arrow::before,
-  &.arrow::after {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 20px;
-    margin: auto;
-    content: "";
-    vertical-align: middle;
-  }
-  &.ar02::before {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: var(--primary-color);
-  }
-  &.ar02::after {
-    right: 20px;
-    width: 12px;
-    height: 12px;
-    border: 6px solid transparent;
-    border-left: 6px solid #fde200;
-  }
-  .icon {
-    fill: var(--primary-color);
-    max-width: 35px;
-    svg {
-      width: 100%;
+    margin-top: 40px;
+    background-color: #fff;
+    color: var(--primary-color);
+    border-radius: var(--large-radius);
+    border: 1px solid var(--primary-color);
+    font-weight: 900;
+    margin-inline: auto;
+    display: flex;
+    width: fit-content;
+    font-size: var(--medium-font);
+    padding: 7px 48px 7px 28px;
+    white-space: nowrap;
+    align-items: center;
+    gap: 10px;
+    &.arrow {
+        position: relative;
+        vertical-align: middle;
+        text-decoration: none;
     }
-  }
+    &.arrow::before,
+    &.arrow::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 20px;
+        margin: auto;
+        content: "";
+        vertical-align: middle;
+    }
+    &.ar02::before {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--primary-color);
+    }
+    &.ar02::after {
+        right: 20px;
+        width: 12px;
+        height: 12px;
+        border: 6px solid transparent;
+        border-left: 6px solid #fde200;
+    }
+    .icon {
+        fill: var(--primary-color);
+        max-width: 35px;
+        svg {
+            width: 100%;
+        }
+    }
 }
 
 .arrow__img {
-  max-width: 12px;
-  display: inline-block;
-  line-height: 1;
-  width: 100%;
+    max-width: 12px;
+    display: inline-block;
+    line-height: 1;
+    width: 100%;
 }
 
 .text__link,
 // wp members
 .register_links a {
-  color: var(--primary-color);
-  font-weight: 900;
-  text-decoration: underline;
-  text-underline-offset: 7px;
-  display: block;
-  width: fit-content;
-  margin-inline: auto;
-  position: relative;
-  &::after {
-    position: absolute;
-    margin: auto;
-    content: "";
-    vertical-align: middle;
-    width: 9px;
-    height: 9px;
-    border-top: 2px solid var(--primary-color);
-    border-right: 2px solid var(--primary-color);
-    top: 50%;
-    transform: translateY(-50%) rotate(45deg);
-  }
+    color: var(--primary-color);
+    font-weight: 900;
+    text-decoration: underline;
+    text-underline-offset: 7px;
+    display: block;
+    width: fit-content;
+    margin-inline: auto;
+    position: relative;
+    &::after {
+        position: absolute;
+        margin: auto;
+        content: "";
+        vertical-align: middle;
+        width: 9px;
+        height: 9px;
+        border-top: 2px solid var(--primary-color);
+        border-right: 2px solid var(--primary-color);
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+    }
 }
 
 .text__link02 {
-  margin-left: auto;
-  display: block;
-  width: fit-content;
-  font-weight: 900;
-  margin-top: 5px;
+    margin-left: auto;
+    display: block;
+    width: fit-content;
+    font-weight: 900;
+    margin-top: 5px;
 }
 
 .more-link {
-  font-weight: 900;
-  border: 1px solid var(--text-color);
-  border-radius: var(--small-radius);
-  margin-left: auto;
-  display: block;
-  width: fit-content;
-  line-height: 1;
-  padding: 3px 10px 6px;
-  @include mixin.pad {
-    font-size: var(--small-font);
-    margin-top: 5px;
-  }
+    font-weight: 900;
+    border: 1px solid var(--text-color);
+    border-radius: var(--small-radius);
+    margin-left: auto;
+    display: block;
+    width: fit-content;
+    line-height: 1;
+    padding: 3px 10px 6px;
+    @include mixin.pad {
+        font-size: var(--small-font);
+        margin-top: 5px;
+    }
 }
 
 .section-content:has(.category-list).row {
-  @include mixin.sp {
-    padding-inline: 0;
-  }
+    @include mixin.sp {
+        padding-inline: 0;
+    }
 }
 .category {
-  &-list {
-    margin-top: 20px;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    &-list {
+        margin-top: 20px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
 
-    @include mixin.sp {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      margin-inline: 15px;
-    }
-  }
-  &-item {
-    a {
-      border: 3px solid rgba(24, 121, 247, 0.4);
-
-      border-radius: var(--large-radius);
-      background-color: #fff;
-      padding: 26px 0px 22px 30px;
-      text-align: center;
-      font-weight: 900;
-      justify-content: flex-end;
-      height: 100%;
-
-      @include mixin.sp {
-        min-width: initial;
-        min-height: initial;
-        text-align: right;
-        line-height: 1.4;
-        padding: 10px 10% 10px 10px;
-        background-repeat: no-repeat;
-        background-position-y: center;
-        background-position-x: 90%;
-      }
-    }
-    &.new a {
-      @include mixin.sp {
-        background-image: url(../img/common/cate01.png);
-        background-size: 66px;
-      }
-    }
-    &.used a {
-      @include mixin.sp {
-        background-image: url(../img/common/cate02.png);
-        background-size: 50px;
-      }
-    }
-    &.land a {
-      @include mixin.sp {
-        background-image: url(../img/common/cate03.png);
-        background-size: 73px;
-      }
-    }
-    &.mansion a {
-      @include mixin.sp {
-        background-image: url(../img/common/cate04.png);
-        background-size: 40px;
-      }
-      .category__img {
-        @include mixin.pc {
-          margin-top: -15px;
+        @include mixin.sp {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            margin-inline: 15px;
         }
-      }
+    }
+    &-item {
+        a {
+            border: 3px solid rgba(24, 121, 247, 0.4);
+
+            border-radius: var(--large-radius);
+            background-color: #fff;
+            padding: 26px 0px 22px 30px;
+            text-align: center;
+            font-weight: 900;
+            justify-content: flex-end;
+            height: 100%;
+
+            @include mixin.sp {
+                min-width: initial;
+                min-height: initial;
+                text-align: right;
+                line-height: 1.4;
+                padding: 10px 10% 10px 10px;
+                background-repeat: no-repeat;
+                background-position-y: center;
+                background-position-x: 90%;
+            }
+        }
+        &.new a {
+            @include mixin.sp {
+                background-image: url(../img/common/cate01.png);
+                background-size: 66px;
+            }
+        }
+        &.used a {
+            @include mixin.sp {
+                background-image: url(../img/common/cate02.png);
+                background-size: 50px;
+            }
+        }
+        &.land a {
+            @include mixin.sp {
+                background-image: url(../img/common/cate03.png);
+                background-size: 73px;
+            }
+        }
+        &.mansion a {
+            @include mixin.sp {
+                background-image: url(../img/common/cate04.png);
+                background-size: 40px;
+            }
+            .category__img {
+                @include mixin.pc {
+                    margin-top: -15px;
+                }
+            }
+        }
+
+        &.mansion .category__img {
+            max-width: 50px;
+        }
+    }
+    &-texts {
+        position: relative;
+        z-index: 1;
+        text-align: left;
+        @include mixin.sp {
+            width: 100%;
+        }
+    }
+    &__name {
+        font-weight: 900;
+        font-size: var(--large-font);
+        @include mixin.sp {
+            font-size: var(--medium-font);
+        }
+        line-height: 1;
+    }
+    &__img {
+        margin-inline: auto;
     }
 
-    &.mansion .category__img {
-      max-width: 50px;
+    &__text {
+        color: var(--primary-color);
+        position: relative;
+        margin-top: 7px;
+        white-space: nowrap;
     }
-  }
-  &-texts {
-    position: relative;
-    z-index: 1;
-    text-align: left;
-    @include mixin.sp {
-      width: 100%;
-    }
-  }
-  &__name {
-    font-weight: 900;
-    font-size: var(--large-font);
-    @include mixin.sp {
-      font-size: var(--medium-font);
-    }
-    line-height: 1;
-  }
-  &__img {
-    margin-inline: auto;
-  }
 
-  &__text {
-    color: var(--primary-color);
-    position: relative;
-    margin-top: 7px;
-    white-space: nowrap;
-  }
-
-  &__img {
-    position: relative;
-    left: -20px;
-    max-width: 67px;
-    @include mixin.sp {
-      display: none;
+    &__img {
+        position: relative;
+        left: -20px;
+        max-width: 67px;
+        @include mixin.sp {
+            display: none;
+        }
     }
-  }
 }
 
 // swiper横のテキスト等
 
 // swiper共通※・・・等
 .swiper {
-  &-pagination-bullet {
-    width: var(
-      --swiper-pagination-bullet-width,
-      var(--swiper-pagination-bullet-size, 9px)
-    ) !important;
-    height: var(
-      --swiper-pagination-bullet-height,
-      var(--swiper-pagination-bullet-size, 9px)
-    ) !important;
-    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 10px) !important;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-
-  &-pagination-bullet-active {
-    background-color: var(--primary-color);
-  }
-  &-button-prev,
-  &-button-next {
-    border: 0;
-    color: var(--primary-color);
-    background-color: #fff;
-    border: 2px solid var(--primary-color);
-    border-radius: var(--large-radius);
-    width: 20px;
-    height: 20px;
-    @include mixin.pad {
-      width: 30px;
-      height: 30px;
+    &-pagination-bullet {
+        width: var(
+            --swiper-pagination-bullet-width,
+            var(--swiper-pagination-bullet-size, 9px)
+        ) !important;
+        height: var(
+            --swiper-pagination-bullet-height,
+            var(--swiper-pagination-bullet-size, 9px)
+        ) !important;
+        margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 10px) !important;
+        background-color: rgba(0, 0, 0, 0.5);
     }
-  }
 
-  &-button-next:after,
-  &-button-prev:after {
-    font-size: var(--small-font);
-    font-weight: 900;
-  }
+    &-pagination-bullet-active {
+        background-color: var(--primary-color);
+    }
+    &-button-prev,
+    &-button-next {
+        border: 0;
+        color: var(--primary-color);
+        background-color: #fff;
+        border: 2px solid var(--primary-color);
+        border-radius: var(--large-radius);
+        width: 20px;
+        height: 20px;
+        @include mixin.pad {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    &-button-next:after,
+    &-button-prev:after {
+        font-size: var(--small-font);
+        font-weight: 900;
+    }
 }
 
 .swiper + .text__link {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 
 // 他swiper共通※物件ページ除く
 body:not(.is-property) .swiper {
-  overflow-y: visible;
+    overflow-y: visible;
 
-  &-buttons {
-    position: absolute;
-    z-index: 2;
-    @include mixin.pad {
-      top: 60%;
-      width: 100%;
+    &-buttons {
+        position: absolute;
+        z-index: 2;
+        @include mixin.pad {
+            top: 60%;
+            width: 100%;
+        }
     }
-  }
 }
 // !important防止
 body:not(.is-property, .is-column) .swiper {
-  &-buttons {
-    top: 44px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  &-button-prev {
-    left: -90px;
-  }
-  &-button-next {
-    right: -90px;
-  }
-  @include mixin.pad {
+    &-buttons {
+        top: 44px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
     &-button-prev {
-      left: 10px;
+        left: -90px;
     }
     &-button-next {
-      right: 10px;
+        right: -90px;
     }
-  }
+    @include mixin.pad {
+        &-button-prev {
+            left: 10px;
+        }
+        &-button-next {
+            right: 10px;
+        }
+    }
 }
 
 // セル共通 .column-item
 .property,
 .column {
-  &__img {
-    position: relative;
-  }
-  .icon-only {
-    max-width: 60px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    img {
-      aspect-ratio: auto !important;
+    &__img {
+        position: relative;
     }
-  }
-
-  .swiper-slide,
-  .property-item {
-    a {
-      position: relative;
-      background-color: #fff;
-      display: block;
-      border-radius: var(--small-radius);
-      overflow: hidden;
+    .icon-only {
+        max-width: 60px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        img {
+            aspect-ratio: auto !important;
+        }
     }
 
-    .simplefavorite-button,
-    .new {
-      position: absolute;
+    .swiper-slide,
+    .property-item {
+        a {
+            position: relative;
+            background-color: #fff;
+            display: block;
+            border-radius: var(--small-radius);
+            overflow: hidden;
+        }
+
+        .simplefavorite-button,
+        .new {
+            position: absolute;
+        }
+        .new {
+            top: 10px;
+            left: 0;
+            top: 0;
+            font-weight: 900;
+            font-size: var(--small-font);
+            font-weight: 900;
+            background-image: url(../img/common/new.svg);
+            background-repeat: no-repeat;
+            line-height: 3.4;
+            width: 42px;
+            height: 42px;
+            padding-left: 8px;
+            letter-spacing: 0;
+        }
+
+        .simplefavorite-button {
+            bottom: 10px;
+            right: 10px;
+            font-size: var(--medium-font);
+            line-height: 1;
+            color: #ff0062;
+        }
+
+        // ↓タグ別に色変える
+        .classify {
+            background-color: var(--primary-color);
+            border-radius: var(--small-radius);
+            color: #fff;
+            padding: 6px 10px 9px;
+            width: fit-content;
+            line-height: 1;
+            font-size: var(--small-font);
+            margin-right: auto;
+            margin-top: -10px;
+            position: relative;
+            z-index: 1;
+
+            &.new-house {
+                background-color: #005fff;
+            }
+            &.used-house {
+                background-color: #f15a24;
+            }
+            &.land {
+                background-color: #1d9a39;
+            }
+            &.mansion {
+                background-color: #ff9800;
+            }
+        }
+
+        .price {
+            font-size: var(--medium-font);
+            line-height: 1;
+            font-weight: 600;
+            span {
+                font-size: var(--small-font);
+            }
+        }
+
+        &.column .post-categories a {
+            font-size: var(--small-font);
+        }
     }
-    .new {
-      top: 10px;
-      left: 0;
-      top: 0;
-      font-weight: 900;
-      font-size: var(--small-font);
-      font-weight: 900;
-      background-image: url(../img/common/new.svg);
-      background-repeat: no-repeat;
-      line-height: 3.4;
-      width: 42px;
-      height: 42px;
-      padding-left: 8px;
-      letter-spacing: 0;
+    .property__img img,
+    .column__img img {
+        aspect-ratio: 5 / 3;
+        object-fit: cover;
+    }
+    .swiper-slide {
+        height: auto;
     }
 
-    .simplefavorite-button {
-      bottom: 10px;
-      right: 10px;
-      font-size: var(--medium-font);
-      line-height: 1;
-      color: #ff0062;
+    .feature {
+        line-height: 1.4;
+        margin-top: 15px;
     }
-
-    // ↓タグ別に色変える
-    .classify {
-      background-color: var(--primary-color);
-      border-radius: var(--small-radius);
-      color: #fff;
-      padding: 6px 10px 9px;
-      width: fit-content;
-      line-height: 1;
-      font-size: var(--small-font);
-      margin-right: auto;
-      margin-top: -10px;
-      position: relative;
-      z-index: 1;
-
-      &.new-house {
-        background-color: #005fff;
-      }
-      &.used-house {
-        background-color: #f15a24;
-      }
-      &.land {
-        background-color: #1d9a39;
-      }
-      &.mansion {
-        background-color: #ff9800;
-      }
-    }
-
-    .price {
-      font-size: var(--medium-font);
-      line-height: 1;
-      font-weight: 600;
-      span {
+    .traffic {
+        font-weight: 900;
         font-size: var(--small-font);
-      }
+        margin-top: 5px;
     }
 
-    &.column .post-categories a {
-      font-size: var(--small-font);
+    .address {
+        font-size: var(--small-font);
+        margin-top: 5px;
     }
-  }
-  .property__img img,
-  .column__img img {
-    aspect-ratio: 5 / 3;
-    object-fit: cover;
-  }
-  .swiper-slide {
-    height: auto;
-  }
 
-  .feature {
-    line-height: 1.4;
-    margin-top: 15px;
-  }
-  .traffic {
-    font-weight: 900;
-    font-size: var(--small-font);
-    margin-top: 5px;
-  }
-
-  .address {
-    font-size: var(--small-font);
-    margin-top: 5px;
-  }
-
-  .address::before {
-    content: "";
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background-image: url(../img/common/address.svg);
-    background-repeat: no-repeat;
-    vertical-align: middle;
-  }
+    .address::before {
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-image: url(../img/common/address.svg);
+        background-repeat: no-repeat;
+        vertical-align: middle;
+    }
 }
 
 .section-arrival .arrow__img,
 .section-recommend .arrow__img {
-  max-width: 16px;
+    max-width: 16px;
 }
 
 // column除外 propertyのみ 下層はproperty.scss
 .property {
-  &-texts {
-    padding-inline: 20px;
-    padding-bottom: 15px;
-  }
+    &-texts {
+        padding-inline: 20px;
+        padding-bottom: 15px;
+    }
 }
 
 // コラム共通
 
 .column {
-  &__title {
-    font-weight: 900;
-    line-height: 1.3;
-    margin-top: 10px;
-  }
-  &-texts {
-    padding: 0 20px 15px;
-
-    .post-categories {
-      display: flex;
-      flex-wrap: wrap;
+    &__title {
+        font-weight: 900;
+        line-height: 1.3;
+        margin-top: 10px;
     }
-  }
-  // tag
-  .post-categories {
-    margin-top: 15px;
-    line-height: 1.3;
-  }
-  &-item a[rel="category tag"] {
-    line-height: 1;
-    font-size: var(--small-font);
-  }
+    &-texts {
+        padding: 0 20px 15px;
 
-  &__text {
-    line-height: 1.5;
-  }
-  &__time {
-    font-size: var(--small-font);
-  }
+        .post-categories {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+    // tag
+    .post-categories {
+        margin-top: 15px;
+        line-height: 1.3;
+    }
+    &-item a[rel="category tag"] {
+        line-height: 1;
+        font-size: var(--small-font);
+    }
 
-  &__title + &__text {
-    margin-top: 10px;
-  }
+    &__text {
+        line-height: 1.5;
+    }
+    &__time {
+        font-size: var(--small-font);
+    }
+
+    &__title + &__text {
+        margin-top: 10px;
+    }
 }
 
 // form共通※適宜css分ける
 .section-contact {
-  .headline__title {
-    font-weight: 900;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-top-left-radius: var(--small-radius);
-    border-top-right-radius: var(--small-radius);
-  }
-  .contact {
-    background-color: #fff;
-    border-bottom-left-radius: var(--small-radius);
-    border-bottom-right-radius: var(--small-radius);
-    border: 4px solid var(--primary-color);
-    padding: 20px 30px;
-    border-radius: var(--large-radius);
-  }
-  .contact__title,
-  .contact__detail {
-    padding-top: 15px;
-    padding-bottom: 15px;
-
-    @include mixin.sp {
-      display: block;
+    .headline__title {
+        font-weight: 900;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top-left-radius: var(--small-radius);
+        border-top-right-radius: var(--small-radius);
     }
-  }
-  .contact__title {
-    text-align: left;
-    font-weight: normal;
-    width: 100%;
-    max-width: 35%;
-    @include mixin.sp {
-      max-width: initial;
-      border-bottom: none;
-      padding-bottom: 0;
+    .contact {
+        background-color: #fff;
+        border-bottom-left-radius: var(--small-radius);
+        border-bottom-right-radius: var(--small-radius);
+        border: 4px solid var(--primary-color);
+        padding: 20px 30px;
+        border-radius: var(--large-radius);
+    }
+    .contact__title,
+    .contact__detail {
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        @include mixin.sp {
+            display: block;
+        }
+    }
+    .contact__title {
+        text-align: left;
+        font-weight: normal;
+        width: 100%;
+        max-width: 35%;
+        @include mixin.sp {
+            max-width: initial;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        span {
+            font-weight: 400;
+            font-size: var(--small-font);
+            color: #ff0062;
+        }
     }
 
-    span {
-      font-weight: 400;
-      font-size: var(--small-font);
-      color: #ff0062;
+    input:not(.primary-btn, [type="radio"]),
+    textarea {
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        border-radius: 12px;
+        text-decoration: none;
+        color: var(--text-color);
     }
-  }
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+    }
+    input[type="submit"],
+    input[type="button"] {
+        margin-top: 30px;
+        cursor: pointer;
+    }
 
-  input:not(.primary-btn, [type="radio"]),
-  textarea {
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    border-radius: 12px;
-    text-decoration: none;
-    color: var(--text-color);
-  }
-  input[type="text"],
-  input[type="tel"],
-  input[type="email"],
-  textarea {
-    width: 100%;
-  }
-  input[type="submit"],
-  input[type="button"] {
-    margin-top: 30px;
-    cursor: pointer;
-  }
+    .notes {
+        font-size: var(--small-font);
+    }
 
-  .notes {
-    font-size: var(--small-font);
-  }
+    .cf7-cf-turnstile {
+        text-align: center;
+    }
+    select {
+        border-color: rgba(0, 0, 0, 0.2);
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 5px 10px;
+    }
 
-  .cf7-cf-turnstile {
-    text-align: center;
-  }
-  select {
-    border-color: rgba(0, 0, 0, 0.2);
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 5px 10px;
-  }
-
-  // お気に入り物件名一覧
-  #selected-posts {
-    max-height: 100px;
-  }
+    // お気に入り物件名一覧
+    #selected-posts {
+        max-height: 100px;
+    }
 }
 
 // uritai以外 body:not(:is(.is-uritai))
 body:not(.is-uritai) .section-contact {
-  @include mixin.sp {
-    input[type="radio"] {
-      transform: scale(2);
-      margin-right: 5px;
+    @include mixin.sp {
+        input[type="radio"] {
+            transform: scale(2);
+            margin-right: 5px;
+        }
+        .wpcf7-list-item:has(input[type="radio"]) {
+            width: 100%;
+        }
+        .wpcf7-list-item:has(input[type="radio"]) + .wpcf7-list-item {
+            padding-top: 10px;
+        }
     }
-    .wpcf7-list-item:has(input[type="radio"]) {
-      width: 100%;
-    }
-    .wpcf7-list-item:has(input[type="radio"]) + .wpcf7-list-item {
-      padding-top: 10px;
-    }
-  }
 }
 
 .contact-form {
-  width: 100%;
+    width: 100%;
 }
 
 input[name="time01"],
 input[name="time02"],
 input[name="time03"] {
-  max-width: 55px;
-  margin-left: 20px;
-  margin-right: 10px;
+    max-width: 55px;
+    margin-left: 20px;
+    margin-right: 10px;
 }
 
 // ページネーション
 .pagination {
-  margin-top: 100px;
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
+    margin-top: 100px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
 
-  span,
-  a {
-    display: inline-block;
-    line-height: 1;
-    padding: 5px 8px;
-  }
-
-  .page-numbers {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    &.prev,
-    &.next {
-      padding-inline: 5px;
+    span,
+    a {
+        display: inline-block;
+        line-height: 1;
+        padding: 5px 8px;
     }
-  }
 
-  .page-numbers.current {
-    background-color: var(--primary-color);
-    color: #fff;
-    font-weight: 900;
-  }
-
-  @include mixin.sp {
-    .prev,
-    .next {
-      display: inline-block;
-      padding-inline: 50px;
+    .page-numbers {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        &.prev,
+        &.next {
+            padding-inline: 5px;
+        }
     }
-  }
+
+    .page-numbers.current {
+        background-color: var(--primary-color);
+        color: #fff;
+        font-weight: 900;
+    }
+
+    @include mixin.sp {
+        .prev,
+        .next {
+            display: inline-block;
+            padding-inline: 50px;
+        }
+    }
 }
 
 .hero__thumbnail {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  img {
+    position: absolute;
     height: 100%;
-    object-fit: cover;
-  }
+    width: 100%;
+    img {
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 // 下層ページのみ
 main:not(.company) .lower .hero {
-  display: flex;
-  &__catch {
-    font-weight: 900;
-    line-height: 1.2;
-    font-size: var(--large-font);
-    color: var(--primary-color);
-    text-align: left;
-    span {
-      color: var(--text-color);
-      font-size: 50%;
+    display: flex;
+    &__catch {
+        font-weight: 900;
+        line-height: 1.2;
+        font-size: var(--large-font);
+        color: var(--primary-color);
+        text-align: left;
+        span {
+            color: var(--text-color);
+            font-size: 50%;
+        }
+        margin-top: 20px;
+        @include mixin.sp {
+            margin-top: 100px;
+        }
     }
-    margin-top: 20px;
-    @include mixin.sp {
-      margin-top: 100px;
-    }
-  }
 
-  &-numProperty {
-    @include mixin.pad {
-      margin-top: 20px;
-      margin-right: 55px;
+    &-numProperty {
+        @include mixin.pad {
+            margin-top: 20px;
+            margin-right: 55px;
+        }
+        @include mixin.sp {
+            margin-right: 0;
+        }
     }
-    @include mixin.sp {
-      margin-right: 0;
-    }
-  }
 }
 
 main.contact .lower .hero {
-  &__catch {
-    @include mixin.sp {
-      margin-top: initial;
+    &__catch {
+        @include mixin.sp {
+            margin-top: initial;
+        }
     }
-  }
 }
 
 .is-team .hero__catch {
-  margin-bottom: 10px;
-  @include mixin.sp {
-    margin-top: 10px !important;
-  }
+    margin-bottom: 10px;
+    @include mixin.sp {
+        margin-top: 10px !important;
+    }
 }
 
 .register_links {
-  padding-top: 30px;
-  li + li {
-    margin-top: 15px;
-  }
+    padding-top: 30px;
+    li + li {
+        margin-top: 15px;
+    }
 }
 
 // 各種お問い合わせ先
 .section-means {
-  margin-top: 50px;
-  @include mixin.pad {
-    .row {
-      padding-inline: 0;
+    margin-top: 50px;
+    @include mixin.pad {
+        .row {
+            padding-inline: 0;
+        }
     }
-  }
 }
 .means {
-  padding: 20px;
-  width: 100%;
-  border-radius: var(--large-radius);
-  @include mixin.sp {
-    border-radius: 0;
-  }
-  margin-inline: auto;
-  background-color: #fff;
-  text-align: center;
-  line-height: 1.2;
-
-  &__icon {
-    max-width: 45px;
+    padding: 20px;
     width: 100%;
+    border-radius: var(--large-radius);
+    @include mixin.sp {
+        border-radius: 0;
+    }
     margin-inline: auto;
-    @include mixin.sp {
-      margin-inline: initial;
-    }
-    position: relative;
-    padding-top: 11px;
-    @include mixin.sp {
-      margin-left: 16px;
-    }
-    &::after {
-      position: absolute;
-      top: 0;
-      left: -13px;
-      content: "";
-      display: block;
-      border: 3px solid var(--primary-color);
-      border-radius: 100px;
-      width: 70px;
-      height: 70px;
-    }
-  }
-  &__title {
-    font-weight: 900;
-    font-size: var(--small-font);
-    padding-top: 20px;
-    &.name {
-      font-size: var(--medium-font);
-      padding-top: 10px;
-    }
-  }
-  &__num {
-    color: var(--primary-color);
-    font-family: "Manrope", sans-serif;
-    font-weight: 700;
-    font-size: var(--medium-font);
-  }
+    background-color: #fff;
+    text-align: center;
+    line-height: 1.2;
 
-  &__logo {
-    max-width: 77px;
-    margin-inline: auto;
-    @include mixin.sp {
-      margin-inline: initial;
-      padding-bottom: 10px;
+    &__icon {
+        max-width: 45px;
+        width: 100%;
+        margin-inline: auto;
+        @include mixin.sp {
+            margin-inline: initial;
+        }
+        position: relative;
+        padding-top: 11px;
+        @include mixin.sp {
+            margin-left: 16px;
+        }
+        &::after {
+            position: absolute;
+            top: 0;
+            left: -13px;
+            content: "";
+            display: block;
+            border: 3px solid var(--primary-color);
+            border-radius: 100px;
+            width: 70px;
+            height: 70px;
+        }
     }
-  }
-
-  &__address,
-  &__link,
-  &__info {
-    color: rgba(0, 0, 0, 0.5);
-    font-size: var(--small-font);
-    line-height: 1.5;
-  }
-
-  &-tel {
-    border-left: 1px solid rgba(0, 0, 0, 0.5);
-    border-right: 1px solid rgba(0, 0, 0, 0.5);
-    @include mixin.sp {
-      border-left: none;
-      border-right: none;
-      border-top: 1px solid rgba(0, 0, 0, 0.5);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-      padding-bottom: 10px;
+    &__title {
+        font-weight: 900;
+        font-size: var(--small-font);
+        padding-top: 20px;
+        &.name {
+            font-size: var(--medium-font);
+            padding-top: 10px;
+        }
     }
-  }
-  &.grid {
-    grid-template-columns: repeat(3, 1fr);
-    @include mixin.sp {
-      grid-template-columns: initial;
-      padding-inline: 50px;
+    &__num {
+        color: var(--primary-color);
+        font-family: "Manrope", sans-serif;
+        font-weight: 700;
+        font-size: var(--medium-font);
     }
-  }
-  &-mail {
-    fill: var(--primary-color);
-  }
 
-  @include mixin.sp {
-    &-company,
-    &-tel,
+    &__logo {
+        max-width: 77px;
+        margin-inline: auto;
+        @include mixin.sp {
+            margin-inline: initial;
+            padding-bottom: 10px;
+        }
+    }
+
+    &__address,
+    &__link,
+    &__info {
+        color: rgba(0, 0, 0, 0.5);
+        font-size: var(--small-font);
+        line-height: 1.5;
+    }
+
+    &-tel {
+        border-left: 1px solid rgba(0, 0, 0, 0.5);
+        border-right: 1px solid rgba(0, 0, 0, 0.5);
+        @include mixin.sp {
+            border-left: none;
+            border-right: none;
+            border-top: 1px solid rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+            padding-bottom: 10px;
+        }
+    }
+    &.grid {
+        grid-template-columns: repeat(3, 1fr);
+        @include mixin.sp {
+            grid-template-columns: initial;
+            padding-inline: 50px;
+        }
+    }
     &-mail {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+        fill: var(--primary-color);
     }
-  }
+
+    @include mixin.sp {
+        &-company,
+        &-tel,
+        &-mail {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
 }
 
 .section-map {
-  padding-top: 80px !important;
-  .row {
-    @include mixin.sp {
-      padding-inline: 0;
+    padding-top: 80px !important;
+    .row {
+        @include mixin.sp {
+            padding-inline: 0;
+        }
     }
-  }
 }
 .map {
-  iframe {
-    width: 100%;
-    height: 300px;
-    vertical-align: bottom;
-  }
+    iframe {
+        width: 100%;
+        height: 300px;
+        vertical-align: bottom;
+    }
 }
 
 // コラム用(single)
 .is-column {
-  .hero__catch {
-    left: 5%;
-    transform: none;
-    width: 90%;
-  }
+    .hero__catch {
+        left: 5%;
+        transform: none;
+        width: 90%;
+    }
 }
 .is-page,
 .is-category {
-  .hero__catch {
-    font-size: var(--medium-font);
-    width: max-content;
-  }
+    .hero__catch {
+        font-size: var(--medium-font);
+        width: max-content;
+    }
 }
 
 // 共通パーツに
 .hero {
-  &-numProperty {
-    display: flex;
-    position: absolute;
-    gap: 10px;
-    right: 5%;
-    z-index: 1;
-    @include mixin.pc {
-      top: 30px;
+    &-numProperty {
+        display: flex;
+        position: absolute;
+        gap: 10px;
+        right: 5%;
+        z-index: 1;
+        @include mixin.pc {
+            top: 30px;
+        }
     }
-  }
-  &-num {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 600;
+    &-num {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
 
-    &.general .hero__icon::before {
-      background-color: var(--primary-color);
-    }
-    &.limited .hero__icon::before {
-      background-color: #ff0062;
-      top: -4px;
+        &.general .hero__icon::before {
+            background-color: var(--primary-color);
+        }
+        &.limited .hero__icon::before {
+            background-color: #ff0062;
+            top: -4px;
 
-      @include mixin.pad {
-        top: 0px;
-      }
+            @include mixin.pad {
+                top: 0px;
+            }
+        }
+        &.limited .hero__icon {
+            fill: #fff;
+            svg {
+                width: 100%;
+                position: relative;
+                max-width: 25px;
+                padding-top: 7px;
+                @include mixin.pad {
+                    padding-top: 9px;
+                }
+            }
+        }
     }
-    &.limited .hero__icon {
-      fill: #fff;
-      svg {
+    &__num {
+        font-size: var(--medium-font);
+        line-height: 1;
+        text-align: right;
+        font-weight: 700;
+        font-family: "Manrope", sans-serif;
+        span {
+            font-size: var(--small-font);
+        }
+    }
+
+    &__icon {
+        max-width: 28px;
         width: 100%;
         position: relative;
-        max-width: 25px;
-        padding-top: 7px;
+        right: -15px;
         @include mixin.pad {
-          padding-top: 9px;
+            max-width: 22px;
+            right: -20px;
+            top: -3px;
         }
-      }
+        @include mixin.sp {
+            right: -28px;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 48px;
+            height: 48px;
+            border-radius: var(--large-radius);
+            top: -9px;
+            left: -11px;
+            @include mixin.pad {
+                width: 42px;
+                height: 42px;
+                top: -4px;
+                left: -9px;
+            }
+        }
+        img {
+            position: relative;
+            // ↓firefox対策
+            width: 35px;
+        }
     }
-  }
-  &__num {
-    font-size: var(--medium-font);
-    line-height: 1;
-    text-align: right;
-    font-weight: 700;
-    font-family: "Manrope", sans-serif;
-    span {
-      font-size: var(--small-font);
-    }
-  }
 
-  &__icon {
-    max-width: 28px;
-    width: 100%;
-    position: relative;
-    right: -15px;
-    @include mixin.pad {
-      max-width: 22px;
-      right: -20px;
-      top: -3px;
+    &__section {
+        font-size: var(--small-font);
+        font-weight: 900;
+        line-height: 1;
+        @include mixin.pad {
+            font-size: var(--small-font);
+        }
+        text-align: right;
     }
-    @include mixin.sp {
-      right: -28px;
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      display: block;
-      width: 48px;
-      height: 48px;
-      border-radius: var(--large-radius);
-      top: -9px;
-      left: -11px;
-      @include mixin.pad {
-        width: 42px;
-        height: 42px;
-        top: -4px;
-        left: -9px;
-      }
-    }
-    img {
-      position: relative;
-      // ↓firefox対策
-      width: 35px;
-    }
-  }
+    &-num .wrap {
+        background-color: #fff;
+        padding: 6px 15px 5px 0px;
+        border: 2px solid;
+        border-top-right-radius: var(--large-radius);
+        border-bottom-right-radius: var(--large-radius);
+        min-width: 125px;
+        @include mixin.pad {
+            padding: 7px 12px 7px 30px;
+            display: flex;
+            min-width: 130px;
+            justify-content: flex-end;
+            align-items: baseline;
 
-  &__section {
-    font-size: var(--small-font);
-    font-weight: 900;
-    line-height: 1;
-    @include mixin.pad {
-      font-size: var(--small-font);
+            // ↓左角が見えるので
+            border-radius: var(--large-radius);
+        }
+        @include mixin.sp {
+            padding-left: 39px;
+        }
     }
-    text-align: right;
-  }
-  &-num .wrap {
-    background-color: #fff;
-    padding: 6px 15px 5px 0px;
-    border: 2px solid;
-    border-top-right-radius: var(--large-radius);
-    border-bottom-right-radius: var(--large-radius);
-    min-width: 125px;
-    @include mixin.pad {
-      padding: 7px 12px 7px 30px;
-      display: flex;
-      min-width: 130px;
-      justify-content: flex-end;
-      align-items: baseline;
 
-      // ↓左角が見えるので
-      border-radius: var(--large-radius);
+    &-num.general .wrap {
+        border-color: var(--primary-color);
     }
-    @include mixin.sp {
-      padding-left: 39px;
+    &-num.limited .wrap {
+        border-color: #ff0062;
     }
-  }
-
-  &-num.general .wrap {
-    border-color: var(--primary-color);
-  }
-  &-num.limited .wrap {
-    border-color: #ff0062;
-  }
-  &__section::before {
-    content: "";
-    display: inline-block;
-    background-repeat: no-repeat;
-    background-size: contain;
-    vertical-align: middle;
-    margin-right: 3px;
-  }
+    &__section::before {
+        content: "";
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: contain;
+        vertical-align: middle;
+        margin-right: 3px;
+    }
 }
 
 // login form wp members
 .button_div,
 .link-text {
-  text-align: center !important;
+    text-align: center !important;
 }
 
 #wpmem_login,
 #wpmem_reg {
-  margin-inline: auto;
+    margin-inline: auto;
 
-  input {
-    background-color: #fff;
-  }
-  label:not([for="rememberme"]) {
-    padding: 6px 10px 5px;
-    text-align: left;
-    display: block;
-    width: fit-content;
-  }
+    input {
+        background-color: #fff;
+    }
+    label:not([for="rememberme"]) {
+        padding: 6px 10px 5px;
+        text-align: left;
+        display: block;
+        width: fit-content;
+    }
 
-  label[for="log"] {
-    margin-top: 40px;
-  }
+    label[for="log"] {
+        margin-top: 40px;
+    }
 }
 #wpmem_login {
-  legend {
-    text-align: center;
-  }
-  label:not([for="rememberme"]) {
-    background-color: var(--primary-color);
-    color: #fff;
-  }
+    legend {
+        text-align: center;
+    }
+    label:not([for="rememberme"]) {
+        background-color: var(--primary-color);
+        color: #fff;
+    }
 }
 #wpmem_reg {
-  label:not([for="rememberme"]) {
-    font-weight: 900;
-  }
+    label:not([for="rememberme"]) {
+        font-weight: 900;
+    }
 }
 #rememberme {
-  width: fit-content;
+    width: fit-content;
 }
 .members {
-  text-align: center;
+    text-align: center;
 }
 .login_status,
 .link-text-register,
 .link-text-forgot {
-  a {
-    color: var(--primary-color);
-    position: relative;
-    font-weight: bold;
-    &::after {
-      position: absolute;
-      margin: auto;
-      content: "";
-      width: 9px;
-      height: 9px;
-      border-top: 1px solid var(--primary-color);
-      border-right: 1px solid var(--primary-color);
-      top: 50%;
-      transform: translateY(-50%) rotate(45deg);
+    a {
+        color: var(--primary-color);
+        position: relative;
+        font-weight: bold;
+        &::after {
+            position: absolute;
+            margin: auto;
+            content: "";
+            width: 9px;
+            height: 9px;
+            border-top: 1px solid var(--primary-color);
+            border-right: 1px solid var(--primary-color);
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+        }
     }
-  }
 }
 
 @include mixin.sp {
-  .link-text a {
-    display: block;
-  }
+    .link-text a {
+        display: block;
+    }
 }
 
 .wpmem_msg {
-  margin-inline: auto;
+    margin-inline: auto;
 }
 
 #wpmem_reg .req {
-  color: #ff0062 !important;
+    color: #ff0062 !important;
 }
 // wp members ここまで
 
 // contactform7
 .wpcf7-previous {
-  min-width: 200px;
+    min-width: 200px;
 }
